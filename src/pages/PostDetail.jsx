@@ -12,14 +12,17 @@ import NoContent from "../components/NoContent";
 import ContentLoading from "../components/ContentLoading";
 import ContentLoadingError from "../components/ContentLoadingError";
 import PostAuthor from "../components/PostAuthor";
+import NextPost from "../components/NextPost";
+import PreviousPost from "../components/PreviousPost";
 
 export const PostDetail = () => {
   const showFloatingTOC = true;
   const { slug } = useParams();
-  const { getPostBySlug } = useBlog();
+  const { getPostBySlug, getAdjacentPosts } = useBlog();
   const { isDark } = useTheme();
 
   const postMetadata = getPostBySlug(slug);
+  const { previous, next } = getAdjacentPosts(slug);
   const { content, loading, error } = useMarkdown(slug);
 
   useDocumentMeta(postMetadata);
@@ -50,6 +53,7 @@ export const PostDetail = () => {
 
       {/* Render share tools panel right before primary reading text block */}
       {!loading && !error && <SocialShare title={postMetadata.title} />}
+      
       {/* Content Rendering Control Triggers */}
       {loading && (
         <ContentLoading text="Parsing repository markdown blueprint..." />
@@ -71,6 +75,13 @@ export const PostDetail = () => {
       )}
 
       {!loading && !error && <SocialShare title={postMetadata.title} />}
+
+      {/* Navigation between posts */}
+      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <PreviousPost post={previous} />
+        <NextPost post={next} />
+      </div>
+      
     </article>
   );
 };

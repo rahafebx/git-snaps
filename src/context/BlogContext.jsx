@@ -49,6 +49,19 @@ export const BlogProvider = ({ children }) => {
     return initialBlogs.find(blog => blog.slug === slug);
   };
 
+  const getAdjacentPosts = (slug) => {
+  const currentIndex = initialBlogs.findIndex(blog => blog.slug === slug);
+  
+  if (currentIndex === -1) {
+    return { previous: null, next: null };
+  }
+
+  const previous = currentIndex > 0 ? initialBlogs[currentIndex - 1] : null;
+  const next = currentIndex < initialBlogs.length - 1 ? initialBlogs[currentIndex + 1] : null;
+
+  return { previous, next };
+};
+
   return (
     <BlogContext.Provider value={{
       blogs: initialBlogs,
@@ -58,7 +71,8 @@ export const BlogProvider = ({ children }) => {
       setSearchQuery,
       selectedCategory,
       setSelectedCategory,
-      getPostBySlug
+      getPostBySlug,
+      getAdjacentPosts
     }}>
       {children}
     </BlogContext.Provider>
@@ -70,3 +84,4 @@ export const useBlog = () => {
   if (!context) throw new Error('useBlog must be used within a BlogProvider');
   return context;
 };
+

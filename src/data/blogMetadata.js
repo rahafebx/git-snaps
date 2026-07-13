@@ -31,10 +31,18 @@ export const blogs = [
   {
     id: 2,
     title: "Git Basics - Getting Started",
-    slug: "getting-started",
+    slug: "getting-basics",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
     category: ["Git"],
-    tags: ["Git", "Clone", "File Status", "Ignore"],
+    tags: [
+      "Git",
+      "Repository",
+      "Clone",
+      "Status",
+      "Ignore",
+      "Version Control",
+      "SVN",
+    ],
     description:
       "Learn how to start a new Git workflow by cloning a repository, checking file status, and ignoring unwanted files.",
     date: "13 July 2026",
@@ -56,7 +64,9 @@ export const blogs = [
       "Committing",
       "Add Files",
       "Remove Files",
+      "Move Files",
       "Commit History",
+      "Diff",
     ],
     description:
       "Learn how to stage changes, create commits, and understand the role each step plays in Git history.",
@@ -73,7 +83,15 @@ export const blogs = [
     slug: "undoing-changes",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
     category: ["Git"],
-    tags: ["Git", "Amend", "Unstage", "Unmodify", "Restore"],
+    tags: [
+      "Git",
+      "Amend",
+      "Unstage",
+      "Unmodify",
+      "Restore",
+      "Reset",
+      "Checkout",
+    ],
     description:
       "Learn how to undo mistakes in Git with commands for amending, unstaging, restoring, and discarding changes.",
     date: "13 July 2026",
@@ -85,6 +103,22 @@ export const blogs = [
   },
   {
     id: 5,
+    title: "Git Basics - Viewing History",
+    slug: "viewing-history",
+    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    category: ["Git"],
+    tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
+    description:
+      "Learn how to view and filter commit history using git log with various options for formatting and limiting output.",
+    date: "13 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 6,
     title: "Git Basics - Remote Repositories",
     slug: "remote-repositories",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
@@ -101,7 +135,7 @@ export const blogs = [
     },
   },
   {
-    id: 6,
+    id: 7,
     title: "Git Basics - Tagging",
     slug: "tagging",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
@@ -118,7 +152,7 @@ export const blogs = [
     },
   },
   {
-    id: 7,
+    id: 8,
     title: "Git Basics - Aliases",
     slug: "aliases",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
