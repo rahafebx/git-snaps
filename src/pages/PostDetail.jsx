@@ -9,9 +9,10 @@ import {
 import { useBlog } from "../context/BlogContext";
 import { useTheme } from "../context/ThemeContext";
 import { useMarkdown } from "../hooks/useMarkdown";
-import { Loader2, ArrowLeft } from "lucide-react";
+import { Loader2, ArrowLeft} from "lucide-react";
 import { SocialShare } from "../components/SocialShare";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { MermaidDiagram } from "../components/MermaidDiagram";
 
 // Helper utility function to slugify header text strings into standard browser anchor tags
 const slugify = (text) => {
@@ -23,6 +24,7 @@ const slugify = (text) => {
     .replace(/[^\w-]+/g, "") // Remove all non-word characters
     .replace(/--+/g, "-"); // Replace multiple dashes with a single dash
 };
+
 
 export const PostDetail = () => {
   const { slug } = useParams();
@@ -142,33 +144,90 @@ export const PostDetail = () => {
                 );
               },
 
+              // Custom image component to handle theme-based images
+              img({ src, alt, ...props }) {
+                // Check if the image is theme-specific
+                if (src && src.includes('#gh-light-mode-only')) {
+                  const cleanSrc = src.replace('#gh-light-mode-only', '');
+                  // Only show in light mode
+                  if (!isDark) {
+                    return (
+                      <img 
+                        src={cleanSrc} 
+                        alt={alt} 
+                        {...props}
+                        className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                      />
+                    );
+                  }
+                  return null; // Hide in dark mode
+                }
+
+                if (src && src.includes('#gh-dark-mode-only')) {
+                  const cleanSrc = src.replace('#gh-dark-mode-only', '');
+                  // Only show in dark mode
+                  if (isDark) {
+                    return (
+                      <img 
+                        src={cleanSrc} 
+                        alt={alt} 
+                        {...props}
+                        className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                      />
+                    );
+                  }
+                  return null; // Hide in light mode
+                }
+
+                // Default image rendering
+                return (
+                  <img 
+                    src={src} 
+                    alt={alt} 
+                    {...props}
+                    className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                  />
+                );
+              },
+
               // Custom element mapping rules routing syntax blocks directly to Prism modules
               code({ inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
-                  <div className="rounded-xl overflow-hidden my-6 border border-zinc-200 dark:border-zinc-800 text-sm shadow-sm">
-                    {/* Simulated terminal buffer header component */}
-                    <div className="bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400 flex justify-between items-center select-none">
-                      <span>{match[1]}</span>
-                      <span className="text-[10px] uppercase opacity-90">
-                        local_buffer
-                      </span>
+                
+                // Check if it's a Mermaid diagram
+                if (!inline && match && match[1] === "mermaid") {
+                  const chart = String(children).replace(/\n$/, "");
+                  return <MermaidDiagram chart={chart} isDark={isDark} />;
+                }
+
+                // Regular code block with syntax highlighting
+                if (!inline && match) {
+                  return (
+                    <div className="rounded-xl overflow-hidden my-6 border border-zinc-200 dark:border-zinc-800 text-sm shadow-sm">
+                      {/* Simulated terminal buffer header component */}
+                      <div className="bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400 flex justify-between items-center select-none">
+                        <span>{match[1]}</span>
+                        <span className="text-[10px] uppercase opacity-90">
+                          local_buffer
+                        </span>
+                      </div>
+                      <SyntaxHighlighter
+                        {...props}
+                        children={String(children).replace(/\n$/, "")}
+                        style={isDark ? oneDark : oneLight}
+                        language={match[1]}
+                        PreTag="div"
+                        customStyle={{
+                          margin: 0,
+                          padding: "1rem",
+                        }}
+                      />
                     </div>
-                    <SyntaxHighlighter
-                      {...props}
-                      children={String(children).replace(/\n$/, "")}
-                      style={isDark ? oneDark : oneLight}
-                      language={match[1]}
-                      PreTag="div"
-                      customStyle={{
-                        margin: 0,
-                        padding: "1rem",
-                        // background: isDark ? '#09090b' : '#ffffff',
-                      }}
-                    />
-                  </div>
-                ) : (
-                  // Inline standard inline accent formatting wrappers
+                  );
+                }
+
+                // Inline standard inline accent formatting wrappers
+                return (
                   <code
                     {...props}
                     className="bg-zinc-100 dark:bg-zinc-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono font-medium"

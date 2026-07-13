@@ -45,9 +45,12 @@ Git tracks the state of files in three main areas:
 3. **Repository**: The database where Git stores the committed snapshots of your project (committed).
 
 
-![Working tree, staging area, and Git directory](/public/images/posts/getting-started/working-tree-staging-area-git-directory-light.png#gh-light-mode-only)
-
-![Working tree, staging area, and Git directory](/public/images/posts/getting-started/working-tree-staging-area-git-directory-dark.png#gh-dark-mode-only)
+```mermaid
+graph TD
+    A[Working Directory] -->|Stage Fixes| B[Staging Area]
+    B -->|Commit| C[Git Directory<br>Repository]
+    C -->|Checkout the project| A
+```
 
 ## Installing Git
 
