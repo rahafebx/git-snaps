@@ -24,11 +24,11 @@ export const blogs = [
   },
   {
     id: 2,
-    title: "Mastering Git Basics",
+    title: "Git Basics",
     slug: "git-basics",
-    thumb: "/images/posts/git-basics/git-start-thumb.webp",
+    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
     category: ["Git"],
-    tags: ["Terminal", "Workflow", "CLI"],
+    tags: ["Git", "Version Control", "Staging", "Committing", "Logging"],
     description: "Deep dive into staging, committing, logging, and understanding the three states of Git.",
     date: "2026-07-12"
   }
