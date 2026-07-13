@@ -1,12 +1,13 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm"; 
+import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
   oneDark,
   oneLight,
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MermaidDiagram } from "../components/MermaidDiagram";
+import FloatingTOC from "../components/FloatingTOC";
 
 // Helper utility function to slugify header text strings into standard browser anchor tags
 const slugify = (text) => {
@@ -19,10 +20,22 @@ const slugify = (text) => {
     .replace(/--+/g, "-"); // Replace multiple dashes with a single dash
 };
 
-export default function MarkdownContent({className, content, isDark}) {
+export default function MarkdownContent({
+  className,
+  content,
+  isDark,
+  showFloatingTOC = true,
+}) {
   return (
-    <div
-      className={` 
+    <div className="relative">
+      {/* Floating TOC - hidden on mobile/tablet */}
+      {showFloatingTOC && (
+        <div className="hidden xl:block">
+          <FloatingTOC content={content} />
+        </div>
+      )}
+      <div
+        className={` 
           max-w-none 
           [&>h1]:text-3xl [&>h1]:font-black [&>h1]:mt-10 [&>h1]:mb-4 [&>h1]:text-zinc-900 dark:[&>h1]:text-white
           [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-10 [&>h2]:mb-3 [&>h2]:text-zinc-900 dark:[&>h2]:text-zinc-100
@@ -52,127 +65,128 @@ export default function MarkdownContent({className, content, isDark}) {
           [&_.toc-level-2]:pl-4 [&_.toc-level-2]:text-sm
           [&_.toc-level-3]:pl-8 [&_.toc-level-3]:text-sm [&_.toc-level-3]:text-zinc-600 dark:[&_.toc-level-3]:text-zinc-400
         ${className}`}
-    >
-      <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              // Inject standard slugified IDs into dynamic H2 elements for jump link scrolling
-              h2({ children, ...props }) {
-                const headingText = React.Children.toArray(children).join("");
-                const id = slugify(headingText);
-                return (
-                  <h2 id={id} {...props}>
-                    {children}
-                  </h2>
-                );
-              },
-              // Inject standard slugified IDs into dynamic H3 elements for sub-item jumps
-              h3({ children, ...props }) {
-                const headingText = React.Children.toArray(children).join("");
-                const id = slugify(headingText);
-                return (
-                  <h3 id={id} {...props}>
-                    {children}
-                  </h3>
-                );
-              },
+      >
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            // Inject standard slugified IDs into dynamic H2 elements for jump link scrolling
+            h2({ children, ...props }) {
+              const headingText = React.Children.toArray(children).join("");
+              const id = slugify(headingText);
+              return (
+                <h2 id={id} {...props}>
+                  {children}
+                </h2>
+              );
+            },
+            // Inject standard slugified IDs into dynamic H3 elements for sub-item jumps
+            h3({ children, ...props }) {
+              const headingText = React.Children.toArray(children).join("");
+              const id = slugify(headingText);
+              return (
+                <h3 id={id} {...props}>
+                  {children}
+                </h3>
+              );
+            },
 
-              // Custom image component to handle theme-based images
-              img({ src, alt, ...props }) {
-                // Check if the image is theme-specific
-                if (src && src.includes("#gh-light-mode-only")) {
-                  const cleanSrc = src.replace("#gh-light-mode-only", "");
-                  // Only show in light mode
-                  if (!isDark) {
-                    return (
-                      <img
-                        src={cleanSrc}
-                        alt={alt}
-                        {...props}
-                        className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
-                      />
-                    );
-                  }
-                  return null; // Hide in dark mode
-                }
-
-                if (src && src.includes("#gh-dark-mode-only")) {
-                  const cleanSrc = src.replace("#gh-dark-mode-only", "");
-                  // Only show in dark mode
-                  if (isDark) {
-                    return (
-                      <img
-                        src={cleanSrc}
-                        alt={alt}
-                        {...props}
-                        className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
-                      />
-                    );
-                  }
-                  return null; // Hide in light mode
-                }
-
-                // Default image rendering
-                return (
-                  <img
-                    src={src}
-                    alt={alt}
-                    {...props}
-                    className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
-                  />
-                );
-              },
-
-              // Custom element mapping rules routing syntax blocks directly to Prism modules
-              code({ inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || "");
-
-                // Check if it's a Mermaid diagram
-                if (!inline && match && match[1] === "mermaid") {
-                  const chart = String(children).replace(/\n$/, "");
-                  return <MermaidDiagram chart={chart} isDark={isDark} />;
-                }
-
-                // Regular code block with syntax highlighting
-                if (!inline && match) {
+            // Custom image component to handle theme-based images
+            img({ src, alt, ...props }) {
+              // Check if the image is theme-specific
+              if (src && src.includes("#gh-light-mode-only")) {
+                const cleanSrc = src.replace("#gh-light-mode-only", "");
+                // Only show in light mode
+                if (!isDark) {
                   return (
-                    <div className="rounded-xl overflow-hidden my-6 border border-zinc-200 dark:border-zinc-800 text-sm shadow-sm">
-                      {/* Simulated terminal buffer header component */}
-                      <div className="bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400 flex justify-between items-center select-none">
-                        <span>{match[1]}</span>
-                        <span className="text-[10px] uppercase opacity-90">
-                          local_buffer
-                        </span>
-                      </div>
-                      <SyntaxHighlighter
-                        {...props}
-                        children={String(children).replace(/\n$/, "")}
-                        style={isDark ? oneDark : oneLight}
-                        language={match[1]}
-                        PreTag="div"
-                        customStyle={{
-                          margin: 0,
-                          padding: "1rem",
-                        }}
-                      />
-                    </div>
+                    <img
+                      src={cleanSrc}
+                      alt={alt}
+                      {...props}
+                      className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                    />
                   );
                 }
+                return null; // Hide in dark mode
+              }
 
-                // Inline standard inline accent formatting wrappers
+              if (src && src.includes("#gh-dark-mode-only")) {
+                const cleanSrc = src.replace("#gh-dark-mode-only", "");
+                // Only show in dark mode
+                if (isDark) {
+                  return (
+                    <img
+                      src={cleanSrc}
+                      alt={alt}
+                      {...props}
+                      className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                    />
+                  );
+                }
+                return null; // Hide in light mode
+              }
+
+              // Default image rendering
+              return (
+                <img
+                  src={src}
+                  alt={alt}
+                  {...props}
+                  className="rounded-xl my-6 w-full border border-zinc-200 dark:border-zinc-800"
+                />
+              );
+            },
+
+            // Custom element mapping rules routing syntax blocks directly to Prism modules
+            code({ inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || "");
+
+              // Check if it's a Mermaid diagram
+              if (!inline && match && match[1] === "mermaid") {
+                const chart = String(children).replace(/\n$/, "");
+                return <MermaidDiagram chart={chart} isDark={isDark} />;
+              }
+
+              // Regular code block with syntax highlighting
+              if (!inline && match) {
                 return (
-                  <code
-                    {...props}
-                    className="bg-zinc-100 dark:bg-zinc-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono font-medium"
-                  >
-                    {children}
-                  </code>
+                  <div className="rounded-xl overflow-hidden my-6 border border-zinc-200 dark:border-zinc-800 text-sm shadow-sm">
+                    {/* Simulated terminal buffer header component */}
+                    <div className="bg-zinc-100 dark:bg-zinc-900 px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-mono text-zinc-700 dark:text-zinc-400 flex justify-between items-center select-none">
+                      <span>{match[1]}</span>
+                      <span className="text-[10px] uppercase opacity-90">
+                        local_buffer
+                      </span>
+                    </div>
+                    <SyntaxHighlighter
+                      {...props}
+                      children={String(children).replace(/\n$/, "")}
+                      style={isDark ? oneDark : oneLight}
+                      language={match[1]}
+                      PreTag="div"
+                      customStyle={{
+                        margin: 0,
+                        padding: "1rem",
+                      }}
+                    />
+                  </div>
                 );
-              },
-            }}
-          >
-            {content}
-          </ReactMarkdown>
+              }
+
+              // Inline standard inline accent formatting wrappers
+              return (
+                <code
+                  {...props}
+                  className="bg-zinc-100 dark:bg-zinc-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono font-medium"
+                >
+                  {children}
+                </code>
+              );
+            },
+          }}
+        >
+          {content}
+        </ReactMarkdown>
+      </div>
     </div>
   );
 }

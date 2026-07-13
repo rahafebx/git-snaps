@@ -14,6 +14,7 @@ import ContentLoadingError from "../components/ContentLoadingError";
 import PostAuthor from "../components/PostAuthor";
 
 export const PostDetail = () => {
+  const showFloatingTOC = true;
   const { slug } = useParams();
   const { getPostBySlug } = useBlog();
   const { isDark } = useTheme();
@@ -30,7 +31,7 @@ export const PostDetail = () => {
   }
 
   return (
-    <article className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
+    <article className={`${showFloatingTOC ? 'xl:ml-64' : ''} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}>
       {/* Back Link Button */}
       <BackLinkButton to="/" text="Back to Home" />
 
