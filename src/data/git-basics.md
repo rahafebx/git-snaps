@@ -110,7 +110,7 @@ Example: The `AM` indicates that the file is staged for commit (A) and has been 
 ### Ignoring Files
 Often, you may want to ignore certain files or directories in your repository, such as temporary files or build artifacts. You can do this by creating a `.gitignore` file in the root of your repository and specifying the patterns of files to ignore.
 
-```
+```gitignore
 # Example .gitignore file
 # Ignore all .log files (any file with a .log extension)
 *.log
