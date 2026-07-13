@@ -61,3 +61,14 @@ img[src*="#gh-dark-mode-only"] {
 [data-theme="dark"] img[src*="#gh-dark-mode-only"] {
   display: block;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
