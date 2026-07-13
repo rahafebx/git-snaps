@@ -1,133 +1,106 @@
-
 # Getting Started with Git
 
-The Git Basics guide covers the fundamental concepts and commands of Git. It provides an overview of how to create and manage Git repositories, track changes, collaborate with others, and maintain a history of your project.
+This guide will help you get started with Git, a distributed version control system. It covers the basics of version control, the differences between centralized and distributed systems, and how to install and configure Git on your machine.
 
+**Table of Contents:**
 - [Getting Started with Git](#getting-started-with-git)
-  - [Getting a Git Repository](#getting-a-git-repository)
-    - [Creating a New Repository](#creating-a-new-repository)
-    - [Cloning an Existing Repository](#cloning-an-existing-repository)
-  - [Recording Changes to the Repository](#recording-changes-to-the-repository)
-    - [Checking the Status of Your Files](#checking-the-status-of-your-files)
-    - [Tracking New Files](#tracking-new-files)
-    - [Short Status](#short-status)
-    - [Ignoring Files](#ignoring-files)
+  - [What is Version Control?](#what-is-version-control)
+  - [Centralized vs Distributed Version Control](#centralized-vs-distributed-version-control)
+  - [What is Git?](#what-is-git)
+    - [Git Snapshot Model](#git-snapshot-model)
+    - [Git Checksums](#git-checksums)
+    - [Git States](#git-states)
+  - [Installing Git](#installing-git)
+  - [First-Time Configuration](#first-time-configuration)
+  - [Getting Help](#getting-help)
+  - [Other Learning Resources](#other-learning-resources)
 
 
-## Getting a Git Repository
+## What is Version Control?
 
-To start using Git, you need to have a Git repository.
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. It allows multiple people to work on a project simultaneously, tracks changes, and helps manage conflicts.
 
-### Creating a New Repository
+## Centralized vs Distributed Version Control
 
-Navigate to the directory where you want to initialize the repository and run:
+- **Centralized Version Control**: A single server contains all the versioned files, and clients check out files from that central place. Examples include *Subversion (SVN)* and *Concurrent Versions System (CVS)*.
+- **Distributed Version Control**: Every contributor has a full copy of the repository, including its history. This allows for more flexible workflows and offline work. Examples include *Git*, *Mercurial* and *Darcs*.
 
-```bash
-git init
-```
+## What is Git?
 
-### Cloning an Existing Repository
+Git is a distributed version control system that allows multiple developers to work on a project simultaneously. It tracks changes in source code during software development and enables collaboration among team members.
 
-Use the `git clone` command followed by the repository URL:
+### Git Snapshot Model
 
-```bash
-git clone <repository-url> <directory-name>
-```
+Git uses a snapshot model to track changes. Instead of storing differences between file versions, Git takes a snapshot of the entire project at each commit. If files have not changed, Git simply links to the previous identical file in the snapshot.
 
-`directory-name` is optional and specifies the name of the directory to clone into. If not provided, Git will create a new directory with the same name as the repository:
+### Git Checksums
 
-Example:
+Git uses SHA-1 hashes to uniquely identify each file and directory in the repository. These checksums ensure the integrity of the data and help Git detect any changes or corruption in the files.
 
-```bash
-git clone https://github.com/rahafebx/progit-snapshot.git pro-git-learning
-```
+> Git stores everything in its database not by file name but by the hash value of its contents.
 
-## Recording Changes to the Repository
+### Git States
 
-Once you have a Git repository, you can start recording changes to it. The basic workflow involves three main steps: staging changes, committing changes, and pushing changes to a remote repository.
+Git tracks the state of files in three main areas:
+1. **Working Directory**: The files you are currently working on (modified).
+2. **Staging Area (Index)**: A place where you can prepare changes before committing them to the repository (staged).
+3. **Repository**: The database where Git stores the committed snapshots of your project (committed).
 
-Each file in your working directory can be in one of two states: **tracked** or **untracked**. 
-- Tracked files are those that were in the last snapshot; they can be **unmodified**, **modified**, or **staged**.
-- Untracked files are everything else—any files in your working directory that were not in your last snapshot and are not in your staging area.
 
 ```mermaid
-graph LR
-    U[Untracked] -->|Add the file| S[Staged]
-    UM[Unmodified] -->|Edit the file| M[Modified]
-    M -->|Stage the file| S
-    S -->|Commit| UM
-    UM -->|Remove the file| U
+graph TD
+    A[Working Directory] -->|Stage Fixes| B[Staging Area]
+    B -->|Commit| C[Git Directory<br>Repository]
+    C -->|Checkout the project| A
 ```
 
-### Checking the Status of Your Files
+## Installing Git
 
-The `git status` command shows you which files are tracked, untracked, modified, or staged for commit, and which branches you are on.
+To install Git, follow the instructions for your operating system:
+- **Windows**: Download the Git installer from [git-scm.com](https://git-scm.com/download/win) and follow the installation prompts.
+- **macOS**: Use Homebrew to install Git by running `brew install git` in the terminal.
+- **Linux**: Use your distribution's package manager. For example, on Ubuntu, run `sudo apt-get install git`, on Fedora, run `sudo dnf install git`.
+
+## First-Time Configuration
+
+After installing Git, you need to configure your user name and email address. This information will be associated with your commits.
 
 ```bash
-git status
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
 ```
-
-### Tracking New Files
-
-To start tracking a new file, you need to add it to the staging area using the `git add` command:
+Set main branch name to `main`:
 
 ```bash
-git add <file-name>
+git config --global init.defaultBranch main
 ```
 
-### Short Status
-
-You can also use the `git status` command with the `-s` or `--short` option to get a more concise output:
+View all your Git configuration settings with:
 
 ```bash
-git status -s
+git config --list
 ```
 
-The output will show the status of each file in a two-letter format, where the first letter indicates the status of the staging area and the second letter indicates the status of the working directory:
-- `??`: Untracked file
-- `M`: Modified file
-- `A`: Added file (staged for commit)
-- `R`: Renamed file
-- `D`: Deleted file
-
-Example: The `AM` indicates that the file is staged for commit (A) and has been modified (M) in the working directory.
-
-### Ignoring Files
-
-Often, you may want to ignore certain files or directories in your repository, such as temporary files or build artifacts. You can do this by creating a `.gitignore` file in the root of your repository and specifying the patterns of files to ignore.
-
-```gitignore
-# Example .gitignore file
-# Ignore all .log files (any file with a .log extension)
-*.log
-# Ignore the build directory
-build/
-# Ignore all .DS_Store files (macOS)
-.DS_Store
-```
-
-A collection of useful .gitignore templates can be found at [gitignore](https://github.com/github/gitignore) by GitHub. You can also use the `git check-ignore` command to check if a specific file is being ignored:
+Check a specific configuration setting with:
 
 ```bash
-git check-ignore <file-name>
+git config user.name
 ```
 
-The rules for `.gitignore` files are as follows:
-- Blank lines are ignored.
-- Lines starting with `#` are comments and are ignored.
-- Standard glob patterns are used for matching file names.
-- You can negate a pattern by starting it with `!`, which will include files that would otherwise be ignored.
-- You can start the pattern with a `/` to match files only in the root directory of the repository.
-- You can end the pattern with a `/` to match only directories.
+## Getting Help
 
-Global patterns:
-- `*` matches any number of characters, including none.
-- `?` matches any single character.
-- `[abc]` matches any one character in the brackets.
-- `[a-z]` matches any one character in the specified range.
-- `**` matches directories recursively.
-- `[0-9]` matches any one digit in the specified range.
-- `[a/**/z]` matches any directory that contains a `z` file or directory.
+There are several ways to get help with Git commands:
+- Use the `--help` option with any Git command, e.g., `git commit --help`.
+- Use the `git help <command>` command, e.g., `git help commit`.
 
-It's possible to have multiple `.gitignore` files in a repository, and they can be placed in different directories. The rules in each `.gitignore` file apply to the directory it is in and all its subdirectories.
+For example, to get help on the `git commit` command, you can run:
 
+```bash
+git commit --help
+```
+
+Get quick help for a command with `-h` option, e.g., `git commit -h`.
+
+## Other Learning Resources
+
+- [Introduction to Git](https://learn.microsoft.com/en-us/training/modules/intro-to-git/) - Microsoft Learn
