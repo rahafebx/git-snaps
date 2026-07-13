@@ -19,8 +19,8 @@ export const blogs = [
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
     category: ["Git"],
     tags: ["Git", "SVN", "Version Control"],
-    description: "Learn the foundational concepts of Git, how it differs from GitHub, and set up your first repository.",
-    date: "2026-07-10"
+    description: "Learn the basics of Git, a distributed version control system, and how it differs from centralized systems like SVN.",
+    date: "13 July 2026"
   },
   {
     id: 2,
