@@ -4,7 +4,7 @@ import { BlogCard } from "../components/BlogCard";
 import { Loader2 } from "lucide-react";
 
 // Define posts per page chunk
-const POSTS_PER_PAGE = 1;
+const POSTS_PER_PAGE = 10;
 
 export const Home = () => {
   const {

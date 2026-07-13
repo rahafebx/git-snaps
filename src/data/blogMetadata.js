@@ -14,11 +14,11 @@
 export const blogs = [
   {
     id: 1,
-    title: "Getting Started with Git & GitHub",
+    title: "Getting Started with Git",
     slug: "getting-started",
-    thumb: "/images/git-start-thumb.webp",
-    category: ["Git", "GitHub"],
-    tags: ["Beginner", "Setup", "Version Control"],
+    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    category: ["Git"],
+    tags: ["Git", "SVN", "Version Control"],
     description: "Learn the foundational concepts of Git, how it differs from GitHub, and set up your first repository.",
     date: "2026-07-10"
   },
@@ -26,7 +26,7 @@ export const blogs = [
     id: 2,
     title: "Mastering Git Basics",
     slug: "git-basics",
-    thumb: "/images/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/git-start-thumb.webp",
     category: ["Git"],
     tags: ["Terminal", "Workflow", "CLI"],
     description: "Deep dive into staging, committing, logging, and understanding the three states of Git.",

@@ -44,3 +44,20 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 }
+
+/* Theme-based image visibility */
+img[src*="#gh-light-mode-only"] {
+  display: block;
+}
+
+[data-theme="dark"] img[src*="#gh-light-mode-only"] {
+  display: none;
+}
+
+img[src*="#gh-dark-mode-only"] {
+  display: none;
+}
+
+[data-theme="dark"] img[src*="#gh-dark-mode-only"] {
+  display: block;
+}
