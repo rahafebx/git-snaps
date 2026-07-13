@@ -20,7 +20,12 @@ export const blogs = [
     category: ["Git"],
     tags: ["Git", "SVN", "Version Control"],
     description: "Learn the basics of Git, a distributed version control system, and how it differs from centralized systems like SVN.",
-    date: "13 July 2026"
+    date: "13 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
   },
   {
     id: 2,
@@ -30,6 +35,11 @@ export const blogs = [
     category: ["Git"],
     tags: ["Git", "Version Control", "Staging", "Committing", "Logging"],
     description: "Deep dive into staging, committing, logging, and understanding the three states of Git.",
-    date: "2026-07-12"
+    date: "13 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
   }
 ];
