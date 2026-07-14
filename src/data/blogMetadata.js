@@ -17,7 +17,7 @@ export const blogs = [
     title: "Getting Started with Git",
     slug: "getting-started",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Version Control"],
     tags: ["Git", "SVN", "Version Control"],
     description:
       "Learn what Git is, why it matters, and how it compares to centralized version control systems like SVN.",
@@ -31,9 +31,9 @@ export const blogs = [
   {
     id: 2,
     title: "Git Basics - Getting Started",
-    slug: "getting-basics",
+    slug: "git-basics",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: [
       "Git",
       "Repository",
@@ -57,7 +57,7 @@ export const blogs = [
     title: "Git Basics - Staging and Committing",
     slug: "staging-and-committing",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: [
       "Git",
       "Staging",
@@ -79,10 +79,26 @@ export const blogs = [
   },
   {
     id: 4,
+    title: "Git Basics - Viewing History",
+    slug: "viewing-history",
+    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    category: ["Git", "Git Basics"],
+    tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
+    description:
+      "Learn how to view and filter commit history using git log with various options for formatting and limiting output.",
+    date: "13 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 5,
     title: "Git Basics - Undoing Changes",
     slug: "undoing-changes",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: [
       "Git",
       "Amend",
@@ -102,27 +118,11 @@ export const blogs = [
     },
   },
   {
-    id: 5,
-    title: "Git Basics - Viewing History",
-    slug: "viewing-history",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
-    tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
-    description:
-      "Learn how to view and filter commit history using git log with various options for formatting and limiting output.",
-    date: "13 July 2026",
-    author: {
-      name: "Rahaf Ebx",
-      username: "rahafebx",
-      position: "Web Developer",
-    },
-  },
-  {
     id: 6,
     title: "Git Basics - Remote Repositories",
     slug: "remote-repositories",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
 
     description:
@@ -139,7 +139,7 @@ export const blogs = [
     title: "Git Basics - Tagging",
     slug: "tagging",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: ["Git", "Tag", "Version", "Release"],
 
     description:
@@ -156,7 +156,7 @@ export const blogs = [
     title: "Git Basics - Aliases",
     slug: "aliases",
     thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-    category: ["Git"],
+    category: ["Git", "Git Basics"],
     tags: ["Git", "Alias", "Shortcuts"],
 
     description:

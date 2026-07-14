@@ -6,7 +6,7 @@ In this guide, we will explore how to undo changes in your Git repository.
   - [Amending Commits](#amending-commits)
   - [Unstaging Changes](#unstaging-changes)
   - [Unmodifying Changes](#unmodifying-changes)
-  - [Undoing With `git restore`](#undoing-with-git-restore)
+  - [Undoing With "git restore"](#undoing-with-git-restore)
 
 
 ## Amending Commits
@@ -37,7 +37,7 @@ If you have modified changes that you want to undo, you can use the `git checkou
 git checkout -- <file-name>
 ```
 
-## Undoing With `git restore`
+## Undoing With "git restore"
 
 `git restore` is a command that can be used to undo changes in your working directory or staging area. It can be used to restore files to their last committed state or to unstage changes. It's a more modern alternative to `git checkout` for undoing changes.
 

@@ -5,6 +5,7 @@
 In this guide, we will explore how to view the commit history of your Git repository.
 
 - [Viewing the Commit History](#viewing-the-commit-history)
+  - [Useful Specifiers for Formatting the Log Output](#useful-specifiers-for-formatting-the-log-output)
   - [Limiting the Log Output](#limiting-the-log-output)
 
 
@@ -14,7 +15,8 @@ You can view the commit history of your repository using the `git log` command. 
 git log
 ```
 
-Command options:
+**Command options:**
+
 - `--patch` or `-p`: Show the changes made in each commit.
 - `-n <number>`: Limit the number of commits shown.
 - `--stat`: Show a summary of changes made in each commit.
@@ -25,7 +27,7 @@ Command options:
 - `--name-status`: Show the names of the files that were changed in each commit, along with their status (added, modified, deleted).
 - `--abbrev-commit`: Show only the abbreviated commit hash in the log output.
 
-Examples:
+**Examples:**
 
 Show the last 5 commits with a summary of changes:
 ```bash
@@ -41,8 +43,10 @@ Specify a custom format for the log output. This example shows the commit hash, 
 ```bash
 git log --pretty=format:"%h - %an, %ar : %s"
 ```
+## Useful Specifiers for Formatting the Log Output
 
-Useful specifiers for formatting the log output:
+When using the `--pretty=format:` option, you can use various specifiers to customize the output. Here are some commonly used specifiers:
+
 | Specifier | Description |
 |-----------|-------------|
 | `%H`        | Commit hash |
