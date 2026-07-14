@@ -8,7 +8,55 @@
   tags: array of tags for the post, used for search and filtering
   description: short summary of the post, used in previews and meta descriptions
   date: publication date in YYYY-MM-DD format, used for sorting and display 
+  author: object containing author information, including name, username, and position
+  labs: array of lab objects associated with the blog post, each containing its own metadata
 }
+
+Example of a post object:
+
+{
+    id: 2,
+    title: "Git Basics - Getting Started",
+    slug: "git-basics",
+    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    category: ["Git", "Git Basics"],
+    tags: [
+      "Git",
+      "Repository",
+      "Clone",
+      "Status",
+      "Ignore",
+      "Version Control",
+      "SVN",
+    ],
+    description:
+      "Learn how to start a new Git workflow by cloning a repository, checking file status, and ignoring unwanted files.",
+    date: "13 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+    labs: [
+      {
+        id: 1,
+        title: "Git Basics - Cloning a Repository",
+        slug: "cloning-a-repository-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git"],
+        tags: ["Git", "Clone", "Repository"],
+        description:
+          "Learn how to clone a Git repository from a remote source to your local machine.",
+        date: "13 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
+}
+
 */
 
 export const blogs = [

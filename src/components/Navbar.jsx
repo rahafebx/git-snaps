@@ -1,20 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useBlog } from "../context/BlogContext";
+import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { categories, setSelectedCategory } = useBlog();
   const { isDark, toggleTheme } = useTheme();
-  const navigate = useNavigate();
-
-  const handleCategoryClick = (category) => {
-    setSelectedCategory(category);
-    setIsOpen(false);
-    navigate("/");
-  };
 
   return (
     <nav className="border-b border-zinc-200 bg-white/90 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/90 sticky top-0 z-50 transition-colors duration-200">
@@ -24,7 +15,6 @@ export const Navbar = () => {
           <div className="shrink-0">
             <Link
               to="/"
-              onClick={() => setSelectedCategory(null)}
               className="font-mono text-xl font-bold tracking-tight text-primary-600 dark:text-primary-400"
             >
               git_snaps
@@ -37,20 +27,16 @@ export const Navbar = () => {
             <div className="hidden md:flex items-center space-x-6 mr-2">
               <Link
                 to="/"
-                onClick={() => setSelectedCategory(null)}
                 className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
               >
-                All Posts
+                Home
               </Link>
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => handleCategoryClick(cat)}
-                  className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400 cursor-pointer"
-                >
-                  {cat}
-                </button>
-              ))}
+              <Link
+                to="about"
+                className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
+              >
+                About
+              </Link>
             </div>
 
             {/* Theme Toggle Button (Persistent on Mobile & Desktop) */}
@@ -97,22 +83,22 @@ export const Navbar = () => {
           <Link
             to="/"
             onClick={() => {
-              setSelectedCategory(null);
               setIsOpen(false);
             }}
             className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
           >
-            All Posts
+            Home
           </Link>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleCategoryClick(cat)}
-              className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400 cursor-pointer"
-            >
-              {cat}
-            </button>
-          ))}
+          <Link
+            to="/about"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
+          >
+            About
+          </Link>
+          
         </div>
       </div>
     </nav>
