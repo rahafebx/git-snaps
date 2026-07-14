@@ -7,6 +7,7 @@ import { Home } from './pages/Home';
 import { PostDetail } from './pages/PostDetail';
 import { LabDetails } from './pages/LabDetails';
 import { About } from './pages/About';
+import { Labs } from './pages/Labs';
 import useScrollToTop from './hooks/useScrollToTop';
 
 function ScrollToTop() {
@@ -25,8 +26,9 @@ function App() {
             <main className="grow">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/post/:slug" element={<PostDetail />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/labs" element={<Labs />} />
+                <Route path="/post/:slug" element={<PostDetail />} />
                 <Route path="/lab/:slug" element={<LabDetails />} />
               </Routes>
             </main>
