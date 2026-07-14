@@ -1,10 +1,10 @@
 
-# Getting Started with Git
+# Git Basics
 
 This guide will help you get started with Git, a distributed version control system that allows you to track changes in your code and collaborate with others.
 
 **Table of Contents:**
-- [Getting Started with Git](#getting-started-with-git)
+- [Git Basics](#git-basics)
   - [Getting a Git Repository](#getting-a-git-repository)
     - [Creating a New Repository](#creating-a-new-repository)
     - [Cloning an Existing Repository](#cloning-an-existing-repository)
@@ -28,6 +28,8 @@ Navigate to the directory where you want to initialize the repository and run:
 git init
 ```
 
+This will create a new subdirectory named `.git` that contains all of your necessary repository files. This also creates a new Git repository in the current directory.
+
 ### Cloning an Existing Repository
 
 Use the `git clone` command followed by the repository URL:
@@ -41,19 +43,19 @@ git clone <repository-url> <directory-name>
 Example:
 
 ```bash
-git clone https://github.com/rahafebx/progit-snapshot.git pro-git-learning
+git clone https://github.com/rahafebx/git-snaps.git git-snaps-log
 ```
 
 ## Recording Changes to the Repository
 
-Once you have a Git repository, you can start recording changes to it. The basic workflow involves three main steps: staging changes, committing changes, and pushing changes to a remote repository.
+Once you have a Git repository, you can start recording changes to it. The basic workflow involves three main steps: *staging changes*, *committing changes*, and *pushing changes* to a remote repository.
 
 Each file in your working directory can be in one of two states: **tracked** or **untracked**. 
 - Tracked files are those that were in the last snapshot; they can be **unmodified**, **modified**, or **staged**.
 - Untracked files are everything else—any files in your working directory that were not in your last snapshot and are not in your staging area.
 
 ```mermaid
-graph LR
+graph TB
     U[Untracked] -->|Add the file| S[Staged]
     UM[Unmodified] -->|Edit the file| M[Modified]
     M -->|Stage the file| S
@@ -92,7 +94,7 @@ The output will show the status of each file in a two-letter format, where the f
 - `R`: Renamed file
 - `D`: Deleted file
 
-Example: The `AM` indicates that the file is staged for commit (A) and has been modified (M) in the working directory.
+**Example:** The `AM` indicates that the file is staged for commit (A) and has been modified (M) in the working directory.
 
 ### Ignoring Files
 

@@ -43,6 +43,7 @@ If you want to commit changes directly without staging them first, you can use t
 ```bash
 git commit -am "Your commit message here"
 ```
+**Note:** The `-a` flag only works for tracked files. If you have new untracked files, you will need to stage them first using `git add`.
 
 ### Removing Files
 
@@ -66,7 +67,7 @@ git rm --cached <file-name>
 
 You can pass multiple file names to the `git rm`. You can also use wildcards to remove files that match a specific pattern.
 
-Example: To remove all `.log` files from the repository, you can use:
+**Example:** To remove all `.log` files from the repository, you can use:
 
 ```bash
 git rm *.log

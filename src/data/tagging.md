@@ -1,4 +1,3 @@
-
 # Tagging
 In this guide, we will explore how to manage tags in your Git repository.
 
@@ -42,7 +41,7 @@ git tag <tag-name>
 git tag -a <tag-name> -m "Tag message"
 ```
 
-Example:
+**Example:**
 
 ```bash
 # Create a lightweight tag named v1.0
