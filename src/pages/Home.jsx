@@ -4,7 +4,7 @@ import { BlogCard } from "../components/BlogCard";
 import { Loader2 } from "lucide-react";
 
 // Define posts per page chunk
-const POSTS_PER_PAGE = 10;
+const POSTS_PER_PAGE = 6;
 
 export const Home = () => {
   const {
@@ -119,6 +119,15 @@ export const Home = () => {
         ))}
       </div>
 
+      {/* Stats Bar - Shows results count */}
+      {filteredBlogs.length > 0 && (
+        <div className="mb-8 text-sm text-zinc-500 dark:text-zinc-400">
+          Showing {renderedBlogs.length} of {filteredBlogs.length} post{filteredBlogs.length > 1 ? 's' : ''}
+          {selectedCategory && ` in ${selectedCategory}`}
+          {searchQuery && ` matching "${searchQuery}"`}
+        </div>
+      )}
+
       {/* Grid Display */}
       {renderedBlogs.length > 0 ? (
         <>
@@ -153,7 +162,8 @@ export const Home = () => {
         </>
       ) : (
         <div className="text-center py-16 text-zinc-700 dark:text-zinc-400">
-          No articles match your search filter criteria.
+          <p className="text-lg">No articles match your search filter criteria.</p>
+          <p className="text-sm mt-2">Try adjusting your search or category filter.</p>
         </div>
       )}
     </div>

@@ -67,21 +67,30 @@ export const PostDetail = () => {
 
       {/* Fully styled HTML Markdown view wrapper via atomic element targets */}
       {!loading && !error && (
-        <MarkdownContent content={content} isDark={isDark} showFloatingTOC={showFloatingTOC} />
+        <MarkdownContent
+          content={content}
+          isDark={isDark}
+          showFloatingTOC={showFloatingTOC}
+        />
       )}
 
       {/* Labs Section */}
       {!loading && !error && labs && labs.length > 0 && (
-        <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-            -- Labs & Exercises
+        <section className="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-700">
+          <h2 className="text-2xl font-bold mb-6 text-zinc-900 dark:text-white">
+          -- Labs & Exercises
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-zinc-600 dark:text-zinc-300 mb-6">
             Practice what you've learned with these hands-on labs:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {labs.map((lab) => (
-              <LabCard key={lab.id} lab={lab} parentSlug={slug} />
+              <LabCard
+                key={lab.id}
+                lab={lab}
+                parentSlug={slug}
+                variant="compact" // Use compact variant for PostDetails
+              />
             ))}
           </div>
         </section>

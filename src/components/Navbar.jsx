@@ -32,6 +32,12 @@ export const Navbar = () => {
                 Home
               </Link>
               <Link
+                to="/labs"
+                className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
+              >
+                Labs
+              </Link>
+              <Link
                 to="about"
                 className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
               >
@@ -88,6 +94,15 @@ export const Navbar = () => {
             className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
           >
             Home
+          </Link>
+          <Link
+            to="/labs"
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
+          >
+            Labs
           </Link>
           <Link
             to="/about"

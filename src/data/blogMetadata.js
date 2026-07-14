@@ -99,6 +99,24 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Basics Lab - Hands-On Practice",
+        slug: "git-basics-lab-hands-on-practice",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git"],
+        tags: ["Git", "Clone", "Repository"],
+        description:
+          "Practice the fundamental Git operations covered in the 'Getting Started' post, including cloning a repository and checking file status.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 3,
