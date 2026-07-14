@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { PostDetail } from './pages/PostDetail';
+import { LabDetails } from './pages/LabDetails';
 import { About } from './pages/About';
 import useScrollToTop from './hooks/useScrollToTop';
 
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/post/:slug" element={<PostDetail />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/lab/:slug" element={<LabDetails />} />
               </Routes>
             </main>
             <Footer />

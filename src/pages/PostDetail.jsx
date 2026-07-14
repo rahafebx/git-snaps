@@ -14,15 +14,17 @@ import ContentLoadingError from "../components/ContentLoadingError";
 import PostAuthor from "../components/PostAuthor";
 import NextPost from "../components/NextPost";
 import PreviousPost from "../components/PreviousPost";
+import LabCard from "../components/LabCard";
 
 export const PostDetail = () => {
   const showFloatingTOC = true;
   const { slug } = useParams();
-  const { getPostBySlug, getAdjacentPosts } = useBlog();
+  const { getPostBySlug, getAdjacentPosts, getLabsForPost } = useBlog();
   const { isDark } = useTheme();
 
   const postMetadata = getPostBySlug(slug);
   const { previous, next } = getAdjacentPosts(slug);
+  const labs = getLabsForPost(slug);
   const { content, loading, error } = useMarkdown(slug);
 
   useDocumentMeta(postMetadata);
@@ -34,9 +36,11 @@ export const PostDetail = () => {
   }
 
   return (
-    <article className={`${showFloatingTOC ? 'xl:ml-64' : ''} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}>
+    <article
+      className={`${showFloatingTOC ? "xl:ml-64" : ""} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}
+    >
       {/* Back Link Button */}
-      <BackLinkButton to="/" text="Back to Home" />
+      <BackLinkButton to="/" text="Back to Home" className="mb-8" />
 
       {/* Post Header Meta metadata */}
       <PostHeader
@@ -53,7 +57,7 @@ export const PostDetail = () => {
 
       {/* Render share tools panel right before primary reading text block */}
       {!loading && !error && <SocialShare title={postMetadata.title} />}
-      
+
       {/* Content Rendering Control Triggers */}
       {loading && (
         <ContentLoading text="Parsing repository markdown blueprint..." />
@@ -63,9 +67,27 @@ export const PostDetail = () => {
 
       {/* Fully styled HTML Markdown view wrapper via atomic element targets */}
       {!loading && !error && (
-        <MarkdownContent content={content} isDark={isDark} />
+        <MarkdownContent content={content} isDark={isDark} showFloatingTOC={showFloatingTOC} />
       )}
 
+      {/* Labs Section */}
+      {!loading && !error && labs && labs.length > 0 && (
+        <section className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+            -- Labs & Exercises
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-6">
+            Practice what you've learned with these hands-on labs:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {labs.map((lab) => (
+              <LabCard key={lab.id} lab={lab} parentSlug={slug} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Author Section */}
       {!loading && !error && (
         <PostAuthor
           username={postMetadata.author.username}
@@ -74,6 +96,7 @@ export const PostDetail = () => {
         />
       )}
 
+      {/* Social Share Section */}
       {!loading && !error && <SocialShare title={postMetadata.title} />}
 
       {/* Navigation between posts */}
@@ -81,7 +104,6 @@ export const PostDetail = () => {
         <PreviousPost post={previous} />
         <NextPost post={next} />
       </div>
-      
     </article>
   );
 };

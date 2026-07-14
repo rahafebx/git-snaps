@@ -1,26 +1,41 @@
 import { useState, useEffect } from 'react';
 
-export const useMarkdown = (slug) => {
+export const useMarkdown = (slug, type = 'posts') => {
   const [content, setContent] = useState('');
-  const [loading, setLoading] = useState(Boolean(slug));
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!slug) return;
-
-    // Using Vite's dynamic import with raw qualifier
-    import(`../data/${slug}.md?raw`)
-      .then((res) => {
-        setContent(res.default);
+    const fetchMarkdown = async () => {
+      try {
+        setLoading(true);
         setError(null);
+        
+        // Determine the path based on type
+        const path = type === 'labs' 
+          ? `/markdown/labs/${slug}.md` 
+          : `/markdown/posts/${slug}.md`;
+        
+        const response = await fetch(path);
+        
+        if (!response.ok) {
+          throw new Error(`Failed to load markdown: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        setContent(text);
+      } catch (err) {
+        setError(err.message);
+        console.error('Error loading markdown:', err);
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to load markdown file:", err);
-        setError("Could not load blog content. The post file might be missing.");
-        setLoading(false);
-      });
-  }, [slug]);
+      }
+    };
+
+    if (slug) {
+      fetchMarkdown();
+    }
+  }, [slug, type]);
 
   return { content, loading, error };
 };
