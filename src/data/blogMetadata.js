@@ -105,7 +105,7 @@ export const blogs = [
         title: "Git Basics Lab - Hands-On Practice",
         slug: "git-basics-lab-hands-on-practice",
         thumb: "/images/posts/getting-started/git-basics-thumb.webp",
-        category: ["Git"],
+        category: ["Git", "Git Basics"],
         tags: ["Git", "Clone", "Repository"],
         description:
           "Practice the fundamental Git operations covered in the 'Getting Started' post, including cloning a repository and checking file status.",
@@ -142,6 +142,33 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Staging and Committing Changes Lab: Hands-On Practice",
+        slug: "staging-and-committing-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics"],
+        tags: [
+          "Git",
+          "Staging",
+          "Committing",
+          "Add Files",
+          "Remove Files",
+          "Move Files",
+          "Commit History",
+          "Diff",
+        ],
+        description:
+          "Practice staging and committing changes in Git, including adding, removing, and moving files, as well as reviewing commit history and differences.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 4,
@@ -158,6 +185,24 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Viewing the Commit History Lab: Hands-On Practice",
+        slug: "viewing-history-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics"],
+        tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
+        description:
+          "Practice viewing and filtering commit history in Git, using git log with various options to format and limit the output.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 5,
@@ -182,6 +227,32 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Undoing Changes Lab: Hands-On Practice",
+        slug: "undoing-changes-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics"],
+        tags: [
+          "Git",
+          "Amend",
+          "Unstage",
+          "Unmodify",
+          "Restore",
+          "Reset",
+          "Checkout",
+        ],
+        description:
+          "Practice undoing changes in Git, including amending commits, unstaging files, and restoring modified files.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 6,
@@ -199,6 +270,24 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Working with Remote Repositories Lab: Hands-On Practice",
+        slug: "remote-repositories-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics", "GitHub"],
+        tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
+        description:
+          "Practice working with remote repositories in Git, including pushing, pulling, and fetching changes.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 7,
@@ -216,6 +305,23 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Tagging Lab: Hands-On Practice",
+        slug: "tagging-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics", "GitHub"],
+        tags: ["Git", "Tag", "Version", "Release"],
+        description: "Practice creating and managing Git tags.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 8,
@@ -233,5 +339,22 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Aliases Lab: Hands-On Practice",
+        slug: "aliases-lab",
+        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        category: ["Git", "Git Basics"],
+        tags: ["Git", "Alias", "Shortcuts"],
+        description: "Practice creating and managing Git aliases.",
+        date: "14 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
 ];

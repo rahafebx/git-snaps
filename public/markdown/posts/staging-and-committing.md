@@ -45,6 +45,18 @@ git commit -am "Your commit message here"
 ```
 **Note:** The `-a` flag only works for tracked files. If you have new untracked files, you will need to stage them first using `git add`.
 
+You can use `-A` option with `git add` to stage all changes, including new files, modified files, and deleted files:
+
+```bash
+git add -A
+```
+
+To commit a specific file, you can specify the file name in the `git commit` command:
+
+```bash
+git commit -m "Your commit message here" <file-name>
+```
+
 ### Removing Files
 
 To remove a file from the working directory and the staging area, you can use the `git rm` command:
