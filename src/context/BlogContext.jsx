@@ -110,6 +110,7 @@ export const BlogProvider = ({ children }) => {
     const post = getPostBySlug(postSlug);
     return post?.labs || [];
   };
+  
 
   return (
     <BlogContext.Provider

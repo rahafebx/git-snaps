@@ -27,6 +27,7 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       aria-hidden={!showBackToTop}
+      aria-label="Scroll back to top"
       tabIndex={showBackToTop ? 0 : -1}
       className={`fixed bottom-4 right-4 p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-lg hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all duration-300 cursor-pointer transform ${
         showBackToTop

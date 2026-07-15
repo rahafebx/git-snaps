@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { PostDetail } from './pages/PostDetail';
 import { LabDetails } from './pages/LabDetails';
+import { NotFound } from './pages/NotFound';
 import { About } from './pages/About';
 import { Labs } from './pages/Labs';
 import useScrollToTop from './hooks/useScrollToTop';
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/labs" element={<Labs />} />
                 <Route path="/post/:slug" element={<PostDetail />} />
                 <Route path="/lab/:slug" element={<LabDetails />} />
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />

@@ -27,7 +27,7 @@ export const LabDetails = () => {
 
   if (!labMetadata) {
     return (
-      <NoContent message="Lab Not Found" linkText="Return Home" linkTo="/" />
+      <NoContent title="Lab Not Found" message="Sorry, the lab you are looking for is not available." linkText="Return Home" linkTo="/" />
     );
   }
 

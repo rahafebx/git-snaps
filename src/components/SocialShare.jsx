@@ -31,10 +31,10 @@ export const SocialShare = ({ title }) => {
   ];
 
   return (
-    <div className="my-10 p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/40">
-      <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 mb-4">
+    <section className="my-10 p-6 border border-zinc-200 dark:border-zinc-800 rounded-2xl bg-zinc-50/50 dark:bg-zinc-900/40">
+      <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-4">
         -- Share this commit
-      </h4>
+      </h2>
       <div className="flex flex-wrap gap-2">
         {channels.map((channel) => (
           <a
@@ -56,6 +56,6 @@ export const SocialShare = ({ title }) => {
           </a>
         ))}
       </div>
-    </div>
+    </section>
   );
 };

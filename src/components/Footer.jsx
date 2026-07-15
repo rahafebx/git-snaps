@@ -14,7 +14,7 @@ export const Footer = () => {
               <span className="font-mono text-lg font-bold tracking-tight text-primary-600 dark:text-primary-400">
                 git_snaps
               </span>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xs">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xs mt-4">
                 Demystifying decentralized version control and open-source
                 collaboration tools. One push at a time.
               </p>
@@ -111,7 +111,7 @@ export const Footer = () => {
           {/* Bottom copyright barrier */}
           <div className="mt-12 border-t border-zinc-100 pt-6 dark:border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-zinc-500 dark:text-zinc-400">
-              &copy; {new Date().getFullYear()} GitSnaps Dev Blog. Built with
+              &copy; {new Date().getFullYear()} git_snaps Dev Blog. Built with
               React and Tailwind CSS v4.
             </p>
             <a
