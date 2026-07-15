@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon, Menu, X } from "lucide-react";
 
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "Labs", path: "/labs" },
+  { name: "About", path: "/about" },
+];
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
@@ -25,24 +31,15 @@ export const Navbar = () => {
           <div className="flex items-center gap-2 md:gap-4">
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-6 mr-2">
-              <Link
-                to="/"
-                className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
-              >
-                Home
-              </Link>
-              <Link
-                to="/labs"
-                className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
-              >
-                Labs
-              </Link>
-              <Link
-                to="about"
-                className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400"
-              >
-                About
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400 uppercase"
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
 
             {/* Theme Toggle Button (Persistent on Mobile & Desktop) */}
@@ -86,34 +83,18 @@ export const Navbar = () => {
         id="mobile-menu"
       >
         <div className="space-y-1 px-2 pt-2 pb-4 sm:px-3">
-          <Link
-            to="/"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-            className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
-          >
-            Home
-          </Link>
-          <Link
-            to="/labs"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-            className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
-          >
-            Labs
-          </Link>
-          <Link
-            to="/about"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-            className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400"
-          >
-            About
-          </Link>
-          
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400 uppercase"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
       </div>
     </nav>

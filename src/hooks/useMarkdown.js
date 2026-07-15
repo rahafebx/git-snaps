@@ -11,18 +11,24 @@ export const useMarkdown = (slug, type = 'posts') => {
         setLoading(true);
         setError(null);
         
-        // Determine the path based on type
+        // Use ?raw query parameter to get raw content
         const path = type === 'labs' 
-          ? `/markdown/labs/${slug}.md` 
-          : `/markdown/posts/${slug}.md`;
+          ? `/markdown/labs/${slug}.md?raw` 
+          : `/markdown/posts/${slug}.md?raw`;
         
         const response = await fetch(path);
         
         if (!response.ok) {
-          throw new Error(`Failed to load markdown: ${response.status}`);
+          throw new Error(`The ${type === 'labs' ? 'lab' : 'post'} content file was not found.`);
         }
         
         const text = await response.text();
+        
+        // Check if content is empty or HTML
+        if (!text || text.trim() === '' || text.trim().startsWith('<!doctype html>')) {
+          throw new Error(`The ${type === 'labs' ? 'lab' : 'post'} content file is empty or unavailable.`);
+        }
+        
         setContent(text);
       } catch (err) {
         setError(err.message);

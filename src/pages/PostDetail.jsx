@@ -31,7 +31,7 @@ export const PostDetail = () => {
 
   if (!postMetadata) {
     return (
-      <NoContent message="Post Not Found" linkText="Return Home" linkTo="/" />
+      <NoContent title="Post Not Found" message="Sorry, the post you are looking for is not available." linkText="Return Home" linkTo="/" />
     );
   }
 
@@ -109,10 +109,15 @@ export const PostDetail = () => {
       {!loading && !error && <SocialShare title={postMetadata.title} />}
 
       {/* Navigation between posts */}
-      <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
-        <PreviousPost post={previous} />
-        <NextPost post={next} />
-      </div>
+      {!loading && !error && (previous || next) && (
+        <section className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <h2 className="text-2xl font-bold mb-6 text-zinc-900 dark:text-white">
+            -- Continue Reading
+          </h2>
+          <PreviousPost post={previous} />
+          <NextPost post={next} />
+        </section>
+      )}
     </article>
   );
 };

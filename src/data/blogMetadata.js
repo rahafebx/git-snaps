@@ -356,5 +356,6 @@ export const blogs = [
         },
       },
     ],
+    
   },
 ];

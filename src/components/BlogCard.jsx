@@ -36,12 +36,12 @@ export const BlogCard = ({ post }) => {
           <span>{post.date}</span>
           <div className="flex gap-1.5">
             {post.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className="text-zinc-700 dark:text-zinc-400">
-                #{tag}
+              <span key={tag} className="text-zinc-700 dark:text-zinc-400 bg-primary-50 dark:bg-primary-950/50 px-2 py-0.5 rounded-md">
+                {tag}
               </span>
             ))}
             {}{post.tags.length > 2 && (
-              <span className="text-zinc-500 dark:text-zinc-500">
+              <span className="text-zinc-700 dark:text-zinc-400 py-0.5">
                 +{post.tags.length - 2}
               </span>
             )}

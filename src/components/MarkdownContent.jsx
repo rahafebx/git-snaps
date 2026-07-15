@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -26,6 +26,49 @@ export default function MarkdownContent({
   isDark,
   showFloatingTOC = true,
 }) {
+  // Intercept clicks on internal anchor links within the markdown content
+  useEffect(() => {
+    const handleInternalLinkClick = (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (link) {
+        const href = link.getAttribute('href');
+        const slug = href.replace('#', '');
+        
+        // Prevent default anchor behavior
+        e.preventDefault();
+        
+        // Find the target element
+        const element = document.getElementById(slug);
+        if (element) {
+          // Update URL hash without causing page jump
+          if (window.history.pushState) {
+            window.history.pushState(null, null, `#${slug}`);
+          }
+          
+          // Dispatch a custom event that FloatingTOC can listen to
+          window.dispatchEvent(new CustomEvent('tocNavigate', { detail: { slug } }));
+          
+          // Smooth scroll to element
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }
+    };
+
+    // Add event listener to the document
+    document.addEventListener('click', handleInternalLinkClick);
+    
+    return () => {
+      document.removeEventListener('click', handleInternalLinkClick);
+    };
+  }, []);
+
   return (
     <div className="relative">
       {/* Floating TOC - hidden on mobile/tablet */}

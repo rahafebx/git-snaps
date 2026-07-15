@@ -325,7 +325,7 @@ export const MermaidDiagram = ({ chart, isDark }) => {
 
       {/* Footer with diagram info */}
       <div className="px-4 py-1.5 bg-zinc-50 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800">
-        <p className="text-xs text-zinc-400 dark:text-zinc-500 text-center font-mono">
+        <p className="text-xs text-zinc-400 dark:text-zinc-400 text-center font-mono">
           {isFullscreen
             ? "Press ESC to exit fullscreen"
             : "Use mouse wheel to zoom • Click and drag to pan"}

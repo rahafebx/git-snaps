@@ -58,12 +58,12 @@ const LabCard = ({ lab, parentSlug, showParentInfo = false, variant = 'compact' 
             <span>{lab.date}</span>
             <div className="flex gap-1.5">
               {lab.tags && lab.tags.slice(0, 2).map((tag) => (
-                <span key={tag} className="text-zinc-700 dark:text-zinc-400">
-                  #{tag}
+                <span key={tag} className="text-zinc-700 dark:text-zinc-400 bg-primary-50 dark:bg-primary-950/50 px-2 py-0.5 rounded-md">
+                  {tag}
                 </span>
               ))}
               {lab.tags && lab.tags.length > 2 && (
-                <span className="text-zinc-500 dark:text-zinc-500">
+                <span className="text-zinc-700 dark:text-zinc-400 py-0.5">
                   +{lab.tags.length - 2}
                 </span>
               )}
