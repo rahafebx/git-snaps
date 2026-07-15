@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useBlog } from "../context/BlogContext";
 import LabCard from "../components/LabCard";
 import { PageHeader } from "../components/PageHeader";
@@ -8,7 +8,7 @@ import { InfiniteScrollContainer } from "../components/InfiniteScrollContainer";
 import { FlaskConical } from "lucide-react";
 
 // Define labs per page chunk
-const LABS_PER_PAGE = 10;
+const LABS_PER_PAGE = 6;
 
 export const Labs = () => {
   const {
@@ -19,6 +19,8 @@ export const Labs = () => {
     searchQuery,
     setSearchQuery,
   } = useBlog();
+
+  const [displayedCount, setDisplayedCount] = useState(0);
 
   useEffect(() => {
     setSearchQuery("");
@@ -66,6 +68,10 @@ export const Labs = () => {
     });
   }, [allLabs, searchQuery, selectedCategory]);
 
+  useEffect(() => {
+    setDisplayedCount(Math.min(LABS_PER_PAGE, filteredLabs.length));
+  }, [filteredLabs.length]);
+
   // Get unique categories from labs
   const labCategories = useMemo(() => {
     const allCats = allLabs.flatMap((lab) => lab.category || []);
@@ -96,7 +102,7 @@ export const Labs = () => {
       {/* Stats Bar */}
       <StatsBar
         total={filteredLabs.length}
-        displayed={Math.min(LABS_PER_PAGE, filteredLabs.length)}
+        displayed={displayedCount}
         itemLabel="lab"
         selectedCategory={selectedCategory}
         searchQuery={searchQuery}
@@ -121,6 +127,7 @@ export const Labs = () => {
         emptySubMessage="Try adjusting your search or category filter."
         showEmptyIcon={true}
         EmptyIcon={FlaskConical}
+        onVisibleCountChange={setDisplayedCount}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useBlog } from "../context/BlogContext";
 import { BlogCard } from "../components/BlogCard";
 import { PageHeader } from "../components/PageHeader";
@@ -19,10 +19,18 @@ export const Home = () => {
     setSearchQuery,
   } = useBlog();
 
+  const [displayedCount, setDisplayedCount] = useState(
+    Math.min(POSTS_PER_PAGE, filteredBlogs.length),
+  );
+
   useEffect(() => {
     setSearchQuery('');
     setSelectedCategory(null);
   }, [setSearchQuery, setSelectedCategory]);
+
+  useEffect(() => {
+    setDisplayedCount(Math.min(POSTS_PER_PAGE, filteredBlogs.length));
+  }, [filteredBlogs.length]);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -47,7 +55,7 @@ export const Home = () => {
       {/* Stats Bar */}
       <StatsBar
         total={filteredBlogs.length}
-        displayed={Math.min(POSTS_PER_PAGE, filteredBlogs.length)}
+        displayed={displayedCount}
         itemLabel="post"
         selectedCategory={selectedCategory}
         searchQuery={searchQuery}
@@ -62,6 +70,7 @@ export const Home = () => {
         endMessage="End of results — you're fully synced"
         emptyMessage="No articles match your search filter criteria."
         emptySubMessage="Try adjusting your search or category filter."
+        onVisibleCountChange={setDisplayedCount}
       />
     </div>
   );
