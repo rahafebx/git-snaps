@@ -10,7 +10,8 @@ export const InfiniteScrollContainer = ({
   emptyMessage = "No items found",
   emptySubMessage = "Try adjusting your search or category filter.",
   showEmptyIcon = false,
-  EmptyIcon = null
+  EmptyIcon = null,
+  onVisibleCountChange = null
 }) => {
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
   const [isFetching, setIsFetching] = useState(false);
@@ -27,6 +28,12 @@ export const InfiniteScrollContainer = ({
   }, [items, visibleCount]);
 
   const hasMore = visibleCount < items.length;
+
+  useEffect(() => {
+    if (typeof onVisibleCountChange === "function") {
+      onVisibleCountChange(Math.min(visibleCount, items.length));
+    }
+  }, [visibleCount, items.length, onVisibleCountChange]);
 
   // Infinite Scroll Trigger Hook
   useEffect(() => {

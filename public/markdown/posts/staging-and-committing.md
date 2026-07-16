@@ -5,9 +5,9 @@ In this guide, we will explore how to stage and commit changes in your Git repos
 - [Staging and Committing Changes](#staging-and-committing-changes)
   - [Viewing Staged and Unstaged Changes](#viewing-staged-and-unstaged-changes)
   - [Committing Changes](#committing-changes)
-    - [Skipping the Staging Area](#skipping-the-staging-area)
-    - [Removing Files](#removing-files)
-    - [Moving Files](#moving-files)
+  - [Skipping the Staging Area](#skipping-the-staging-area)
+  - [Removing Files](#removing-files)
+  - [Moving Files](#moving-files)
 
 
 ## Viewing Staged and Unstaged Changes
@@ -36,7 +36,7 @@ git commit -m "Your commit message here"
 
 The output will show the number of files changed, the number of insertions and deletions, and the commit hash.
 
-### Skipping the Staging Area
+## Skipping the Staging Area
 
 If you want to commit changes directly without staging them first, you can use the `-a` flag with the `git commit` command. This will automatically stage all tracked files that have been modified and commit them in one step:
 
@@ -57,7 +57,7 @@ To commit a specific file, you can specify the file name in the `git commit` com
 git commit -m "Your commit message here" <file-name>
 ```
 
-### Removing Files
+## Removing Files
 
 To remove a file from the working directory and the staging area, you can use the `git rm` command:
 
@@ -88,7 +88,7 @@ git rm log/\*.log
 
 **Note:** the backslash `\` is used to escape the asterisk `*` in the second command, which is necessary when using wildcards in certain shells.
 
-### Moving Files
+## Moving Files
 
 To move or rename a file in the repository, you can use the `git mv` command. This command will move the file in your working directory and stage the change for commit:
 
