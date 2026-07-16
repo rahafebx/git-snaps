@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -10,14 +9,18 @@ export default function llmsPlugin() {
   return {
     name: 'vite-plugin-llms',
     
-    // Generate during build
+    // Generate during build start (keeps file in public for preview/dev)
     buildStart() {
-      generateLLMS();
+      const rootDir = getRoot();
+      const content = generateLLMSContent(rootDir);
+      writeOutput(rootDir, content);
     },
     
     // Generate during development
     configureServer(server) {
-      generateLLMS();
+      const rootDir = getRoot();
+      const content = generateLLMSContent(rootDir);
+      writeOutput(rootDir, content);
       
       // Watch for changes to metadata or markdown files
       server.watcher.add([
@@ -29,52 +32,72 @@ export default function llmsPlugin() {
       server.watcher.on('change', (file) => {
         if (file.includes('blogMetadata.js') || file.includes('.md')) {
           console.log('📝 Detected changes, regenerating llms.txt...');
-          generateLLMS();
+          const updated = generateLLMSContent(rootDir);
+          writeOutput(rootDir, updated);
         }
       });
     },
     
-    // Generate during build and include in output
+    // Generate during bundle and emit as build asset
     generateBundle() {
-      generateLLMS();
+      const rootDir = getRoot();
+      const content = generateLLMSContent(rootDir);
+      writeOutput(rootDir, content);
+      
+      // Emit to build output so llms.txt is present in dist root
+      this.emitFile({
+        type: 'asset',
+        fileName: 'llms.txt',
+        source: content
+      });
     }
   };
 }
 
 /**
- * Main generation function
+ * Helpers
  */
-function generateLLMS() {
+function getRoot() {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  return path.resolve(__dirname, '..');
+}
+
+function writeOutput(rootDir, content) {
   try {
-    // Derive project root relative to this script file (avoids relying on `process`)
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    const rootDir = path.resolve(__dirname, '..');
-    const outputPath = path.join(rootDir, 'llms.txt');
-    
+    // Prefer writing to public so it's served in dev/preview and copied to dist
+    const publicPath = path.join(rootDir, 'public', 'llms.txt');
+    fs.writeFileSync(publicPath, content, 'utf8');
+
+    // Also write to project root for visibility if desired
+    const rootOutput = path.join(rootDir, 'llms.txt');
+    fs.writeFileSync(rootOutput, content, 'utf8');
+    console.log(`✅ llms.txt written to public/ and project root`);
+  } catch (err) {
+    console.error('❌ Error writing llms.txt:', err);
+  }
+}
+
+/**
+ * Main generation function (returns content string)
+ */
+function generateLLMSContent(rootDir) {
+  try {
     // Try to import metadata dynamically
     let metadata = [];
     try {
       const metadataPath = path.join(rootDir, 'src/data/blogMetadata.js');
       if (fs.existsSync(metadataPath)) {
-        // For ESM modules, we need to use dynamic import
-        // This works in Node.js with proper module support
         const metadataContent = fs.readFileSync(metadataPath, 'utf8');
-        // Extract the array from the export
         const match = metadataContent.match(/export default \[([\s\S]*?)\];/);
         if (match) {
-          // Simple parsing - in production, use proper import
           const items = match[1].split(/\},\s*\{/).map((item, index) => {
             try {
-              // Clean up and parse each object
               let cleaned = item.trim();
               if (!cleaned.startsWith('{')) cleaned = '{' + cleaned;
               if (!cleaned.endsWith('}')) cleaned = cleaned + '}';
-              // Fix missing quotes on properties
               cleaned = cleaned.replace(/(\w+):/g, '"$1":');
-              // Handle single quotes
               cleaned = cleaned.replace(/'/g, '"');
-              // Fix date values
               cleaned = cleaned.replace(/(new Date\([^)]+\))/g, '"$1"');
               return JSON.parse(cleaned);
             } catch (e) {
@@ -207,11 +230,10 @@ Invoke-WebRequest "https://git-snaps.rahafebx.workers.dev/markdown/posts/getting
 - **Labs:** ${labFiles.length}
 `;
     
-    // Write the file
-    fs.writeFileSync(outputPath, content, 'utf8');
-    console.log(`✅ LLM Agent Browsing Manifest generated successfully (${postFiles.length} posts, ${labFiles.length} labs)`);
+    return content;
     
   } catch (error) {
     console.error('❌ Error generating LLM Agent Browsing Manifest:', error.message);
+    return '';
   }
 }
