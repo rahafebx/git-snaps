@@ -64,7 +64,7 @@ export const blogs = [
     id: 1,
     title: "Getting Started with Git",
     slug: "getting-started",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/getting-started/getting-started.webp",
     category: ["Git", "Version Control"],
     tags: ["Git", "SVN", "Version Control"],
     description:
@@ -80,7 +80,7 @@ export const blogs = [
     id: 2,
     title: "Git Basics - Getting Started",
     slug: "git-basics",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/git-basics.webp",
     category: ["Git", "Git Basics"],
     tags: [
       "Git",
@@ -104,7 +104,7 @@ export const blogs = [
         id: 1,
         title: "Git Basics Lab - Hands-On Practice",
         slug: "git-basics-lab-hands-on-practice",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/git-basics.webp",
         category: ["Git", "Git Basics"],
         tags: ["Git", "Clone", "Repository"],
         description:
@@ -122,7 +122,7 @@ export const blogs = [
     id: 3,
     title: "Git Basics - Staging and Committing",
     slug: "staging-and-committing",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/staging-and-committing.webp",
     category: ["Git", "Git Basics"],
     tags: [
       "Git",
@@ -147,7 +147,7 @@ export const blogs = [
         id: 1,
         title: "Staging and Committing Changes Lab: Hands-On Practice",
         slug: "staging-and-committing-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/staging-and-committing.webp",
         category: ["Git", "Git Basics"],
         tags: [
           "Git",
@@ -174,7 +174,7 @@ export const blogs = [
     id: 4,
     title: "Git Basics - Viewing History",
     slug: "viewing-history",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/viewing-history.webp",
     category: ["Git", "Git Basics"],
     tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
     description:
@@ -190,7 +190,7 @@ export const blogs = [
         id: 1,
         title: "Viewing the Commit History Lab: Hands-On Practice",
         slug: "viewing-history-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/viewing-history.webp",
         category: ["Git", "Git Basics"],
         tags: ["Git", "Log", "History", "Commit", "Filter", "Search", "Graph"],
         description:
@@ -208,7 +208,7 @@ export const blogs = [
     id: 5,
     title: "Git Basics - Undoing Changes",
     slug: "undoing-changes",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/undoing-changes.webp",
     category: ["Git", "Git Basics"],
     tags: [
       "Git",
@@ -232,7 +232,7 @@ export const blogs = [
         id: 1,
         title: "Undoing Changes Lab: Hands-On Practice",
         slug: "undoing-changes-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/undoing-changes.webp",
         category: ["Git", "Git Basics"],
         tags: [
           "Git",
@@ -258,7 +258,7 @@ export const blogs = [
     id: 6,
     title: "Git Basics - Remote Repositories",
     slug: "remote-repositories",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/remote-repositories.webp",
     category: ["Git", "Git Basics"],
     tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
 
@@ -275,7 +275,7 @@ export const blogs = [
         id: 1,
         title: "Working with Remote Repositories Lab: Hands-On Practice",
         slug: "remote-repositories-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/remote-repositories.webp",
         category: ["Git", "Git Basics", "GitHub"],
         tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
         description:
@@ -293,7 +293,7 @@ export const blogs = [
     id: 7,
     title: "Git Basics - Tagging",
     slug: "tagging",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/tagging.webp",
     category: ["Git", "Git Basics"],
     tags: ["Git", "Tag", "Version", "Release"],
 
@@ -310,7 +310,7 @@ export const blogs = [
         id: 1,
         title: "Tagging Lab: Hands-On Practice",
         slug: "tagging-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/tagging.webp",
         category: ["Git", "Git Basics", "GitHub"],
         tags: ["Git", "Tag", "Version", "Release"],
         description: "Practice creating and managing Git tags.",
@@ -327,7 +327,7 @@ export const blogs = [
     id: 8,
     title: "Git Basics - Aliases",
     slug: "aliases",
-    thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+    thumb: "/images/posts/git-basics/aliases.webp",
     category: ["Git", "Git Basics"],
     tags: ["Git", "Alias", "Shortcuts"],
 
@@ -344,7 +344,7 @@ export const blogs = [
         id: 1,
         title: "Git Aliases Lab: Hands-On Practice",
         slug: "aliases-lab",
-        thumb: "/images/posts/getting-started/git-basics-thumb.webp",
+        thumb: "/images/posts/git-basics/aliases.webp",
         category: ["Git", "Git Basics"],
         tags: ["Git", "Alias", "Shortcuts"],
         description: "Practice creating and managing Git aliases.",
@@ -358,4 +358,164 @@ export const blogs = [
     ],
     
   },
+  {
+    id: 9,
+    title: "Git Branching - Basics",
+    slug: "git-branching",
+    thumb: "/images/posts/git-branching/git-branching.webp",
+    category: ["Git", "Git Branching"],
+    tags: ["Git", "Branch", "Merge", "Checkout"],
+    description:
+      "Learn the basics of Git branching, including creating, switching, and merging branches.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 10,
+    title: "Git Branching - Branch Management",
+    slug: "branch-management",
+    thumb: "/images/posts/git-branching/branch-management.webp",
+    category: ["Git", "Git Branching"],
+    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    description:
+      "Learn how to manage branches in Git, including creating, deleting, and renaming branches.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 11,
+    title: "Git Branching - Branching Workflows",
+    slug: "branching-workflows",
+    thumb: "/images/posts/git-branching/branching-workflows.webp",
+    category: ["Git", "Git Branching"],
+    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    description:
+      "Learn about different branching workflows used in Git.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 12,
+    title: "Git Branching - Remote Branches",
+    slug: "remote-branches",
+    thumb: "/images/posts/git-branching/remote-branches.webp",
+    category: ["Git", "Git Branching"],
+    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    description:
+      "Learn how to work with remote branches in Git.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 13,
+    title: "Git Branching - Rebasing",
+    slug: "rebasing",
+    thumb: "/images/posts/git-branching/rebasing.webp",
+    category: ["Git", "Git Branching"],
+    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    description:
+      "Learn how to rebase branches in Git.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 14,
+    title: "Git on the Server - Quick Overview",
+    slug: "git-on-the-server",
+    thumb: "/images/posts/git-on-the-server/git-on-the-server.webp",
+    category: ["Git", "Git on the Server"],
+    tags: ["Git", "Server", "SSH", "HTTP"],
+    description:
+      "Learn how to set up and use Git on a server.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 15,
+    title: "Distributed Git - Getting Started",
+    slug: "distributed-git",
+    thumb: "/images/posts/distributed-git/distributed-git.webp",
+    category: ["Git", "Distributed Git"],
+    tags: ["Git", "Distributed", "Workflow"],
+    description:
+      "Learn about the distributed nature of Git and its various workflows.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 16,
+    title: "Distributed Git - Contributing to a Project",
+    slug: "contributing-to-a-project",
+    thumb: "/images/posts/distributed-git/contributing-to-a-project.webp",
+    category: ["Git", "Distributed Git"],
+    tags: ["Git", "Distributed", "Workflow"],
+    description:
+      "Learn how to contribute to a distributed Git project.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 17,
+    title: "Distributed Git - Maintaining a Project",
+    slug: "maintaining-a-project",
+    thumb: "/images/posts/distributed-git/maintaining-a-project.webp",
+    category: ["Git", "Distributed Git"],
+    tags: ["Git", "Distributed", "Workflow"],
+    description:
+      "Learn how to maintain a distributed Git project.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  },
+  {
+    id: 18,
+    title: "GitHub - Getting Started",
+    slug: "github",
+    thumb: "/images/posts/github/github.webp",
+    category: ["Git", "GitHub"],
+    tags: ["Git", "GitHub", "Repository", "Pull Request"],
+    description:
+      "Learn how to use GitHub for version control and collaboration.",
+    date: "16 July 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  }
 ];

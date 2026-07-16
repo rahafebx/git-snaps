@@ -8,7 +8,16 @@
 ### [Working with Remote Repositories](posts/remote-repositories.md)
 ### [Tagging](posts/tagging.md)
 ### [Git Aliases](posts/aliases.md)
-
+## [Git Branching](posts/git-branching.md)
+### [Git Branching - Branch Management](posts/branch-management.md)
+### [Git Branching - Branching Workflows](posts/branching-workflows.md)
+### [Git Branching - Remote Branches](posts/remote-branches.md)
+### [Git Branching - Rebasing](posts/rebasing.md)
+## [Git on the Server](posts/git-on-the-server.md)
+## [Distributed Git](posts/distributed-git.md)
+### [Distributed Git - Contributing to a Project](posts/contributing-to-a-project.md)
+### [Distributed Git - Maintaining a Project](posts/maintaining-a-project.md)
+## [GitHub](posts/github.md)
 
 # Labs
 
