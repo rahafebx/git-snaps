@@ -88,6 +88,6 @@ Invoke-WebRequest "https://git-snaps.rahafebx.workers.dev/markdown/posts/getting
 - Fallback to file lists above as canonical crawl targets
 
 ## Generated
-- **Date:** 2026-07-16T06:50:17.570Z
+- **Date:** 2026-07-16T06:53:48.386Z
 - **Posts:** 8
 - **Labs:** 7
