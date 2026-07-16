@@ -27,11 +27,10 @@ export const About = () => {
       {/* Hero Header */}
       <PageHeader
         icon={Terminal}
-        title="Git"
-        highlightedText="Labs"
-        description="Hands-on exercises to practice and master Git workflows, commands, and collaboration techniques."
+        title="About"
+        highlightedText="git_snaps"
+        description="An open-source documentation sandbox built for engineering workflows, git architecture, and repository mechanics."
         hasSearch={false}
-        searchPlaceholder="Search labs, commands, tags, or parent posts..."
       />
 
       {/* Main Narrative Sections */}
