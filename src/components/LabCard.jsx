@@ -15,7 +15,8 @@ const LabCard = ({ lab, parentSlug, showParentInfo = false, variant = 'compact' 
           <img
             src={lab.thumb}
             alt={lab.title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 bg-primary-50 dark:bg-primary-950/20"
+            loading="lazy"
           />
           {/* Lab Badge Overlay */}
           <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-primary-600/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-semibold">
@@ -85,7 +86,8 @@ const LabCard = ({ lab, parentSlug, showParentInfo = false, variant = 'compact' 
           <img 
             src={lab.thumb} 
             alt={lab.title}
-            className="w-20 h-20 object-cover rounded-lg shrink-0"
+            className="w-20 h-20 object-cover rounded-lg shrink-0 bg-primary-50 dark:bg-primary-950/20"
+            loading="lazy"
           />
         )}
         <div className="flex-1 min-w-0">

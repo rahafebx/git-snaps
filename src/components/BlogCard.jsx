@@ -8,7 +8,8 @@ export const BlogCard = ({ post }) => {
         <img
           src={post.thumb}
           alt={post.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 bg-primary-50 dark:bg-primary-950/20"
+          loading="lazy"
         />
       </div>
       {/* Card Content */}
