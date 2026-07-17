@@ -66,7 +66,7 @@ export const blogs = [
     slug: "getting-started",
     thumb: "/images/posts/getting-started/getting-started.webp",
     category: ["Git", "Version Control"],
-    tags: ["Git", "SVN", "Version Control"],
+    tags: ["Git", "SVN", "Version Control", "Snapshot", "State", "Configuration", "Help"],
     description:
       "Learn what Git is, why it matters, and how it compares to centralized version control systems like SVN.",
     date: "13 July 2026",
@@ -88,8 +88,7 @@ export const blogs = [
       "Clone",
       "Status",
       "Ignore",
-      "Version Control",
-      "SVN",
+      "Tracking",
     ],
     description:
       "Learn how to start a new Git workflow by cloning a repository, checking file status, and ignoring unwanted files.",
@@ -106,7 +105,7 @@ export const blogs = [
         slug: "git-basics-lab-hands-on-practice",
         thumb: "/images/posts/git-basics/git-basics.webp",
         category: ["Git", "Git Basics"],
-        tags: ["Git", "Clone", "Repository"],
+        tags: ["Git", "Clone", "Status", "Tracking", "Commit", "Ignore", "Log"],
         description:
           "Practice the fundamental Git operations covered in the 'Getting Started' post, including cloning a repository and checking file status.",
         date: "14 July 2026",
@@ -152,12 +151,11 @@ export const blogs = [
         tags: [
           "Git",
           "Staging",
-          "Committing",
-          "Add Files",
+          "Commit",
+          "Diff",
           "Remove Files",
           "Move Files",
-          "Commit History",
-          "Diff",
+          "Log",
         ],
         description:
           "Practice staging and committing changes in Git, including adding, removing, and moving files, as well as reviewing commit history and differences.",
@@ -260,7 +258,7 @@ export const blogs = [
     slug: "remote-repositories",
     thumb: "/images/posts/git-basics/remote-repositories.webp",
     category: ["Git", "Git Basics"],
-    tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
+    tags: ["Git", "Remote", "Push", "Pull", "Fetch", "Tracking"],
 
     description:
       "Learn how to work with remote repositories using push, pull, fetch, and other collaboration commands.",
@@ -277,7 +275,7 @@ export const blogs = [
         slug: "remote-repositories-lab",
         thumb: "/images/posts/git-basics/remote-repositories.webp",
         category: ["Git", "Git Basics", "GitHub"],
-        tags: ["Git", "Remote", "Push", "Pull", "Fetch"],
+        tags: ["Git", "Remote", "Push", "Pull", "Fetch", "Tracking"],
         description:
           "Practice working with remote repositories in Git, including pushing, pulling, and fetching changes.",
         date: "14 July 2026",
@@ -312,7 +310,7 @@ export const blogs = [
         slug: "tagging-lab",
         thumb: "/images/posts/git-basics/tagging.webp",
         category: ["Git", "Git Basics", "GitHub"],
-        tags: ["Git", "Tag", "Version", "Release"],
+        tags: ["Git", "Tag", "Version", "Release", "push", "checkout"],
         description: "Practice creating and managing Git tags.",
         date: "14 July 2026",
         author: {

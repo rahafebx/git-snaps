@@ -18,6 +18,9 @@ To see which remote repositories are configured for your local repository, you c
 ```bash
 git remote -v
 ```
+Using `git remote` without the `-v` option will only show the names of the remote repositories.
+
+Remote repositories could use a variety of protocols, including HTTPS, SSH, and Git. The URL format for each protocol is different, and you can choose the one that best fits your needs. For more details see [Git on the Server](git-on-the-server). 
 
 ## Adding a Remote Repository
 
@@ -40,7 +43,7 @@ git fetch pb
 
 ## Fetching and Pulling from Remote Repositories
 
-To get the latest changes from a remote repository, you can use the `git fetch` command. This command downloads the changes from the remote repository but does not merge them into your local branch:
+To get the latest changes from a remote repository, you can use the `git fetch` command. This command downloads the changes from the remote repository ***but does not merge them into your local branch***:
 
 ```bash
 git fetch <remote-name>
@@ -52,7 +55,7 @@ When cloning a repository, Git automatically sets up a remote named `origin` tha
 git fetch origin
 ```
 
-If your branch is set to track a remote branch, you can use the `git pull` command to fetch and merge the changes from the remote repository and merge into your local branch in one step:
+If your branch is set to track a remote branch, you can use the `git pull` command to **fetch** the changes from the remote repository and **merge** into your local branch in one step:
 
 ```bash
 git pull <remote-name> <branch-name>
@@ -90,6 +93,12 @@ You can inspect a remote repository using the `git remote show` command. This co
 
 ```bash
 git remote show <remote-name>
+```
+
+This command shows which branch is automatically pushed to the remote repository when you run `git push` without specifying a branch. You can set the upstream branch for your local branch using the `--set-upstream` option, or `-u` for short. This option tells Git to remember the remote branch that your local branch is tracking, so you can use `git push` and `git pull` without specifying the remote and branch names in the future:
+
+```bash
+git push --set-upstream <remote-name> <branch-name>
 ```
 
 ## Renaming and Removing Remote Repositories

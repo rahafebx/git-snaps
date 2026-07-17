@@ -1,5 +1,3 @@
-
-
 # Viewing the Commit History
 
 In this guide, we will explore how to view the commit history of your Git repository.
@@ -19,7 +17,7 @@ git log
 
 - `--patch` or `-p`: Show the changes made in each commit.
 - `-n <number>`: Limit the number of commits shown.
-- `--stat`: Show a summary of changes made in each commit.
+- `--stat`: Show a summary of changes made in each commit (list of modified files, how many files where changed, and how many lines were added or removed).
 - `--pretty`: Customize the output format of the log. Available formats include `oneline`, `short`, `medium`, `full`, `fuller`, and `format:<string>`.
 - `--graph`: Show a graphical representation of the commit history.
 - `--shortstat`: Show a summary of changes made in each commit, similar to `--stat`, but in a more concise format.
@@ -57,13 +55,18 @@ When using the `--pretty=format:` option, you can use various specifiers to cust
 | `%p`        | Abbreviated parent hashes |
 | `%an`       | Author name |
 | `%ae`       | Author email |
-| `%ad`       | Author date (format respects the --date= option) |
+| `%ad`       | Author date (format respects the `--date= option`) |
 | `%ar`       | Author date, relative |
 | `%cn`       | Committer name |
 | `%ce`       | Committer email |
 | `%cd`       | Committer date |
 | `%cr`       | Committer date, relative |
 | `%s`        | Subject |
+
+- **Author:** the person who originally wrote the code.
+- **Committer:** the person who last applied the code to the repository.
+
+In many cases, the author and committer are the same person, but they can be different if someone else applies a patch or makes changes to the code before committing it.
 
 ## Limiting the Log Output
 

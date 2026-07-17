@@ -32,7 +32,7 @@ This will create a new subdirectory named `.git` that contains all of your neces
 
 ### Cloning an Existing Repository
 
-Use the `git clone` command followed by the repository URL:
+To get a copy of an existing repository, use the `git clone` command followed by the repository URL:
 
 ```bash
 git clone <repository-url> <directory-name>
@@ -40,11 +40,13 @@ git clone <repository-url> <directory-name>
 
 `directory-name` is optional and specifies the name of the directory to clone into. If not provided, Git will create a new directory with the same name as the repository:
 
-Example:
+**Example:**
 
 ```bash
 git clone https://github.com/rahafebx/git-snaps.git git-snaps-log
 ```
+
+This example uses the `https` protocol to clone the repository. You can also use the `ssh` protocol if you have set up SSH keys for authentication. For more details see [Git on the Server](git-on-the-server).
 
 ## Recording Changes to the Repository
 
@@ -77,6 +79,19 @@ To start tracking a new file, you need to add it to the staging area using the `
 
 ```bash
 git add <file-name>
+```
+
+The `git add` command takes a path name for either a file or a directory. If you specify a directory, Git will add all files in that directory and its subdirectories to the staging area.
+
+You can use `-A` option with `git add` to stage all changes, including new files, modified files, and deleted files:
+
+```bash
+git add -A
+```
+You can also use `git add .` to stage all changes in the current directory and its subdirectories.
+
+```bash
+git add .
 ```
 
 ### Short Status

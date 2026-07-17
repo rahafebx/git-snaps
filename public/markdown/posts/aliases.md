@@ -15,6 +15,16 @@ git config --global alias.st status
 # Use the alias to check the status of your repository
 git st
 ```
+Here are a couple of examples you may want to set up:
+
+```bash
+$ git config --global alias.co checkout
+$ git config --global alias.br branch
+$ git config --global alias.ci commit
+$ git config --global alias.st status
+$ git config --global alias.unstage 'reset HEAD --'
+git config --global alias.last 'log -1 HEAD'
+```
 
 ## Using Aliases
 
@@ -27,3 +37,13 @@ git config --global alias.ls '!ls -la'
 git ls
 ```
 
+To use the previous aliases:
+
+```bash
+git co <branch-name>
+git br <branch-name>
+git ci -m "Commit message"
+git st -s
+git reset HEAD -- <file-name>
+git last
+```

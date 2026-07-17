@@ -14,7 +14,7 @@ Table of Contents:
 
 ## Branches in a Nutshell
 
-Git stores its data in a simple way: as a series of snapshots of a miniature filesystem. Every time you commit, or save the state of your project, Git takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
+**Git stores its data in a simple way:** as a series of snapshots of a miniature filesystem. Every time you commit, or save the state of your project, Git takes a picture of what all your files look like at that moment and stores a reference to that snapshot.
 
 Git stores these snapshots in a data structure called a **commit**. Each commit has a unique ID (a SHA-1 hash) and contains metadata about the commit, such as the author, date, a message describing the changes, and a pointer to the parent(s) commit—zero parents for the initial commit, one parent for a regular commit, and multiple parents for a merge commit.
 
@@ -131,15 +131,6 @@ The `git branch` command only creates the new branch pointer; it doesn’t switc
 git checkout feature/theme-switching
 ```
 This moves `HEAD` to point to the `feature/theme-switching` branch.
-
-```mermaid
-gitGraph
-    commit id: "98ca9"
-    commit id: "34ac2"
-    commit id: "f30ab"
-    branch feature/theme-switching
-    checkout feature/theme-switching
-```
 
 ```mermaid
 graph LR

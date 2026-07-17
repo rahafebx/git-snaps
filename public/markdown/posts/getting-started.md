@@ -75,6 +75,12 @@ Set main branch name to `main`:
 git config --global init.defaultBranch main
 ```
 
+Set default text editor for Git:
+
+```bash
+git config --global core.editor "your-editor"
+```
+
 View all your Git configuration settings with:
 
 ```bash
