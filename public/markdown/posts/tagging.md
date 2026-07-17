@@ -1,4 +1,7 @@
 # Tagging
+
+>Like most VCSs, Git has the ability to tag specific points in a repository’s history as being important. Typically, people use this functionality to mark release points (`v1.0, v2.0` and so on).
+
 In this guide, we will explore how to manage tags in your Git repository.
 
 - [Tagging](#tagging)
@@ -24,22 +27,29 @@ To search for tags that match a specific pattern, you can use the `-l` or `--lis
 git tag -l "v1.*"
 ```
 
-This command will list all tags that start with "v1.".
+This command will list all tags that start with "`v1.`".
 
 ## Creating Tags
 
 To create a new tag, you can use the `git tag` command followed by the name of the tag. There are two types of tags: **lightweight** tags and **annotated** tags.
 
 - A **lightweight** tag is simply a name for a specific commit and does not contain any additional information.
-- An annotated tag is a full object in the Git database and contains additional information such as the tagger's name, email, date, and a message. Annotated tags are recommended for most cases, as they provide more context about the tag.
+- An **annotated** tag is a full object in the Git database and contains additional information such as the tagger's name, email, date, and a message. Annotated tags are recommended for most cases, as they provide more context about the tag.
 
 ```bash
-# Lightweight tag
+# create Lightweight tag
 git tag <tag-name>
 
-# Annotated tag
+# create Annotated tag
 git tag -a <tag-name> -m "Tag message"
 ```
+
+The `-m` specifies a message for the tag. If you omit the `-m` option, Git will open your default text editor to allow you to enter a message.
+
+You can edit the message by pressing `i` and save the changes by pressing `Esc` and then typing `:wq` and pressing `Enter`.
+
+See [Getting Started with Git](getting-started) for instructions on how to set your default text editor for Git.
+
 
 **Example:**
 
@@ -47,11 +57,11 @@ git tag -a <tag-name> -m "Tag message"
 # Create a lightweight tag named v1.0
 git tag v1.0
 
-# Create an annotated tag named v1.0 with a message
-git tag -a v1.0 -m "Release version 1.0"
+# Create an annotated tag named v1.1 with a message
+git tag -a v1.1 -m "Release version 1.1"
 
 # Show the tag data with the commit it points to
-git show v1.0
+git show v1.1
 ```
 
 Running `git show <tag-name>` will display the commit that the tag points to, along with the tag message and other information for annotated tags.
@@ -67,7 +77,7 @@ To tag the latest commit in your repository, you can use the `git tag` command w
 git tag <tag-name>
 
 # Tag a specific commit with a lightweight tag
-git tag -a <tag-name> <commit-hash>
+git tag <tag-name> <commit-hash>
 
 # Tag the latest commit with an annotated tag
 git tag -a <tag-name> -m "Tag message"
@@ -121,4 +131,10 @@ In this state, you can view the files and make changes, but you cannot commit ne
 ```bash
 # Create a new branch from a specific tag
 git checkout -b <new-branch-name> <tag-name>
+```
+You can checkout back to your previous branch using:
+
+```bash
+# Checkout back to the previous branch
+git checkout <branch-name>
 ```

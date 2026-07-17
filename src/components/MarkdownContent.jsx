@@ -219,7 +219,7 @@ export default function MarkdownContent({
               return (
                 <code
                   {...props}
-                  className="bg-zinc-100 dark:bg-zinc-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono font-medium"
+                  className="bg-zinc-100 dark:bg-zinc-800 text-primary-700 dark:text-primary-300 px-1.5 py-0.5 rounded text-sm font-mono font-medium lg:whitespace-nowrap"
                 >
                   {children}
                 </code>

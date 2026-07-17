@@ -45,17 +45,27 @@ git commit -am "Your commit message here"
 ```
 **Note:** The `-a` flag only works for tracked files. If you have new untracked files, you will need to stage them first using `git add`.
 
-You can use `-A` option with `git add` to stage all changes, including new files, modified files, and deleted files:
-
-```bash
-git add -A
-```
-
 To commit a specific file, you can specify the file name in the `git commit` command:
 
 ```bash
 git commit -m "Your commit message here" <file-name>
 ```
+
+If you run `git commit` without the `-m` flag, Git will open your default text editor to allow you to write a more detailed commit message. After writing your message, save and close the editor to complete the commit.
+
+You can set the default text editor for Git using the following command, as we see in the [Getting Started with Git](getting-started) post:
+
+```bash
+# view current editor
+git config --global core.editor
+
+# set your default editor
+git config --global core.editor "your-editor"
+```
+
+**Deal with `vim` editor (the default):**
+
+If you are using `vim` as your default editor, you can save and exit by pressing `Esc`, typing `:wq`, and then pressing `Enter`. If you want to exit without saving, press `Esc`, type `:q!`, and then press `Enter`.
 
 ## Removing Files
 
@@ -64,6 +74,10 @@ To remove a file from the working directory and the staging area, you can use th
 ```bash
 git rm <file-name>
 ```
+This command will delete the file from your working directory and stage the removal for the next commit. After running this command, you can commit the change to finalize the removal.
+
+You can use `.gitignore` to keep the file in your working tree but remove it from your staging area. See [Git Basics - Getting Started](getting-started) for more information.
+
 
 If you modified the file or had staged it, you can use the `-f` flag to force the removal:
 
