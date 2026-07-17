@@ -27,7 +27,7 @@ git add index.html style.css app.js
 git commit -m "Initial commit"
 ```
 
-The Git repository now contains five objects: three blobs (one for each file), one tree (representing the project directory), and one commit object. The commit object points to the tree, which in turn points to the blobs.
+**The Git repository now contains five objects:** three blobs (one for each file), one tree (representing the project directory), and one commit object. The commit object points to the tree, which in turn points to the blobs.
 
 ```mermaid
 graph TD
@@ -71,13 +71,6 @@ graph LR
     CB -->|parent| CC
 ```
 A branch in Git is simply a lightweight movable pointer to one of these commits. The default branch name in Git is `master` (or `main` in newer versions). As you start making commits, you're given a `master` branch that points to the last commit you made. Every time you commit, it moves forward automatically.
-
-```mermaid
-gitGraph
-    commit id: "98ca9" tag: "Snapshot A"
-    commit id: "34ac2" tag: "Snapshot B"
-    commit id: "f30ab" tag: "Snapshot C"
-```
 
 ```mermaid
 graph LR

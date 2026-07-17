@@ -57,9 +57,16 @@ To delete a branch, you can use the `-d` option:
 git branch -d <branch-name>
 ```
 
+Branch delete may fail if the branch has unmerged changes. In that case, you can use the `-D` option to force delete the branch:
+
+```bash
+git branch -D <branch-name>
+```
+
 ## Changing the name of a branch
 
 To rename a branch, you can use the `-m` or `--move` option:
+
 ```bash
 git branch -m <old-branch-name> <new-branch-name>
 ```
@@ -75,4 +82,4 @@ Changing the master branch name is a special case. You can rename the master bra
 git branch -m master main
 git push --set-upstream origin main
 ```
-Note: you can use `-u` instead of `--set-upstream` to set the upstream branch.
+**Note:** you can use `-u` instead of `--set-upstream` to set the upstream branch.

@@ -365,12 +365,29 @@ export const blogs = [
     tags: ["Git", "Branch", "Merge", "Checkout"],
     description:
       "Learn the basics of Git branching, including creating, switching, and merging branches.",
-    date: "16 July 2026",
+    date: "17 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Branching Lab: Hands-On Practice",
+        slug: "git-branching-lab",
+        thumb: "/images/posts/git-branching/git-branching.webp",
+        category: ["Git", "Git Branching"],
+        tags: ["Git", "Branch", "Merge", "Checkout"],
+        description: "Practice creating, switching, and merging branches in Git.",
+        date: "17 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ]
   },
   {
     id: 10,
@@ -378,15 +395,32 @@ export const blogs = [
     slug: "branch-management",
     thumb: "/images/posts/git-branching/branch-management.webp",
     category: ["Git", "Git Branching"],
-    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    tags: ["Git", "Branch", "Merge", "Checkout", "Rename"],
     description:
       "Learn how to manage branches in Git, including creating, deleting, and renaming branches.",
-    date: "16 July 2026",
+    date: "17 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Branch Management Lab: Hands-On Practice",
+        slug: "branch-management-lab",
+        thumb: "/images/posts/git-branching/branch-management.webp",
+        category: ["Git", "Git Branching"],
+        tags: ["Git", "Branch", "Merge", "Checkout", "Rename"],
+        description: "Practice managing branches in Git, including creating, deleting, and renaming branches.",
+        date: "17 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      }
+    ],
   },
   {
     id: 11,
@@ -394,10 +428,10 @@ export const blogs = [
     slug: "branching-workflows",
     thumb: "/images/posts/git-branching/branching-workflows.webp",
     category: ["Git", "Git Branching"],
-    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+    tags: ["Git", "Branch", "Long-Lived Branches", "Topic Branches", "workflows"],
     description:
       "Learn about different branching workflows used in Git.",
-    date: "16 July 2026",
+    date: "17 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
