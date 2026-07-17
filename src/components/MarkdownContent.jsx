@@ -79,7 +79,7 @@ export default function MarkdownContent({
       )}
       <div
         className={` 
-          max-w-none 
+          max-w-none
           [&>h1]:text-3xl [&>h1]:font-black [&>h1]:mt-10 [&>h1]:mb-4 [&>h1]:text-zinc-900 dark:[&>h1]:text-white
           [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-10 [&>h2]:mb-3 [&>h2]:text-zinc-900 dark:[&>h2]:text-zinc-100
           [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:mt-6 [&>h3]:mb-2 [&>h3]:text-zinc-900 dark:[&>h3]:text-zinc-200

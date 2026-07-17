@@ -10,7 +10,7 @@
 ### [Git Aliases](posts/aliases)
 ## [Git Branching](posts/git-branching)
 ### [Git Branching - Branch Management](posts/branch-management)
-### [Git Branching - Branching Workflows](posts/branching-workflows.md)
+### [Git Branching - Branching Workflows](posts/branching-workflows)
 ### [Git Branching - Remote Branches](posts/remote-branches.md)
 ### [Git Branching - Rebasing](posts/rebasing.md)
 ## [Git on the Server](posts/git-on-the-server.md)
