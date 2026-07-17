@@ -4,6 +4,7 @@ import {
   ZoomIn,
   ZoomOut,
   Maximize,
+  Minimize,
   RotateCcw,
   Download,
 } from "lucide-react";
@@ -16,9 +17,15 @@ export const MermaidDiagram = ({ chart, isDark }) => {
   const [isRendering, setIsRendering] = useState(false);
   const [zoom, setZoom] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const diagramRef = useRef(null);
   const isMounted = useRef(true);
+  
+  // Pan state for drag
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [panStart, setPanStart] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     isMounted.current = true;
@@ -104,7 +111,8 @@ export const MermaidDiagram = ({ chart, isDark }) => {
         if (isMounted.current) {
           setSvg(renderedSvg);
           setError(null);
-          setZoom(1); // Reset zoom when new diagram renders
+          setZoom(1);
+          setPan({ x: 0, y: 0 }); // Reset pan when new diagram renders
         }
       } catch (err) {
         console.error("Mermaid rendering error:", err);
@@ -124,6 +132,84 @@ export const MermaidDiagram = ({ chart, isDark }) => {
     renderMermaid();
   }, [chart, isDark]);
 
+  // Mouse wheel zoom (only in fullscreen)
+  const handleWheel = useCallback(
+    (e) => {
+      if (!isFullscreen) return;
+      
+      e.preventDefault();
+      const delta = e.deltaY > 0 ? -0.1 : 0.1;
+      setZoom((prev) => Math.min(Math.max(prev + delta, 0.3), 3));
+    },
+    [isFullscreen]
+  );
+
+  // Mouse down for drag (only in fullscreen)
+  const handleMouseDown = useCallback(
+    (e) => {
+      if (!isFullscreen) return;
+      
+      // Only handle left click
+      if (e.button !== 0) return;
+      
+      setIsDragging(true);
+      setDragStart({ x: e.clientX, y: e.clientY });
+      setPanStart({ x: pan.x, y: pan.y });
+      
+      // Prevent text selection during drag
+      e.preventDefault();
+    },
+    [isFullscreen, pan]
+  );
+
+  // Mouse move for drag (only in fullscreen)
+  const handleMouseMove = useCallback(
+    (e) => {
+      if (!isFullscreen || !isDragging) return;
+      
+      const deltaX = e.clientX - dragStart.x;
+      const deltaY = e.clientY - dragStart.y;
+      
+      setPan({
+        x: panStart.x + deltaX,
+        y: panStart.y + deltaY,
+      });
+    },
+    [isFullscreen, isDragging, dragStart, panStart]
+  );
+
+  // Mouse up to end drag
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Add event listeners for pan and zoom
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Only attach wheel listener if fullscreen
+    if (isFullscreen) {
+      container.addEventListener("wheel", handleWheel, { passive: false });
+      container.addEventListener("mousedown", handleMouseDown);
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+      
+      // Change cursor to grab when in fullscreen
+      container.style.cursor = "grab";
+    } else {
+      // Reset cursor when not in fullscreen
+      container.style.cursor = "default";
+    }
+
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
+      container.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isFullscreen, handleWheel, handleMouseDown, handleMouseMove, handleMouseUp]);
+
   // Zoom controls
   const handleZoomIn = useCallback(() => {
     setZoom((prev) => Math.min(prev + 0.1, 3));
@@ -135,29 +221,49 @@ export const MermaidDiagram = ({ chart, isDark }) => {
 
   const handleResetZoom = useCallback(() => {
     setZoom(1);
+    setPan({ x: 0, y: 0 });
   }, []);
 
-  const handleFullscreen = useCallback(() => {
-    if (!document.fullscreenElement) {
-      containerRef.current?.requestFullscreen?.();
-      setIsFullscreen(true);
-    } else {
-      document.exitFullscreen?.();
-      setIsFullscreen(false);
-    }
+  // Toggle fullscreen (CSS-based, not browser fullscreen)
+  const toggleFullscreen = useCallback(() => {
+    setIsFullscreen((prev) => {
+      if (prev) {
+        setPan({ x: 0, y: 0 });
+        setZoom(1);
+        setIsDragging(false);
+      }
+      return !prev;
+    });
   }, []);
 
-  // Handle fullscreen change events
+  // Handle ESC key to exit fullscreen
   useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+    const handleEscKey = (event) => {
+      if (event.key === "Escape" && isFullscreen) {
+        setPan({ x: 0, y: 0 });
+        setZoom(1);
+        setIsDragging(false);
+        setIsFullscreen(false);
+      }
     };
 
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("keydown", handleEscKey);
     return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener("keydown", handleEscKey);
     };
-  }, []);
+  }, [isFullscreen]);
+
+  // Prevent body scroll when fullscreen is active
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isFullscreen]);
 
   // Handle download as SVG
   const handleDownload = useCallback(() => {
@@ -239,98 +345,126 @@ export const MermaidDiagram = ({ chart, isDark }) => {
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-white dark:bg-zinc-900"
-    >
-      {/* Controls Bar */}
-      <div className="flex items-center justify-between gap-2 px-4 py-2 bg-zinc-50 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-800">
-        <div className="flex items-center gap-1">
-          <button
-            onClick={handleZoomOut}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
-            title="Zoom Out"
-            aria-label="Zoom Out"
-          >
-            <ZoomOut className="h-4 w-4" />
-          </button>
-          <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400 min-w-[3rem] text-center">
-            {Math.round(zoom * 100)}%
-          </span>
-          <button
-            onClick={handleZoomIn}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
-            title="Zoom In"
-            aria-label="Zoom In"
-          >
-            <ZoomIn className="h-4 w-4" />
-          </button>
-          <button
-            onClick={handleResetZoom}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
-            title="Reset Zoom"
-            aria-label="Reset Zoom"
-          >
-            <RotateCcw className="h-4 w-4" />
-          </button>
-        </div>
-
-        <div className="flex items-center gap-1">
-          <button
-            onClick={handleFullscreen}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
-            title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-            aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
-          >
-            <Maximize className="h-4 w-4" />
-          </button>
-          <button
-            onClick={handleDownload}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
-            title="Download as SVG"
-            aria-label="Download as SVG"
-          >
-            <Download className="h-4 w-4" />
-          </button>
-          <button
-            onClick={handleDownloadPNG}
-            className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400 text-xs font-medium"
-            title="Download as PNG"
-            aria-label="Download as PNG"
-          >
-            SVG
-          </button>
-        </div>
-      </div>
-
-      {/* Diagram Container */}
+    <>
+      {/* Fullscreen overlay */}
+      {isFullscreen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
+          onClick={toggleFullscreen}
+        />
+      )}
+      
       <div
-        ref={diagramRef}
-        className="p-8 flex items-center justify-center overflow-auto"
+        ref={containerRef}
+        className={`my-6 rounded-xl border border-zinc-200 dark:border-zinc-800 overflow-hidden bg-white dark:bg-zinc-900 transition-all duration-300 ${
+          isFullscreen
+            ? "fixed inset-4 z-50 rounded-xl shadow-2xl"
+            : "relative"
+        }`}
         style={{
-          minHeight: "300px",
-          maxHeight: isFullscreen ? "calc(100vh - 60px)" : "700px",
+          ...(isFullscreen && {
+            width: "auto",
+            height: "auto",
+          }),
+          cursor: isFullscreen ? (isDragging ? "grabbing" : "grab") : "default",
+          userSelect: isFullscreen ? "none" : "auto",
         }}
       >
-        <div
-          style={{
-            transform: `scale(${zoom})`,
-            transformOrigin: "center center",
-            transition: "transform 0.2s ease",
-            maxWidth: "100%",
-          }}
-          dangerouslySetInnerHTML={{ __html: svg }}
-        />
-      </div>
+        {/* Controls Bar */}
+        <div className="flex items-center justify-between gap-2 px-4 py-2 bg-zinc-50 dark:bg-zinc-800/50 border-b border-zinc-200 dark:border-zinc-800">
+          <div className="flex items-center gap-1">
+            <button
+              onClick={handleZoomOut}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
+              title="Zoom Out"
+              aria-label="Zoom Out"
+            >
+              <ZoomOut className="h-4 w-4" />
+            </button>
+            <span className="text-xs font-mono text-zinc-600 dark:text-zinc-400 min-w-[3rem] text-center">
+              {Math.round(zoom * 100)}%
+            </span>
+            <button
+              onClick={handleZoomIn}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
+              title="Zoom In"
+              aria-label="Zoom In"
+            >
+              <ZoomIn className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleResetZoom}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
+              title="Reset Zoom"
+              aria-label="Reset Zoom"
+            >
+              <RotateCcw className="h-4 w-4" />
+            </button>
+          </div>
 
-      {/* Footer with diagram info */}
-      <div className="px-4 py-1.5 bg-zinc-50 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800">
-        <p className="text-xs text-zinc-400 dark:text-zinc-400 text-center font-mono">
-          {isFullscreen
-            ? "Press ESC to exit fullscreen"
-            : "Use mouse wheel to zoom • Click and drag to pan"}
-        </p>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={toggleFullscreen}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
+              title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+              aria-label={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            >
+              {isFullscreen ? (
+                <Minimize className="h-4 w-4" />
+              ) : (
+                <Maximize className="h-4 w-4" />
+              )}
+            </button>
+            <button
+              onClick={handleDownload}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400"
+              title="Download as SVG"
+              aria-label="Download as SVG"
+            >
+              <Download className="h-4 w-4" />
+            </button>
+            <button
+              onClick={handleDownloadPNG}
+              className="p-1.5 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-zinc-600 dark:text-zinc-400 text-xs font-medium"
+              title="Download as PNG"
+              aria-label="Download as PNG"
+            >
+              PNG
+            </button>
+          </div>
+        </div>
+
+        {/* Diagram Container */}
+        <div
+          ref={diagramRef}
+          className="p-8 flex items-center justify-center overflow-hidden"
+          style={{
+            minHeight: isFullscreen ? "calc(100vh - 120px)" : "300px",
+            maxHeight: isFullscreen ? "calc(100vh - 120px)" : "700px",
+            height: isFullscreen ? "calc(100vh - 120px)" : "auto",
+          }}
+        >
+          <div
+            style={{
+              transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})`,
+              transformOrigin: "center center",
+              transition: isDragging ? "none" : "transform 0.2s ease",
+              maxWidth: "100%",
+              willChange: "transform",
+            }}
+            dangerouslySetInnerHTML={{ __html: svg }}
+          />
+        </div>
+
+        {/* Footer with diagram info */}
+        <div className="px-4 py-1.5 bg-zinc-50 dark:bg-zinc-800/50 border-t border-zinc-200 dark:border-zinc-800">
+          <p className="text-xs text-zinc-400 dark:text-zinc-400 text-center font-mono">
+            {isFullscreen
+              ? "🖱️ Use mouse wheel to zoom • Click and drag to pan • Press ESC to exit"
+              : "Click the maximize button to enable zoom and pan"}
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
