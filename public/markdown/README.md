@@ -9,7 +9,7 @@
 ### [Tagging](posts/tagging)
 ### [Git Aliases](posts/aliases)
 ## [Git Branching](posts/git-branching)
-### [Git Branching - Branch Management](posts/branch-management.md)
+### [Git Branching - Branch Management](posts/branch-management)
 ### [Git Branching - Branching Workflows](posts/branching-workflows.md)
 ### [Git Branching - Remote Branches](posts/remote-branches.md)
 ### [Git Branching - Rebasing](posts/rebasing.md)
@@ -31,3 +31,4 @@
 | [Tagging Lab: Hands-On Practice](labs/tagging-lab) | [Tagging](posts/tagging) |
 | [Git Aliases Lab: Hands-On Practice](labs/aliases-lab.md) | [Git Aliases](posts/aliases.md) |
 | [Git Branching Lab: Hands-On Practice](labs/git-branching-lab) | [Git Branching](posts/git-branching) |
+| [Git Branch Management Lab: Hands-On Practice](labs/branch-management-lab) | [Git Branching - Branch Management](posts/branch-management) |
