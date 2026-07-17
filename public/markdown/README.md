@@ -30,3 +30,4 @@
 | [Working with Remote Repositories Lab: Hands-On Practice](labs/remote-repositories-lab) | [Working with Remote Repositories](posts/remote-repositories) |
 | [Tagging Lab: Hands-On Practice](labs/tagging-lab) | [Tagging](posts/tagging) |
 | [Git Aliases Lab: Hands-On Practice](labs/aliases-lab.md) | [Git Aliases](posts/aliases.md) |
+| [Git Branching Lab: Hands-On Practice](labs/git-branching-lab) | [Git Branching](posts/git-branching) |

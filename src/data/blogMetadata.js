@@ -365,12 +365,29 @@ export const blogs = [
     tags: ["Git", "Branch", "Merge", "Checkout"],
     description:
       "Learn the basics of Git branching, including creating, switching, and merging branches.",
-    date: "16 July 2026",
+    date: "17 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Branching Lab: Hands-On Practice",
+        slug: "git-branching-lab",
+        thumb: "/images/posts/git-branching/git-branching.webp",
+        category: ["Git", "Git Branching"],
+        tags: ["Git", "Branch", "Merge", "Checkout"],
+        description: "Practice creating, switching, and merging branches in Git.",
+        date: "17 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ]
   },
   {
     id: 10,
