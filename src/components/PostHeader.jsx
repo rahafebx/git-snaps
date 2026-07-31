@@ -2,17 +2,15 @@ import { TestTubeDiagonal } from "lucide-react";
 const PostHeader = ({ title, date, tags, isLab = false }) => {
   return (
     <header className="mb-8">
-      {isLab && (
-        <div className="inline-flex items-center gap-2 mb-3">
-          <span className="inline-block px-3 py-1 text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            <TestTubeDiagonal className="inline-block w-4 h-4 mr-1" /> Lab
-          </span>
-        </div>
-      )}
       <span className="heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
         {title}
       </span>
       <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+        {isLab && (
+          <span className="inline-block whitespace-nowrap px-3 py-1 text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+            <TestTubeDiagonal className="inline-block w-4 h-4 mr-1" /> Lab
+          </span>
+        )}
         <time dateTime={date}>{date}</time>
         <span>•</span>
         <div className="flex flex-wrap gap-2">

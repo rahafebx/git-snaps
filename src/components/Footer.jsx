@@ -35,7 +35,7 @@ export const Footer = () => {
                       Official Git Docs
                     </a>
                   </li>
-                  {/* Github guides */}
+                  {/* GitHub guides */}
                   <li>
                     <a
                       href="https://docs.github.com"
@@ -46,7 +46,7 @@ export const Footer = () => {
                       GitHub Guides
                     </a>
                   </li>
-                  {/* Github learn */}
+                  {/* GitHub Learn */}
                   <li>
                     <a
                       href="https://learn.github.com"
@@ -57,6 +57,18 @@ export const Footer = () => {
                       GitHub Learn
                     </a>
                   </li>
+                  {/* GitHub Blog */}
+                  <li>
+                    <a
+                      href="https://github.blog/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400"
+                    >
+                      GitHub Blog
+                    </a>
+                  </li>
+                  {/* Microsoft Training */}
                   <li>
                     <a
                       href="https://learn.microsoft.com/en-us/training/browse/"
