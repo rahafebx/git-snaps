@@ -11,7 +11,7 @@
 ## [Git Branching](posts/git-branching)
 ### [Git Branching - Branch Management](posts/branch-management)
 ### [Git Branching - Branching Workflows](posts/branching-workflows)
-### [Git Branching - Remote Branches](posts/remote-branches.md)
+### [Git Branching - Remote Branches](posts/remote-branches)
 ### [Git Branching - Rebasing](posts/rebasing.md)
 ## [Git on the Server](posts/git-on-the-server.md)
 ## [Distributed Git](posts/distributed-git.md)
