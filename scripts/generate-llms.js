@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.join(__dirname, '..');
 
 // Import your metadata
-const blogMetadata = (await import('../src/data/blogMetadata.js')).default;
+const blogMetadata = (await import('../public/data/blogMetadata.js')).default;
 
 // Get all markdown files
 const postsDir = path.join(rootDir, 'public/markdown/posts');
@@ -57,7 +57,7 @@ content += `
 - Labs: \`https://git-snaps.rahafebx.workers.dev/markdown/labs/{slug}.md?raw\`
 
 ## Metadata Source
-Primary: \`src/data/blogMetadata.js\`
+Primary: \`public/data/blogMetadata.js\`
 - Fields: id, title, slug, thumb, category, tags, description, date, author
 
 ## Generated: ${new Date().toISOString().split('T')[0]}

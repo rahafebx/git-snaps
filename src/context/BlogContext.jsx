@@ -1,6 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useMemo } from "react";
-import { blogs as initialBlogs } from "../data/blogMetadata";
+import { blogs as initialBlogs } from "../../public/data/blogMetadata";
 
 const BlogContext = createContext(null);
 

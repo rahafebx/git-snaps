@@ -24,7 +24,7 @@ export default function llmsPlugin() {
       
       // Watch for changes to metadata or markdown files
       server.watcher.add([
-        'src/data/blogMetadata.js',
+        'public/data/blogMetadata.js',
         'public/markdown/posts/**/*.md',
         'public/markdown/labs/**/*.md'
       ]);
@@ -86,7 +86,7 @@ function generateLLMSContent(rootDir) {
     // Try to import metadata dynamically
     let metadata = [];
     try {
-      const metadataPath = path.join(rootDir, 'src/data/blogMetadata.js');
+      const metadataPath = path.join(rootDir, 'public/data/blogMetadata.js');
       if (fs.existsSync(metadataPath)) {
         const metadataContent = fs.readFileSync(metadataPath, 'utf8');
         const match = metadataContent.match(/export default \[([\s\S]*?)\];/);
@@ -190,7 +190,7 @@ Bite-sized visual production tutorials, tracking version controls, workflows, an
 - \`/lab/:slug\` → \`/public/markdown/labs/{slug}.md\`
 
 ## Metadata Source
-**Primary:** \`src/data/blogMetadata.js\`
+**Primary:** \`public/data/blogMetadata.js\`
 - Fields: \`id, title, slug, thumb, category, tags, description, date, author {name, username, position}, labs[]\`
 - Thumbnails: \`/images/...\` (relative to public folder)
 

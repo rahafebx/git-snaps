@@ -110,7 +110,7 @@ git-snaps/
 ## 📝 Content Structure
 
 ### Blog Posts
-Posts are located in `public/markdown/posts/` and referenced in `src/data/blogMetadata.js`. Each post includes:
+Posts are located in `public/markdown/posts/` and referenced in `public/data/blogMetadata.js`. Each post includes:
 - Markdown content with GFM support
 - Thumbnail images
 - Metadata (title, slug, category, tags, author, date)
@@ -132,7 +132,7 @@ Tailwind CSS v4 properties are processed through custom variant selectors in the
 
 **Adding a Blog Post:**
 1. Create markdown file in `public/markdown/posts/`
-2. Add metadata entry in `src/data/blogMetadata.js`
+2. Add metadata entry in `public/data/blogMetadata.js`
 3. Add thumbnail image to `public/images/posts/`
 
 **Adding a Lab:**
