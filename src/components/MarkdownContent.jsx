@@ -112,6 +112,16 @@ export default function MarkdownContent({
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
+            // Inject standard slugified IDs into dynamic H1 elements for jump link scrolling
+            h1({ children, ...props }) {
+              const headingText = React.Children.toArray(children).join("");
+              const id = slugify(headingText);
+              return (
+                <h1 id={id} {...props}>
+                  {children}
+                </h1>
+              );
+            },
             // Inject standard slugified IDs into dynamic H2 elements for jump link scrolling
             h2({ children, ...props }) {
               const headingText = React.Children.toArray(children).join("");

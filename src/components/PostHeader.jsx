@@ -9,9 +9,9 @@ const PostHeader = ({ title, date, tags, isLab = false }) => {
           </span>
         </div>
       )}
-      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
+      <span className="heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
         {title}
-      </h1>
+      </span>
       <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
         <time dateTime={date}>{date}</time>
         <span>•</span>

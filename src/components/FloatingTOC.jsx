@@ -52,7 +52,7 @@ export default function FloatingTOC({ content, className }) {
     );
 
     // Observe all heading elements
-    const headings = document.querySelectorAll('h2, h3');
+    const headings = document.querySelectorAll('h1, h2, h3');
     headings.forEach((heading) => observer.observe(heading));
 
     return () => {
