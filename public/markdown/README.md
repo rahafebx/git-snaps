@@ -12,7 +12,7 @@
 ### [Git Branching - Branch Management](posts/branch-management)
 ### [Git Branching - Branching Workflows](posts/branching-workflows)
 ### [Git Branching - Remote Branches](posts/remote-branches)
-### [Git Branching - Rebasing](posts/rebasing.md)
+### [Git Branching - Rebasing](posts/rebasing)
 ## [Git on the Server](posts/git-on-the-server.md)
 ## [Distributed Git](posts/distributed-git.md)
 ### [Distributed Git - Contributing to a Project](posts/contributing-to-a-project.md)
@@ -33,3 +33,4 @@
 | [Git Branching Lab: Hands-On Practice](labs/git-branching-lab) | [Git Branching](posts/git-branching) |
 | [Git Branch Management Lab: Hands-On Practice](labs/branch-management-lab) | [Git Branching - Branch Management](posts/branch-management) |
 | [Git Remote Branches Lab: Hands-On Practice](labs/remote-branches-lab) | [Git Branching - Remote Branches](posts/remote-branches) |
+| [Git Rebasing Lab: Hands-On Practice](labs/rebasing-lab) | [Git Branching - Rebasing](posts/rebasing) |

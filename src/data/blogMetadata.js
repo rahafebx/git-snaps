@@ -491,6 +491,23 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Rebasing Lab: Hands-On Practice",
+        slug: "rebasing-lab",
+        thumb: "/images/posts/git-branching/rebasing.webp",
+        category: ["Git", "Git Branching"],
+        tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
+        description: "Practice rebasing branches in Git.",
+        date: "31 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 14,

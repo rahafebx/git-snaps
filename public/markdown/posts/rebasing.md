@@ -23,7 +23,7 @@ At this point, you can go back to the `main` branch and merge the `feature/new-f
 git checkout main
 git merge feature/new-feature
 ```
-If you examine the log of a rebased branch, it looks like a linear history: it appears that all the work happened in series, even when it originally happened in parallel.
+> If you examine the log of a rebased branch, it looks like a linear history: it appears that all the work happened in series, even when it originally happened in parallel.
 
 The snapshots of the project are the same, but the history is different. Rebasing is a powerful tool, but it should be used with caution, especially when working with shared branches. It is generally recommended to avoid rebasing public branches that others may be using, as it can rewrite history and cause confusion.
 
