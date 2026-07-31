@@ -32,3 +32,4 @@
 | [Git Aliases Lab: Hands-On Practice](labs/aliases-lab.md) | [Git Aliases](posts/aliases.md) |
 | [Git Branching Lab: Hands-On Practice](labs/git-branching-lab) | [Git Branching](posts/git-branching) |
 | [Git Branch Management Lab: Hands-On Practice](labs/branch-management-lab) | [Git Branching - Branch Management](posts/branch-management) |
+| [Git Remote Branches Lab: Hands-On Practice](labs/remote-branches-lab) | [Git Branching - Remote Branches](posts/remote-branches) |

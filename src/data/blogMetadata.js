@@ -66,7 +66,15 @@ export const blogs = [
     slug: "getting-started",
     thumb: "/images/posts/getting-started/getting-started.webp",
     category: ["Git", "Version Control"],
-    tags: ["Git", "SVN", "Version Control", "Snapshot", "State", "Configuration", "Help"],
+    tags: [
+      "Git",
+      "SVN",
+      "Version Control",
+      "Snapshot",
+      "State",
+      "Configuration",
+      "Help",
+    ],
     description:
       "Learn what Git is, why it matters, and how it compares to centralized version control systems like SVN.",
     date: "13 July 2026",
@@ -82,14 +90,7 @@ export const blogs = [
     slug: "git-basics",
     thumb: "/images/posts/git-basics/git-basics.webp",
     category: ["Git", "Git Basics"],
-    tags: [
-      "Git",
-      "Repository",
-      "Clone",
-      "Status",
-      "Ignore",
-      "Tracking",
-    ],
+    tags: ["Git", "Repository", "Clone", "Status", "Ignore", "Tracking"],
     description:
       "Learn how to start a new Git workflow by cloning a repository, checking file status, and ignoring unwanted files.",
     date: "13 July 2026",
@@ -354,7 +355,6 @@ export const blogs = [
         },
       },
     ],
-    
   },
   {
     id: 9,
@@ -379,7 +379,8 @@ export const blogs = [
         thumb: "/images/posts/git-branching/git-branching.webp",
         category: ["Git", "Git Branching"],
         tags: ["Git", "Branch", "Merge", "Checkout"],
-        description: "Practice creating, switching, and merging branches in Git.",
+        description:
+          "Practice creating, switching, and merging branches in Git.",
         date: "17 July 2026",
         author: {
           name: "Rahaf Ebx",
@@ -387,7 +388,7 @@ export const blogs = [
           position: "Web Developer",
         },
       },
-    ]
+    ],
   },
   {
     id: 10,
@@ -412,14 +413,15 @@ export const blogs = [
         thumb: "/images/posts/git-branching/branch-management.webp",
         category: ["Git", "Git Branching"],
         tags: ["Git", "Branch", "Merge", "Checkout", "Rename"],
-        description: "Practice managing branches in Git, including creating, deleting, and renaming branches.",
+        description:
+          "Practice managing branches in Git, including creating, deleting, and renaming branches.",
         date: "17 July 2026",
         author: {
           name: "Rahaf Ebx",
           username: "rahafebx",
           position: "Web Developer",
         },
-      }
+      },
     ],
   },
   {
@@ -428,9 +430,14 @@ export const blogs = [
     slug: "branching-workflows",
     thumb: "/images/posts/git-branching/branching-workflows.webp",
     category: ["Git", "Git Branching"],
-    tags: ["Git", "Branch", "Long-Lived Branches", "Topic Branches", "workflows"],
-    description:
-      "Learn about different branching workflows used in Git.",
+    tags: [
+      "Git",
+      "Branch",
+      "Long-Lived Branches",
+      "Topic Branches",
+      "workflows",
+    ],
+    description: "Learn about different branching workflows used in Git.",
     date: "17 July 2026",
     author: {
       name: "Rahaf Ebx",
@@ -444,15 +451,31 @@ export const blogs = [
     slug: "remote-branches",
     thumb: "/images/posts/git-branching/remote-branches.webp",
     category: ["Git", "Git Branching"],
-    tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
-    description:
-      "Learn how to work with remote branches in Git.",
+    tags: ["Git", "Branch", "Merge", "Checkout"],
+    description: "Learn how to work with remote branches in Git.",
     date: "16 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
       position: "Web Developer",
     },
+    labs: [
+      {
+        id: 1,
+        title: "Git Remote Branches Lab: Hands-On Practice",
+        slug: "remote-branches-lab",
+        thumb: "/images/posts/git-branching/remote-branches.webp",
+        category: ["Git", "Git Branching"],
+        tags: ["Git", "Branch", "Merge", "Checkout"],
+        description: "Practice working with remote branches in Git.",
+        date: "31 July 2026",
+        author: {
+          name: "Rahaf Ebx",
+          username: "rahafebx",
+          position: "Web Developer",
+        },
+      },
+    ],
   },
   {
     id: 13,
@@ -461,8 +484,7 @@ export const blogs = [
     thumb: "/images/posts/git-branching/rebasing.webp",
     category: ["Git", "Git Branching"],
     tags: ["Git", "Branch", "Merge", "Checkout", "Rebase"],
-    description:
-      "Learn how to rebase branches in Git.",
+    description: "Learn how to rebase branches in Git.",
     date: "16 July 2026",
     author: {
       name: "Rahaf Ebx",
@@ -477,8 +499,7 @@ export const blogs = [
     thumb: "/images/posts/git-on-the-server/git-on-the-server.webp",
     category: ["Git", "Git on the Server"],
     tags: ["Git", "Server", "SSH", "HTTP"],
-    description:
-      "Learn how to set up and use Git on a server.",
+    description: "Learn how to set up and use Git on a server.",
     date: "16 July 2026",
     author: {
       name: "Rahaf Ebx",
@@ -509,8 +530,7 @@ export const blogs = [
     thumb: "/images/posts/distributed-git/contributing-to-a-project.webp",
     category: ["Git", "Distributed Git"],
     tags: ["Git", "Distributed", "Workflow"],
-    description:
-      "Learn how to contribute to a distributed Git project.",
+    description: "Learn how to contribute to a distributed Git project.",
     date: "16 July 2026",
     author: {
       name: "Rahaf Ebx",
@@ -525,8 +545,7 @@ export const blogs = [
     thumb: "/images/posts/distributed-git/maintaining-a-project.webp",
     category: ["Git", "Distributed Git"],
     tags: ["Git", "Distributed", "Workflow"],
-    description:
-      "Learn how to maintain a distributed Git project.",
+    description: "Learn how to maintain a distributed Git project.",
     date: "16 July 2026",
     author: {
       name: "Rahaf Ebx",
@@ -549,5 +568,5 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
-  }
+  },
 ];
