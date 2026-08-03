@@ -8,6 +8,7 @@ import {
 } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MermaidDiagram } from "../components/MermaidDiagram";
 import FloatingTOC from "../components/FloatingTOC";
+import { useTheme } from "../context/ThemeContext";
 
 // Helper utility function to slugify header text strings into standard browser anchor tags
 const slugify = (text) => {
@@ -26,6 +27,7 @@ export default function MarkdownContent({
   isDark,
   showFloatingTOC = true,
 }) {
+  const { themeChangeKey } = useTheme();
   // Intercept clicks on internal anchor links within the markdown content
   useEffect(() => {
     const handleInternalLinkClick = (e) => {
@@ -74,7 +76,7 @@ export default function MarkdownContent({
       {/* Floating TOC - hidden on mobile/tablet */}
       {showFloatingTOC && (
         <div className="hidden xl:block">
-          <FloatingTOC content={content} />
+          <FloatingTOC content={content} themeChangeKey={themeChangeKey} />
         </div>
       )}
       <div

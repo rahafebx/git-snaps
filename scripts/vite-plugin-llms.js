@@ -86,7 +86,7 @@ function generateLLMSContent(rootDir) {
     // Try to import metadata dynamically
     let metadata = [];
     try {
-      const metadataPath = path.join(rootDir, 'public/data/blogMetadata.js');
+      const metadataPath = path.join(rootDir, '/data/blogMetadata.js');
       if (fs.existsSync(metadataPath)) {
         const metadataContent = fs.readFileSync(metadataPath, 'utf8');
         const match = metadataContent.match(/export default \[([\s\S]*?)\];/);
