@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, GitPullRequestArrow } from "lucide-react";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -28,7 +28,7 @@ export const Navbar = () => {
           </div>
 
           {/* Right Utility Utilities */}
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center space-x-6 mr-2">
               {navLinks.map((link) => (
@@ -47,9 +47,10 @@ export const Navbar = () => {
               href="https://github.com/rahafebx/git-snaps"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white tracking-wider uppercase text-sm py-2 px-4 rounded-lg transition duration-300"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white tracking-wider uppercase text-sm py-2 px-2 md:px-4 rounded-md transition duration-300"
             >
-              Contribute
+              <span className="hidden md:inline">Contribute</span>
+              <GitPullRequestArrow className="h-5 w-5 md:hidden" />
             </a>
 
             {/* Theme Toggle Button (Persistent on Mobile & Desktop) */}
