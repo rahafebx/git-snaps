@@ -135,10 +135,12 @@ Tailwind CSS v4 properties are processed through custom variant selectors in the
 1. Create markdown file in `public/markdown/posts/`
 2. Add metadata entry in `public/data/blogMetadata.js`
 3. Add thumbnail image to `public/images/posts/`
+4. Update `public/markdown/README.md` with new post details
 
 **Adding a Lab:**
 1. Create markdown file in `public/markdown/labs/`
 2. Link in metadata under parent post's `labs` array
+3. Update `public/markdown/README.md` with new lab details
 
 ## 🔍 Key Components
 
