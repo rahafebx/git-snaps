@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BookmarkButton } from "./BookmarkButton";
 
 export const BlogCard = ({ post }) => {
   return (
@@ -11,6 +12,8 @@ export const BlogCard = ({ post }) => {
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 bg-primary-50 dark:bg-primary-950/20"
           loading="lazy"
         />
+        {/* Bookmark Toggle */}
+        <BookmarkButton post={post} size="sm" className="absolute top-3 right-3 z-10" />
       </div>
       {/* Card Content */}
       <div className="flex flex-1 flex-col p-6">

@@ -9,6 +9,7 @@ import { LabDetails } from './pages/LabDetails';
 import { NotFound } from './pages/NotFound';
 import { About } from './pages/About';
 import { Labs } from './pages/Labs';
+import { Bookmarks } from './pages/Bookmarks';
 import useScrollToTop from './hooks/useScrollToTop';
 
 function ScrollToTop() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/labs" element={<Labs />} />
+                <Route path="/bookmarks" element={<Bookmarks />} />
                 <Route path="/post/:slug" element={<PostDetail />} />
                 <Route path="/lab/:slug" element={<LabDetails />} />
                 <Route path="*" element={<NotFound />} />

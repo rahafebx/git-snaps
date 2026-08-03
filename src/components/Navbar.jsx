@@ -6,6 +6,7 @@ import { Sun, Moon, Menu, X, GitPullRequestArrow } from "lucide-react";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "Labs", path: "/labs" },
+  { name: "Bookmarks", path: "/bookmarks" },
   { name: "About", path: "/about" },
 ];
 
