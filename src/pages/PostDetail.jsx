@@ -3,6 +3,7 @@ import { useBlog } from "../context/BlogContext";
 import { useTheme } from "../context/ThemeContext";
 import { useMarkdown } from "../hooks/useMarkdown";
 import { SocialShare } from "../components/SocialShare";
+import { Contribute } from "../components/Contribute";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import BackLinkButton from "../components/BackLinkButton";
 import PostHeader from "../components/PostHeader";
@@ -42,7 +43,7 @@ export const PostDetail = () => {
 
   return (
     <article
-      className={`${showFloatingTOC ? "xl:ml-64" : ""} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}
+      className={`${showFloatingTOC ? "xl:ml-72" : ""} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}
     >
       {/* Back Link Button */}
       <BackLinkButton to="/" text="Back to Home" className="mb-8" />
@@ -112,6 +113,9 @@ export const PostDetail = () => {
 
       {/* Social Share Section */}
       {!loading && !error && <SocialShare title={postMetadata.title} />}
+
+      {/* Contribute Section */}
+      {!loading && !error && <Contribute />}
 
       {/* Navigation between posts */}
       {!loading && !error && (previous || next) && (
