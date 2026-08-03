@@ -56,7 +56,6 @@ git-snaps/
 │   ├── pages/               # Page components (Home, PostDetail, Labs, etc.)
 │   ├── context/             # React Context for state management
 │   ├── hooks/               # Custom React hooks
-│   ├── data/                # Metadata and configuration files
 │   ├── utils/               # Utility functions
 │   ├── App.jsx              # Main app component
 │   ├── main.jsx             # Entry point
@@ -68,6 +67,8 @@ git-snaps/
 │   └── images/
 │       └── posts/           # Post thumbnail images
 |       |── labs/            # Lab images
+|   └── data/
+|       └── blogMetadata.js  # Metadata for blog posts and labs
 ├── eslint.config.js         # ESLint configuration
 ├── vite.config.js           # Vite build configuration
 ├── wrangler.jsonc           # Cloudflare Workers configuration

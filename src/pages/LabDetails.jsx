@@ -3,6 +3,7 @@ import { useBlog } from "../context/BlogContext";
 import { useTheme } from "../context/ThemeContext";
 import { useMarkdown } from "../hooks/useMarkdown";
 import { SocialShare } from "../components/SocialShare";
+import { Contribute } from "../components/Contribute";
 import { useDocumentMeta } from "../hooks/useDocumentMeta";
 import BackLinkButton from "../components/BackLinkButton";
 import PostHeader from "../components/PostHeader";
@@ -74,6 +75,7 @@ export const LabDetails = () => {
         <MarkdownContent content={content} isDark={isDark} showFloatingTOC={showFloatingTOC} />
       )}
 
+      {/* Author Section */}
       {!loading && !error && (
         <PostAuthor
           username={labMetadata.author.username}
@@ -82,7 +84,11 @@ export const LabDetails = () => {
         />
       )}
 
+      {/* Social Share */}
       {!loading && !error && <SocialShare title={labMetadata.title} />}
+
+      {/* Contribute Section */}
+      {!loading && !error && <Contribute isLab={true} />}
 
       {/* Back to post button at bottom */}
       <div className="mt-8">

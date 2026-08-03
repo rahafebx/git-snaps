@@ -42,6 +42,16 @@ export const Navbar = () => {
               ))}
             </div>
 
+            {/* Contribute Button https://github.com/rahafebx/git-snaps */}
+            <a
+              href="https://github.com/rahafebx/git-snaps"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white tracking-wider uppercase text-sm py-2 px-4 rounded-lg transition duration-300"
+            >
+              Contribute
+            </a>
+
             {/* Theme Toggle Button (Persistent on Mobile & Desktop) */}
             <button
               onClick={toggleTheme}

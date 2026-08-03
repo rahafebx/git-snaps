@@ -42,7 +42,7 @@ export const BlogCard = ({ post }) => {
               </span>
             ))}
             {}{post.tags.length > 2 && (
-              <span className="text-zinc-700 dark:text-zinc-400 py-0.5">
+              <span className="text-zinc-700 dark:text-zinc-400 py-0.5 group">
                 +{post.tags.length - 2}
               </span>
             )}
