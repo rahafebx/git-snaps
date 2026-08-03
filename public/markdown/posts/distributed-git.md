@@ -1,6 +1,6 @@
 # Distributed Git
 
-Git's distributed nature allows for a variety of workflows, each with its own advantages and disadvantages. In this chapter, we will explore some of the most common workflows used in distributed Git development.
+Git's distributed nature allows for a variety of workflows, each with its own advantages and disadvantages. In this guide, you will explore some of the most common workflows used in distributed Git development.
 
 Table of Contents:
 - [Distributed Git](#distributed-git)
@@ -8,6 +8,7 @@ Table of Contents:
     - [Centralized Workflow](#centralized-workflow)
     - [Integration-Manager Workflow](#integration-manager-workflow)
     - [Dictator and Lieutenants Workflow](#dictator-and-lieutenants-workflow)
+  - [Other Learning Resources](#other-learning-resources)
 
 
 ## Distributed Workflows
@@ -28,7 +29,7 @@ To contribute to the project, a developer creates a public clone of the official
 The maintainer can then add the developer's repository as a remote, test developer's changes locally, and merge them into the official repository.
 
 ```mermaid
-graph TD
+graph RL
     subgraph "Integration Manager Workflow"
         B[Blessed Repository] -->|pull/fetch| IM[Integration Manager]
         
@@ -58,12 +59,13 @@ The process works as follows:
 5. The maintainer adds the contributor’s repository as a remote and merges locally.
 6. The maintainer pushes merged changes to the main repository
 
+This is a common workflow with hub-based tools like GitHub, GitLab, and Bitbucket. One of the main advantages of this approach is that you can continue to work, and the maintainer can pull in your changes at any time. Contributors don't have to wait for the project to incorporate their changes.
 
 ### Dictator and Lieutenants Workflow
 This is a variant of multiple-repository workflow, used in large projects with many developers and lieutenants. Developers are responsible for their own public repositories. Various lieutenants are responsible for different parts of the project, and they have write access to their own repositories. The dictator has write access to the official repository and is responsible for merging changes from the lieutenants.
 
 ```mermaid
-graph TD
+graph RL
     subgraph "Benevolent Dictator Workflow"
         BR[Blessed Repository] -->|maintains| BD[Benevolent Dictator]
         
@@ -93,7 +95,12 @@ graph TD
 ```
 
 The process works as follows:
-1. Regular developers work on their topic branch and rebase their work on top of `master`. The `master` branch is that of the reference repository to which the dictator pushes.
-2. Lieutenants merge the developers' topic branches into their `master` branch.
-3. The dictator merges the lieutenants' `master` branches into the dictator's `master` branch.
-4. Finally, the dictator pushes that `master` branch to the reference repository so the other developers can rebase on it.
+1. Regular developers work on their topic branch and rebase their work on top of `main`. The `main` branch is that of the reference repository to which the dictator pushes.
+2. Lieutenants merge the developers' topic branches into their `main` branch.
+3. The dictator merges the lieutenants' `main` branches into the dictator's `main` branch.
+4. Finally, the dictator pushes that `main` branch to the reference repository so the other developers can rebase on it.
+
+This kind of workflow isn't common, but can be useful in very big projects, or in highly hierarchical environments.  It allows the project leader (the dictator) to delegate much of the work and collect large subsets of code at multiple points before integrating them.
+
+## Other Learning Resources
+- [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)

@@ -1,48 +1,111 @@
-# Git on the Server
-
-> A remote repository is generally a bare repository — a Git repository that has no working directory.
-Because the repository is only used as a collaboration point, there is no reason to have a snapshot checked out on disk; it’s just the Git data. In the simplest terms, a bare repository is the contents of your project’s .git directory and nothing else.
+# Git on the Server - Quick Overview
+In order to do any collaboration in Git, you’ll need to have a remote Git repository. The preferred method for collaborating with someone is to set up an intermediate repository that you both have access to, and push to and pull from that.
 
 Table of Contents
-- [Git on the Server](#git-on-the-server)
+- [Git on the Server - Quick Overview](#git-on-the-server---quick-overview)
+  - [The Remote Repository](#the-remote-repository)
   - [The Protocols](#the-protocols)
     - [Local Protocol](#local-protocol)
     - [HTTP Protocol](#http-protocol)
+      - [Smart HTTP](#smart-http)
+      - [Dumb HTTP](#dumb-http)
     - [SSH Protocol](#ssh-protocol)
     - [Git Protocol](#git-protocol)
-  - [Getting Git on a Server](#getting-git-on-a-server)
-    - [Putting the Bare Repository on a Server](#putting-the-bare-repository-on-a-server)
-  - [Generating Your SSH Public Key](#generating-your-ssh-public-key)
+
+## The Remote Repository
+
+A remote repository is generally a bare repository — a Git repository that has no working directory.
+Because the repository is only used as a collaboration point, there is no reason to have a snapshot checked out on disk; it’s just the Git data. In the simplest terms, a bare repository is the contents of your project’s .git directory and nothing else.
 
 ## The Protocols
 
 Git supports several protocols for communicating with remote repositories:
 
-- **SSH**: The most common protocol for accessing Git repositories over a network. It requires an SSH client to be installed on the client machine.
+- **Local**: Git can work with local repositories on the same machine. This is useful for testing or when working with multiple repositories on the same system.
 - **HTTP/HTTPS**: Git can also communicate with remote repositories over HTTP or HTTPS. This is often used for public repositories or when SSH access is not available.
+- **SSH**: The most common protocol for accessing Git repositories over a network. It requires an SSH client to be installed on the client machine.
 - **Git**: The Git protocol is a custom protocol that is optimized for Git operations. It is typically used for read-only access to public repositories.
-- **Local**: Git can also work with local repositories on the same machine. This is useful for testing or when working with multiple repositories on the same system.
 
 ### Local Protocol
+
+To create a local bare repository for a project, you can use the following command:
+
+```bash
+mkdir <directory>
+cd <directory>
+git init --bare repo.git
+```
+
 To clone a local repository, you can use the following command:
 
 ```bash
-git clone /path/to/repo
+git clone /path/to/repo.git new_repo
 ```
 
 To add a local repository as a remote, you can use the following command:
 
 ```bash
-git remote add local_origin /path/to/repo
+git remote add local_origin /path/to/repo.git
 ```
+
+**The Pros:**
+- Simple to set up and use
+- No network configuration required
+- No additional software required on the client side
+
+**The Cons:**
+- Only works on the same machine
+- Not suitable for collaboration with remote users
+- No authentication or access control
 
 ### HTTP Protocol
-The URL for a Git repository over HTTP is typically in the following format:
+Git can communicate over HTTP using two different modes: smart HTTP and dumb HTTP. 
+- **Smart HTTP** is the preferred mode, as it provides better performance and supports authentication. 
+- **Dumb HTTP** is a legacy mode that is less efficient and does not support authentication.
 
+#### Smart HTTP
+Operates very similarly to the SSH protocol, but run over standard HTTPS ports. Therefore, it can use various HTTP authentication methods, such as Basic Authentication or OAuth. Smart HTTP is the preferred method for accessing Git repositories over HTTP.
+
+In A service like GitHub, you can use the following command to clone a repository over HTTPS:
+
+```bash
+git clone https://github.com/username/repository.git
 ```
-http://hostname/path/to/repo.git
+The URL can be used also to view the repository in a web browser.
+
+#### Dumb HTTP
+Dumb HTTP is a legacy mode that is less efficient and does not support authentication. It is not recommended for use, but it may be necessary in some cases where smart HTTP is not available. If the server does not support smart HTTP, the Git client will try to use dumb HTTP as a fallback. However, this mode is not recommended for use, as it is less efficient and does not support authentication.
+
+The Dumb HTTP is simple to use and setup. Basically, all you have to do is put a bare Git repository under your HTTP document root and setup a specific `post-update` hook.
+
+```bash
+# create a bare repository
+mkdir /var/www/git/repo.git
+cd /var/www/git/repo.git
+git init --bare
 ```
-This URL can be used to view the repository in a web browser or to clone the repository using Git.
+
+At this point, anyone who can access your web server can clone the repository using the following command:
+
+```bash
+git clone http://yourserver.com/git/repo.git gitproject.git
+cd gitproject.git
+mv hooks/post-update.sample hooks/post-update
+chmod a+x hooks/post-update
+```
+The `post-update` hook is a script that is executed after a successful push to the repository. It updates the server's view of the repository and allows clients to fetch the latest changes.
+
+The `post-update` hook comes with Git by default runs the appropriate command `git update-server-info` to make HTTP fetching and cloning work.
+
+**The Smart HTTP pros:**
+- Have a single URL for both web and Git access
+- Can use various HTTPS authentication methods
+- You can serve a read-only repository over HTTPS, which means you can encrypt the traffic between the client and server, and you can use HTTPS authentication methods to control access to the repository.
+- Firewall friendly, as it uses standard HTTPS ports (443) and can work through most firewalls and proxies.
+
+**The Smart HTTP cons:**
+- Requires a web server to be set up and configured
+- More complex to set up and maintain than the local protocol
 
 ### SSH Protocol
 The SSH protocol is a secure way to access a Git repository over a network. It requires an SSH client to be installed on the client machine and an SSH server to be running on the server hosting the repository.
@@ -52,6 +115,21 @@ To clone a Git repository over SSH, you can use the following command:
 ```bash
 git clone ssh://user@hostname/path/to/repo.git
 ```
+
+Or you can use the shorthand syntax:
+
+```bash
+git clone user@hostname:path/to/repo.git
+```
+
+**The pros:**
+- Secure, as it uses encryption to protect the data being transmitted
+- Supports authentication, allowing you to control access to the repository
+
+**The cons:**
+- Requires an SSH client to be installed on the client machine
+- More complex to set up and maintain than the local protocol
+
 ### Git Protocol
 The Git protocol is a special protocol that comes with Git. It provides a service similar to the SSH protocol, but with absolutely no authentication or encryption.
 
@@ -63,60 +141,10 @@ To clone a Git repository over the Git protocol, you can use the following comma
 git clone git://hostname/path/to/repo.git
 ```
 
-## Getting Git on a Server
-In order to initially set up any Git server, you have to export an existing repository into a new bare repository. This is done by creating a new directory on the server and running the following command:
+**The pros:**
+- Fast, as it is optimized for Git operations
+- Simple to set up and use
 
-```bash
-git clone --bare /path/to/existing/repo /path/to/new/bare/repo.git
-```
-
-### Putting the Bare Repository on a Server
-Once you have created a bare repository, you can put it on a server by copying the repository directory to the server using a tool like `scp` or `rsync`. For example:
-
-```bash
-scp -r /path/to/new/bare/repo.git user@hostname:/path/to/server/repo.git
-```
-
-Other users can then clone the repository from the server using the appropriate protocol (SSH, HTTP, Git, or local).
-
-```bash
-git clone user@hostname:/path/to/server/repo.git
-```
-
-Git will automatically add group write permissions to a repository properly configured for collaboration if you run the `git init` command with the `--shared` option. This allows multiple users to push to the same repository without running into permission issues.
-
-```bash
-ssh user@hostname
-cd /path/to/server/repo.git
-git init --bare --shared
-```
-
-## Generating Your SSH Public Key
-Before you can use SSH to access a Git repository on a server, you need to generate an SSH key pair (public and private keys) on your local machine.
-
-1. Check for existing SSH keys on your local machine by running the following command:
-
-```bash
-ls -al ~/.ssh
-```
-You're looking for files named `id_rsa` and `id_rsa.pub`. If they exist, you can use them. If not, you need to generate a new key pair.
-
-2. To generate a new SSH key pair, run the following command:
-
-```bash
-$ ssh-keygen -o
-Generating public/private rsa key pair.
-# confirm the location of the key and enter a passphrase if desired
-Enter file in which to save the key (/home/schacon/.ssh/id_rsa):
-Created directory '/home/schacon/.ssh'.
-# ask twice for the passphrase to ensure it is entered correctly
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /home/schacon/.ssh/id_rsa.
-Your public key has been saved in /home/schacon/.ssh/id_rsa.pub.
-The key fingerprint is:
-d0:82:24:8e:d7:f1:bb:9b:33:53:96:93:49:da:9b:e3 schacon@mylaptop.local
-```
-3. Once you have generated your SSH key pair, you need to add your public key to the server's authorized keys file. You can do this by copying the contents of your public key file (`id_rsa.pub`) to the `~/.ssh/authorized_keys` file on the server.
-
-For a more in-depth tutorial on creating an SSH key on multiple operating systems, see the GitHub documentation on [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+**The cons:**
+- No authentication or encryption
+- Not suitable for collaboration with remote users

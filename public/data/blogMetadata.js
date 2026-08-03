@@ -515,9 +515,9 @@ export const blogs = [
     slug: "git-on-the-server",
     thumb: "/images/posts/git-on-the-server/git-on-the-server.webp",
     category: ["Git", "Git on the Server"],
-    tags: ["Git", "Server", "SSH", "HTTP"],
+    tags: ["Git", "Server", "SSH", "HTTP", "Remote Repository"],
     description: "Learn how to set up and use Git on a server.",
-    date: "16 July 2026",
+    date: "31 July 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
@@ -525,15 +525,15 @@ export const blogs = [
     },
   },
   {
-    id: 15,
+    id: 23,
     title: "Distributed Git - Getting Started",
     slug: "distributed-git",
     thumb: "/images/posts/distributed-git/distributed-git.webp",
     category: ["Git", "Distributed Git"],
-    tags: ["Git", "Distributed", "Workflow"],
+    tags: ["Git", "Distributed", "Workflow", "Collaboration"],
     description:
       "Learn about the distributed nature of Git and its various workflows.",
-    date: "16 July 2026",
+    date: "03 August 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
@@ -541,14 +541,14 @@ export const blogs = [
     },
   },
   {
-    id: 16,
+    id: 24,
     title: "Distributed Git - Contributing to a Project",
     slug: "contributing-to-a-project",
     thumb: "/images/posts/distributed-git/contributing-to-a-project.webp",
     category: ["Git", "Distributed Git"],
-    tags: ["Git", "Distributed", "Workflow"],
+    tags: ["Git", "Distributed", "Workflow", "Collaboration"],
     description: "Learn how to contribute to a distributed Git project.",
-    date: "16 July 2026",
+    date: "03 August 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
@@ -556,7 +556,7 @@ export const blogs = [
     },
   },
   {
-    id: 17,
+    id: 25,
     title: "Distributed Git - Maintaining a Project",
     slug: "maintaining-a-project",
     thumb: "/images/posts/distributed-git/maintaining-a-project.webp",
@@ -571,7 +571,7 @@ export const blogs = [
     },
   },
   {
-    id: 18,
+    id: 26,
     title: "GitHub - Getting Started",
     slug: "github",
     thumb: "/images/posts/github/github.webp",
