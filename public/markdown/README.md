@@ -32,6 +32,34 @@
 | 28      | [GitHub - Maintaining a Project](posts/github-maintaining-a-project)           | 26             | published   | 03 August 2026 | 03 August 2026 |
 | 29      | GitHub - Managing an organization                                              | 26             | Not Started |                |                |
 | 30      | GitHub - Scripting GitHub                                                      | 26             | Not Started |                |                |
+| 31      | Git Tools - Revision Selection                                                 | 0              | Not Started |                |                |
+| 32      | Git Tools - Interactive Staging                                                | 31             | Not Started |                |                |
+| 33      | Git Tools - Stashing and Cleaning                                              | 31             | Not Started |                |                |
+| 34      | Git Tools - Signing Your Work                                                  | 31             | Not Started |                |                |
+| 35      | Git Tools - Searching                                                          | 31             | Not Started |                |                |
+| 36      | Git Tools - Rewriting History                                                  | 31             | Not Started |                |                |
+| 37      | Git Tools - Reset Demystified                                                  | 31             | Not Started |                |                |
+| 38      | Git Tools - Advanced Merging                                                   | 31             | Not Started |                |                |
+| 39      | Git Tools - Rerere                                                             | 31             | Not Started |                |                |
+| 39      | Git Tools - Debugging with Git                                                 | 31             | Not Started |                |                |
+| 40      | Git Tools - Submodules                                                         | 31             | Not Started |                |                |
+| 41      | Git Tools - Bundling                                                           | 31             | Not Started |                |                |
+| 42      | Git Tools - Replace                                                            | 31             | Not Started |                |                |
+| 43      | Git Tools - Credential Storage                                                 | 31             | Not Started |                |                |
+| 44      | Customizing Git - Git Configuration                                            | 0              | Not Started |                |                |
+| 45      | Customizing Git - Git Attributes                                               | 44             | Not Started |                |                |
+| 46      | Customizing Git - Git Hooks                                                    | 44             | Not Started |                |                |
+| 47      | Customizing Git - Git-Enforced Policy                                          | 44             | Not Started |                |                |
+| 48      | Git and Other Systems - Git as a Client                                        | 0              | Not Started |                |                |
+| 49      | Git and Other Systems - Migrating to Git                                       | 48             | Not Started |                |                |
+| 50      | Git Internals - Plumbing and Porcelain                                         | 0              | Not Started |                |                |
+| 51      | Git Internals - Git Objects<br>                                                | 50             | Not Started |                |                |
+| 52      | Git Internals - Git References<br>                                             | 50             | Not Started |                |                |
+| 53      | Git Internals - Packfiles                                                      | 50             | Not Started |                |                |
+| 54      | Git Internals - The Refspec<br>                                                | 50             | Not Started |                |                |
+| 55      | Git Internals - Transfer Protocols                                             | 50             | Not Started |                |                |
+| 56      | Git Internals - Maintenance and Data Recovery                                  | 50             | Not Started |                |                |
+| 57      | Git Internals - Environment Variables                                          | 50             | Not Started |                |                |
 
 
 # Labs

@@ -1,351 +1,103 @@
-# Distributed Git - Contributing to a Project
+# GitHub - Contributing to a Project
 
-There are numerous variations on how to contribute to a project, depending on the size of the team, the number of contributors, and the workflow used by the project. In this guide, we will explore some common scenarios for contributing to a project using Git.
+Contributing to a project on GitHub typically involves forking the repository, making changes in a topic branch, and submitting a pull request for review.
 
-Table of Contents:
-- [Distributed Git - Contributing to a Project](#distributed-git---contributing-to-a-project)
-  - [Commit Guidelines](#commit-guidelines)
-  - [Private Small Team](#private-small-team)
-  - [Private Managed Team](#private-managed-team)
-  - [Forked Public Project](#forked-public-project)
-  - [Public Project over Email](#public-project-over-email)
+## Forking a Repository
+If you don't have write access to a repository, you can fork it. Forking creates a personal copy of the repository in your GitHub account. It lives in your username's namespace and allows you to freely make changes without affecting the original project.
 
+This workflow centered on the the [Topic Branches](branching-workflows) workflow.
 
-Some of the project variables that you may want to consider when contributing to a project include:
+1. **Fork the Repository**: Click the "Fork" button on the repository page.
+2. **Clone the Repository**: Use the `git clone` command to download your fork.
+3. **Create a Topic Branch**: Create a new branch for your changes using `git checkout -b branch-name`.
+4. **Make Changes**: Edit the code or documentation as needed.
+5. **Commit Changes**: Use `git add .` to stage your changes and `git commit -m "Your commit message"` to commit them.
+6. **Push Changes**: Push your changes to your forked repository using `git push origin branch-name`.
+7. **Create a Pull Request**: Go to the forked repository and click "New Pull Request" to submit your changes for review.
+8. **Address Feedback**: Respond to any feedback from the project maintainers and make necessary changes.
+9. **Merge Changes**: Once your pull request is approved, the maintainers will merge your changes into the main project.
+10. **Sync Your Fork**: Keep your fork up to date with the original repository by pulling in changes from the upstream repository.
 
-- **Active contributors**: How many people are actively contributing to the project, and how often? A project with many active contributors is more likely to be well-maintained and responsive to issues.
-- **Project workflow**: What is the project's workflow? Is it centralized, integration-manager, or dictator and lieutenants? Are all the patches peer-reviewed and approved? Understanding the workflow will help you know how to contribute effectively.
-- **Commit access**: Do you have commit access to the project? If not, you may need to fork the repository and submit pull requests for your changes. How does the project prefer to accept contributed work? Does it even have a policy? How much work are you contributing at a time? How often do you contribute?
+**Note:** To fork a repository, you need to have a GitHub account. If you don't have one, you can create it by following the steps in the [Account Creation and Setup](github) guide. From the repository page, click the "**Fork**" button in the upper right corner. This will create a copy of the repository under your GitHub account.
 
-All these questions can affect how you contribute to a project and how your contributions are received. It's important to understand the project's workflow and policies before contributing, so you can make the most effective contributions possible.
-
-## Commit Guidelines
-When contributing to a project, it's important to follow the project's commit guidelines.
-
-The Git project has a set of guidelines for writing good commit messages. You can read more about them in the Git source code in the [Documentation/SubmittingPatches](https://git-scm.com/docs/SubmittingPatches/2.35.0) file.
-
-Here are some general guidelines for writing good commit messages:
-- Use the imperative mood in the subject line. For example, "Fix bug" instead of "Fixed bug" or "Fixes bug".
-- Limit the subject line to 50 characters or less.
-- Separate the subject line from the body with a blank line.
-- Use the body to explain what and why vs. how.
-- Use bullet points or lists to break up the text and make it easier to read.
-- Include relevant issue numbers or references in the commit message.
-- Keep the commit message focused on a single topic or change.
-- Avoid unnecessary punctuation or formatting.
-
-For more information on writing good commit messages, you can refer to the [Git Commit Message Guidelines](https://chris.beams.io/posts/git-commit/) by Chris Beams.
-
-## Private Small Team
-The simplest setup you're likely to encounter is a small team of developers working together on a shared repository. In this scenario, all developers have commit access to the shared repository and can push their changes directly to it.
-
-Bob, and Alice are two developers start to work together with a shared repository.
-
-Bob, clones the repository, makes a change, and commit locally.
+After forking, you can clone the repository to your local machine using the following commands:
 
 ```bash
-# Bob's Machine
-git clone https://github.com/john/simplegit.git
-cd simplegit
-# Bob makes a change to the code on simplegit.rb
-git commit -am "Remove invalid default value"
+git clone <your-fork-url> <local-directory>
+cd <local-directory>
+git checkout -b <topic-branch>
+# Make your changes
+git add .
+git commit -m "Your commit message"
+git push origin <topic-branch>
+# Create a pull request on GitHub
 ```
-Alice, clones the repository, makes a change, and commit locally.
+
+## Creating a Pull Request
+Once you've made your changes and pushed them to your fork, you can create a pull request to propose your changes to the original repository. To create a pull request:
+
+1. Go to the original repository on GitHub.
+2. Click the "**New Pull Request**" button.
+3. Enter a title and description for your pull request, explaining the changes you've made.
+4. Select the branch you want to merge into (usually `main` or `master`) and the branch you made your changes in (your topic branch).
+5. Click "**Create Pull Request**" to submit your changes for review.
+
+## Iterating on a Pull Request
+When the maintainers review your pull request, they may request changes or provide feedback by leaving comments.
+
+Once the maintainer makes a comment, you will receive a notification. You can then make the requested changes in your local repository, commit them, and push them to your fork. The pull request will automatically update with your new changes.
+
+Anyone also can comment on your pull request, including other contributors and maintainers. You can respond to comments, ask questions, and discuss the changes with the reviewers.
+
+
+## Keeping up with Upstream
+If you want to keep your fork up to date with the original repository, you can add the original repository as a remote called `upstream` and fetch changes from it, and merge them into your topic branch.
 
 ```bash
-# Alice's Machine
-git clone https://github.com/jessica/simplegit.git
-cd simplegit
-# Alice makes a change to the code on TODO.md
-git commit -am "Add reset task"
+git remote add upstream <original-repo-url>
+# on the topic branch
+git fetch upstream
+git merge upstream/main
+# do some work and commit changes
+git add .
+git commit -m "Your commit message"
+git push origin branch-name
+# if you face conflicts, resolve them and then push again
+git add .
+git commit -m "Resolved merge conflicts"
+git push origin branch-name
 ```
-Alice, pushes her change to the shared repository on the server.
+You have to synchronize your fork with the upstream repository periodically to ensure that your fork has the latest changes from the original repository.
 
 ```bash
-# Alice's Machine
-git push origin main
-```
-Shortly afterwards, Bob makes some changes, commits them, and tries to push them to the shared repository.
-
-```bash
-# Bob's Machine
-git push origin main
-```
-Bob's push is rejected because Alice has already pushed her changes to the shared repository. Bob must fetch Alice's changes and merge them into his local repository before he can push his changes.
-
-```bash
-# Bob's Machine
-git fetch origin
-```
-Now Bob can merge Alice's changes into his local repository.
-
-```bash
-# Bob's Machine
-git merge origin/main
-```
-After testing Alice's changes, Bob can push his changes to the shared repository.
-
-```bash
-# Bob's Machine
-git push origin main
-```
-In the meantime, Alice has created a new topic branch called `issue54` and make three commits to it. She hasn't fetched Bob's changes yet, so her local repository is out of date. She tries to push her changes to the shared repository.
-
-```bash
-# Alice's Machine
-git push origin issue54
+# on the topic branch
+git fetch upstream
+git merge upstream/main
+# or pull the changes directly (fetch + merge)
+git pull upstream main
 ```
 
-Alice's push is rejected because her local repository is out of date. She must fetch Bob's changes and merge them into her local repository before she can push her changes.
+## References
 
-```bash
-# Alice's Machine
-git fetch origin
-```
-Alice wants to know what changes have been made to the shared repository since she last fetched it. She can use the `git log` command to see a list of commits that have been made to the shared repository.
+You can mention the old Pull Request in the new Pull Request description using the format `#<PR number>`. For example, if the old Pull Request number is `42`, you can write `This PR builds upon #42`.
 
-```bash
-# Alice's Machine
-git log --no-merges issue54..origin/main
+```txt
+This PR builds upon #42.
 ```
 
-`issue54..origin/main` syntax means "show me all the commits that are in `origin/main` but not in `issue54`". The `--no-merges` option tells Git to exclude merge commits from the log.
+You can also use `username#<PR number>` to reference a Pull Request from a different user. For example, if the old Pull Request number is 42 and the username is `octocat`, you can write `octocat#42`.
 
-Now, Alice can merge her topic into the `main` branch:
-
-```bash
-# Alice's Machine
-git checkout main
-git merge issue54
+```txt
+This PR builds upon octocat#42.
 ```
-Alice will get a fast-forward merge, because her `main` branch is behind the `origin/main` branch.
+Or referencing a Pull Request from a different repository using the format `username/repo#<PR number>`. For example, if the old Pull Request number is 42, the username is `octocat`, and the repository name is `hello-world`, you can write `octocat/hello-world#42`.
 
-After that, Alice merges Bob's changes into her local repository.
-
-```bash
-# Alice's Machine
-git merge origin/main
+```txt
+This PR builds upon octocat/hello-world#42.
 ```
-Now `origin/main` is reachable from Jessica’s `main` branch, so she should be able to successfully push (assuming Bob hasn’t pushed even more changes in the meantime):
+## GitHub Flavored Markdown
+In Issue and Pull Request description, comments, code comments, and README files, you can use GitHub ***Flavored Markdown*** (GFM) to format your text. GFM supports features like headings, lists, code blocks, links, images, and more.
 
-```bash
-# Alice's Machine
-git push origin main
-```
+This file you are reading is written in Markdown, and you can use GFM to format your own content on GitHub. For example, you can create headings using `#`, lists using `-` or `*`, and code blocks using triple backticks (```) or indentation.
 
-This is one of the simplest workflows for a small team of developers working on a shared repository. It works well when the team is small and everyone is aware of each other's changes. However, as the team grows, it can become more difficult to manage changes and avoid conflicts. In such cases, it may be beneficial to adopt a more structured workflow, such as the integration-manager or dictator and lieutenants workflow.
-
-## Private Managed Team
-Bob and Alice are working together on one feature (feature A), while Alice and a third developer, Josie, are working on a second (feature B). In this case, the company is using a type of integration-manager workflow, where the work of the individual groups is integrated only by the project maintainers, the `main` branch of the main repository can be updated only by the project maintainers. In this scenario, all work is done in team-based branches and pulled together by the integrators later.
-
-Alice works on feature A and makes a commit to her local repository.
-
-```bash
-# Alice's Machine
-git checkout -b featureA
-# Alice makes a change to the code on simplegit.rb
-git commit -am "Add limit to log function"
-```
-After that, Alice pushes her changes to the shared repository.
-
-```bash
-# Alice's Machine
-git push -u origin featureA
-```
-
-Alice email Bob to tell him that she has pushed her changes to the shared repository and that he can look at it now.
-
-While Alice waits for Bob feedback, she starts working on feature B with Josie. They create a new branch called `featureB`, basing it off the server's `main` branch, and make some changes to the code.
-
-```bash
-# Alice's Machine
-git fetch origin
-git checkout -b featureB origin/main
-# Alice makes a change to the code on simplegit.rb
-git commit -am "Make ls-tree function recursive"
-
-# Alice makes a change to the code on simplegit.rb
-git commit -am "Add ls-files"
-```
-She's ready to push her work, but gets an email from Josie that a branch with some initial "featureB" work on it was already pushed to the server as the `featureBee` branch. Alice needs to merge those changes with her own work before she can push her changes to the shared repository.
-
-```bash
-# Alice's Machine on branch featureB
-git fetch origin
-git merge origin/featureBee
-```
-At this point, Alice wants to push all of this merged "featureB" work back to the server, but she doesn't want to simply push her own `featureB` branch. Rather she wants to push the merged work to the `featureBee` branch on the server. She can do this by specifying the remote branch name when pushing.
-
-```bash
-# Alice's Machine on featureA branch
-git push -u origin featureB:featureBee
-```
-Alice gets email from Bob, who tells her he’s pushed some changes to the `featureA` branch, and asks her to take a look at them. Alice fetches the changes from the shared repository and merges them into her local `featureA` branch.
-
-```bash
-# Alice's Machine
-git fetch origin
-```
-Then she displays the log of commits that have been made to the `featureA` branch on the shared repository since she last fetched it.
-
-```bash
-# Alice's Machine
-git log featureA..origin/featureA
-```
-She decides to merge Bob's changes into her local `featureA` branch.
-
-```bash
-# Alice's Machine
-git checkout featureA
-git merge origin/featureA
-```
-Alice might want to make a couple minor changes to all that merged content, so she makes a commit to her local `featureA` branch.
-
-```bash
-# Alice's Machine
-git commit -am "Add small tweak to merged content"
-git push
-```
-
-At some point, Alice, Josie, and Bob inform the integrators that the `featureA` and `featureBee` on the server are ready for integration into the mainline. The integrators fetch the changes from the shared repository and merge them into their local `main` branch.
-
-```bash
-# Integrator's Machine
-git fetch origin
-git checkout main
-git merge origin/featureA
-git merge origin/featureBee
-```
-The integrators then push the merged changes to the shared repository.
-
-```bash
-# Integrator's Machine
-git push origin main
-```
-## Forked Public Project
-Contributing to public projects is a bit different. Because you don’t have the permissions to directly update branches in the main repository, you will need to fork the repository and work on your own copy. Once you have made your changes, you can submit a pull request to the main repository for review and merging.
-
-First, you need to clone the public repository, create a topic branch, and do your work there.
-
-```bash
-git clone <repository-url> project-name
-cd project-name
-git checkout -b new-feature
-# Do some changes to the code
-git commit -am "Add new feature"
-```
-**Note:** You may want to use `rebase -i` to squash your work down to a single commit before you submit it for review. This will make it easier for the maintainers to review your changes and merge them into the main repository.
-
-**Example of squashing commits:**
-
-```bash
-# interactive rebase to squash commits
-git rebase -i HEAD~3
-```
-
-When your branch work is finished and you’re ready to contribute it back to the maintainers, go to the original project page and click the "**Fork**" button, which will create a copy of the repository under your own GitHub account. Then, push your changes to your forked repository.
-
-```bash
-# add repository of your fork as a remote
-git remote add fork <fork-url>
-# push your changes to your forked repository
-git push -u fork new-feature
-```
-
-After that you need to notify the maintainers of the original project that you have work you’d like them to merge. This is often called a ***pull request***, and you can create one either via the GitHub web interface or by using the `git request-pull` command.
-
-You can can run the `git request-pull` and email subsequent output to the project maintainer manually.
-
-```bash
-# request a pull from the original repository
-git request-pull origin/main fork new-feature
-```
-The output of the `git request-pull` command will include a summary of your changes, along with instructions for the maintainer on how to fetch your changes and merge them into the main repository. You can email The maintainer with this information, or you can create a pull request on the original project’s GitHub page, which will notify the maintainers of your changes.
-
-If you want to submit a second topic of work to the project, based on the project `origin/main` branch, you can create a new branch and make your changes there.
-
-```bash
-# create a new branch for the second topic of work
-git checkout -b second-topic origin/main
-# Do some changes to the code
-git commit -am "Add second topic of work"
-# push your changes to your forked repository
-git push fork second-topic
-# create a pull request for the second topic of work
-git request-pull origin/main fork second-topic
-# Or, email the maintainer with the output of the `git request-pull` command directly
-git request-pull origin/main fork second-topic | mail -s "Pull request for second topic of work"
-git fetch origin
-```
-Let’s say the project maintainer has pulled in a bunch of other patches and tried your first branch, but it no longer cleanly merges. In this case, you can rebase your branch on top of the latest `origin/main` branch and resolve any conflicts that arise.
-
-```bash
-# rebase your branch on top of the latest origin/main
-git checkout new-feature
-git rebase origin/main
-git push -f fork new-feature
-```
-Because you rebased the branch, you have to specify the `-f` to your push command in order to be replace the `new-feature` branch on the server with a commit that isn’t a descendant of it. Or, you can push this new work to a different branch on the server.
-
-**Another scenario:** the maintainer has looked at work in your second branch and likes the concept but would like you to change an implementation detail. You’ll also take this opportunity to move the work to be based off the project’s current `main` branch. You start a new branch based on the current `origin/main`, resolve any conflicts, make the implementation change, and then push that as a new branch:
-
-```bash
-# create a new branch based on the current origin/main
-git checkout -b new-implementation origin/main
-git merge --squash second-topic
-# resolve any conflicts and make the implementation change
-git commit -am "Implement new implementation"
-git push fork new-implementation
-# create a pull request for the new implementation and email the maintainer with the output of the `git request-pull` command directly
-git request-pull origin/main fork new-implementation | mail -s "Pull request for new implementation"
-```
-The `--squash` option tells Git to combine all the commits from the `second-topic` branch into a single commit on the `new-implementation` branch. This is useful when you want to keep the history of your changes clean and concise.
-
-The `--no-commit` option can be useful to delay the merge commit in case of the default merge strategy. This allows you to make additional changes or resolve conflicts before committing the merge.
-
-At this point, you can notify the maintainer that you have made the requested changes, and they can find those changes in the `new-implementation` branch of your forked repository. The maintainer can then review your changes and merge them into the main repository if they are satisfied with the implementation.
-
-## Public Project over Email
-Many projects still use email as the primary means of communication and collaboration. In this case, you will need to send your patches to the project mailing list for review and merging.
-
-The workflow is similar to previous scenarios, but instead of pushing your changes to a remote repository, you will generate a patch file and send it to the mailing list.
-
-```bash
-git checkout -b new-topic
-# Do some changes to the code
-git commit -am "Add new topic of work"
-```
-Now you can use `git format-patch` to generate a patch file for your changes. This will create a file in the current directory with a `.patch` extension. Applying a patch from an  email generated with this command preserves all the commit information properly.
-
-```bash
-git format-patch -M origin/main
-```
-The `-M` option tells Git to detect renames and generate a patch for the renamed file. The `origin/main` argument tells Git to generate a patch for all commits that are in your current branch but not in the `origin/main` branch.
-
-You can edit these patch files to add more information for the email list, such as a description of the changes, a summary of the work, and any relevant links or references. If you add text between the `---` line at the beginning of the patch file (the `diff --git` line) and the `---` line at the end of the patch file (the `diff --git` line), that text will be included in the email message that is sent to the mailing list, but is ignored by the patch application process.
-
-To email the patch file to the mailing list, you can either paste the contents of the patch file into the email body or send it via a command-line email client. You can use the `git send-email` command to send the patch file directly from the command line.
-
-To use `git send-email`, you will need to configure your email client and set up your email account. You can find more information on how to do this in the [Git documentation](https://git-scm.com/docs/git-send-email).
-
-First, you need to set up the section in your `~/.gitconfig` file. You can do this by running the following command:
-
-```bash
-git config --global sendemail.smtpserver smtp.example.com
-git config --global sendemail.smtpuser your-email@example.com
-```
-Or, you can edit the `~/.gitconfig` file directly and add the following section:
-
-```ini
-[sendemail]
-    smtpserver = smtp.example.com
-    smtpuser = your-email@example.com
-    smtppass = your-email-password
-```
-At this point, you can use `git send-email` to send the patch file to the mailing list. You can specify the patch file and the email address of the mailing list as arguments to the command.
-
-```bash
-git send-email --to=maintainer@example.com *.patch
-```
-
-For help on configuring your system and email, more tips and tricks, and a sandbox to send a trial patch via email, go to [git-send-email.io](https://git-send-email.io/).
+For more information on GitHub Flavored Markdown, you can refer to the [GitHub Docs - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
