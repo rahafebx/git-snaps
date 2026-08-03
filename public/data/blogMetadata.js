@@ -576,7 +576,7 @@ export const blogs = [
     slug: "github",
     thumb: "/images/posts/github/github.webp",
     category: ["Git", "GitHub"],
-    tags: ["Git", "Account", "SSH Key", "Public Profile", "Email Addresses", "Two Factor Authentication"],
+    tags: ["Git", "GitHub", "Account", "SSH Key", "Public Profile", "Email Addresses", "Two Factor Authentication"],
     description:
       "Learn how to create a GitHub account, set up SSH keys, and configure your public profile and email addresses.",
     date: "03 August 2026",
@@ -586,4 +586,19 @@ export const blogs = [
       position: "Web Developer",
     },
   },
+  {
+    id: 27,
+    title: "GitHub - Contributing to a Project",
+    slug: "github-contributing-to-a-project",
+    thumb: "/images/posts/github/github-contributing-to-a-project.webp",
+    category: ["Git", "GitHub"],
+    tags: ["Git", "GitHub", "Pull Request", "Fork", "Branching", "Merging", "Conflict Resolution", "Markdown", "GitHub Flavored Markdown", "GFM"],
+    description: "Learn how to contribute to a project on GitHub.",
+    date: "03 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
+  }
 ];
