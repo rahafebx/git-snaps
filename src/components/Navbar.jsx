@@ -48,7 +48,7 @@ export const Navbar = () => {
               href="https://github.com/rahafebx/git-snaps"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white tracking-wider uppercase text-sm py-2 px-2 md:px-4 rounded-md transition duration-300"
+              className="inline-block bg-primary-600 hover:bg-primary-700 text-white tracking-wider uppercase text-sm py-2 px-2 md:px-4 rounded-md transition duration-300"
             >
               <span className="hidden md:inline">Contribute</span>
               <GitPullRequestArrow className="h-5 w-5 md:hidden" />

@@ -11,7 +11,7 @@ export const Contribute = ({isLab}) => {
             href="https://github.com/rahafebx/git-snaps"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-primary-500 hover:bg-primary-600 text-white tracking-wider uppercase text-sm py-2 px-4 rounded-lg transition duration-300"
+            className="inline-block bg-primary-600 hover:bg-primary-700 text-white tracking-wider uppercase text-sm px-5 py-2.5 rounded-full transition duration-300"
         >
             Contribute on GitHub
         </a>

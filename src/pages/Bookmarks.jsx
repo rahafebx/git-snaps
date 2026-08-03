@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo, useCallback } from "react";
+import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import {
   Bookmark,
   Download,
@@ -11,6 +11,7 @@ import { useBlog } from "../context/BlogContext";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { BlogCard } from "../components/BlogCard";
 import { InfiniteScrollContainer } from "../components/InfiniteScrollContainer";
+import { PageHeader } from "../components/PageHeader";
 import { importBookmarks } from "../utils/bookmarks";
 
 const BOOKMARKS_PER_PAGE = 6;
@@ -22,15 +23,24 @@ export const Bookmarks = () => {
 
   const [isExporting, setIsExporting] = useState(false);
   const [isImporting, setIsImporting] = useState(false);
-  const [statusMessage, setStatusMessage] = useState(null); // { type: "success" | "error", text }
+  const [statusMessage, setStatusMessage] = useState(null); // { type: "success" | "error" | "info", text }
   const [displayedCount, setDisplayedCount] = useState(0);
+
+  // Auto-hide the status banner 10s after it appears
+  useEffect(() => {
+    if (!statusMessage) return;
+    const timeout = setTimeout(() => setStatusMessage(null), 5000);
+    return () => clearTimeout(timeout);
+  }, [statusMessage]);
 
   // Resolve full post objects for every bookmarked { id, slug } reference,
   // matching against the live blog data. Anything that no longer exists
   // in blogMetadata (e.g. a post that was removed) is silently dropped.
   const bookmarkedPosts = useMemo(() => {
     return bookmarks
-      .map((b) => blogs.find((post) => post.id === b.id && post.slug === b.slug))
+      .map((b) =>
+        blogs.find((post) => post.id === b.id && post.slug === b.slug),
+      )
       .filter(Boolean);
   }, [bookmarks, blogs]);
 
@@ -104,8 +114,10 @@ export const Bookmarks = () => {
           throw new Error("Invalid bookmarks file format");
         }
 
-        const { imported, skippedInvalid, skippedDuplicate } =
-          importBookmarks(parsed, blogs);
+        const { imported, skippedInvalid, skippedDuplicate } = importBookmarks(
+          parsed,
+          blogs,
+        );
 
         if (imported === 0 && skippedInvalid === 0 && skippedDuplicate === 0) {
           setStatusMessage({
@@ -117,18 +129,14 @@ export const Bookmarks = () => {
             `Imported ${imported} new bookmark${imported !== 1 ? "s" : ""}.`,
           ];
           if (skippedDuplicate > 0) {
-            parts.push(
-              `${skippedDuplicate} already bookmarked.`,
-            );
+            parts.push(`${skippedDuplicate} already bookmarked.`);
           }
           if (skippedInvalid > 0) {
-            parts.push(
-              `${skippedInvalid} skipped (post no longer exists).`,
-            );
+            parts.push(`${skippedInvalid} skipped (post no longer exists).`);
           }
 
           setStatusMessage({
-            type: imported > 0 ? "success" : "error",
+            type: imported > 0 ? "success" : "info",
             text: parts.join(" "),
           });
         }
@@ -156,17 +164,13 @@ export const Bookmarks = () => {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       {/* Hero Header */}
-      <div className="text-center max-w-3xl mx-auto mb-10">
-        <div className="inline-flex items-center justify-center p-3 bg-primary-50 rounded-2xl dark:bg-primary-950/50 mb-4">
-          <Bookmark className="h-8 w-8 text-primary-600 dark:text-primary-400" />
-        </div>
-        <h1 className="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl mb-4">
-          Your <span className="text-primary-600 dark:text-primary-400">Bookmarks</span>
-        </h1>
-        <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
-          Posts you've saved for later, stored right here in your browser.
-        </p>
-      </div>
+      <PageHeader
+        icon={Bookmark}
+        title="Your"
+        highlightedText="Bookmarks"
+        description="Posts you've saved for later, stored right here in your browser."
+        hasSearch={false}
+      />
 
       {/* Export / Import Toolbar */}
       <div className="mb-8 flex flex-col items-center gap-4">
@@ -175,7 +179,7 @@ export const Bookmarks = () => {
             type="button"
             onClick={handleExport}
             disabled={isExporting || bookmarkedPosts.length === 0}
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-primary-400 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-primary-500 dark:hover:text-primary-400"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-5 py-2.5 text-sm font-medium text-zinc-700 transition-colors hover:border-primary-400 hover:text-primary-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-primary-500 dark:hover:text-primary-400 cursor-pointer"
           >
             {isExporting ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -189,7 +193,7 @@ export const Bookmarks = () => {
             type="button"
             onClick={handleImportClick}
             disabled={isImporting}
-            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer"
           >
             {isImporting ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -212,8 +216,11 @@ export const Bookmarks = () => {
           <div
             role="status"
             className={`flex max-w-xl items-center justify-center gap-2 rounded-lg px-4 py-2 text-center text-sm ${
+              // add info style
               statusMessage.type === "success"
                 ? "bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400"
+                : statusMessage.type === "info"
+                ? "bg-blue-50 text-primary-700 dark:bg-blue-950/40 dark:text-blue-400"
                 : "bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-400"
             }`}
           >
@@ -239,7 +246,7 @@ export const Bookmarks = () => {
       <InfiniteScrollContainer
         items={bookmarkedPosts}
         itemsPerPage={BOOKMARKS_PER_PAGE}
-        renderItem={(post) => <BlogCard key={post.id} post={post} />}
+        renderItem={(post) => <BlogCard key={post.id} post={post} minimal={true} />}
         loadingMessage="Loading more bookmarks..."
         endMessage="End of your bookmarks"
         emptyMessage="You haven't bookmarked any posts yet."

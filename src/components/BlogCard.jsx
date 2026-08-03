@@ -1,22 +1,35 @@
 import { Link } from "react-router-dom";
 import { BookmarkButton } from "./BookmarkButton";
 
-export const BlogCard = ({ post }) => {
+export const BlogCard = ({ post, minimal }) => {
   return (
-    <article className="group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-xl dark:border-zinc-800 hover:dark:border-zinc-700 dark:bg-zinc-900">
+    <article className={`group flex flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:border-zinc-300 hover:shadow-xl dark:border-zinc-800 hover:dark:border-zinc-700 dark:bg-zinc-900 ${minimal ? "" : "hover:-translate-y-1"}`}>
       {/* Featured Banner Image */}
-      <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
-        <img
-          src={post.thumb}
-          alt={post.title}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 bg-primary-50 dark:bg-primary-950/20"
-          loading="lazy"
-        />
-        {/* Bookmark Toggle */}
-        <BookmarkButton post={post} size="sm" className="absolute top-3 right-3 z-10" />
-      </div>
+      {!minimal && (
+        <div className="relative aspect-video w-full overflow-hidden bg-zinc-100 dark:bg-zinc-800">
+          <img
+            src={post.thumb}
+            alt={post.title}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 bg-primary-50 dark:bg-primary-950/20"
+            loading="lazy"
+          />
+          {/* Bookmark Toggle */}
+          <BookmarkButton
+            post={post}
+            size="sm"
+            className="absolute top-3 right-3 z-10"
+          />
+        </div>
+      )}
       {/* Card Content */}
-      <div className="flex flex-1 flex-col p-6">
+      <div className={`flex flex-1 flex-col p-6 ${minimal ? "relative" : ""}`}>
+        {minimal && (
+          <BookmarkButton
+            post={post}
+            size="sm"
+            className="absolute top-3 right-3 z-10"
+          />
+        )}
         {/* Category Pills */}
         <div className="flex flex-wrap gap-2 mb-3">
           {post.category.map((cat) => (
@@ -36,21 +49,27 @@ export const BlogCard = ({ post }) => {
           {post.description}
         </p>
         {/* Date and Tags */}
-        <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
-          <span>{post.date}</span>
-          <div className="flex gap-1.5">
-            {post.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className="text-zinc-700 dark:text-zinc-400 bg-primary-50 dark:bg-primary-950/50 px-2 py-0.5 rounded-md">
-                {tag}
-              </span>
-            ))}
-            {}{post.tags.length > 2 && (
-              <span className="text-zinc-700 dark:text-zinc-400 py-0.5 group">
-                +{post.tags.length - 2}
-              </span>
-            )}
+        {!minimal && (
+          <div className="mt-6 pt-4 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+            <span>{post.date}</span>
+            <div className="flex gap-1.5">
+              {post.tags.slice(0, 2).map((tag) => (
+                <span
+                  key={tag}
+                  className="text-zinc-700 dark:text-zinc-400 bg-primary-50 dark:bg-primary-950/50 px-2 py-0.5 rounded-md"
+                >
+                  {tag}
+                </span>
+              ))}
+              {}
+              {post.tags.length > 2 && (
+                <span className="text-zinc-700 dark:text-zinc-400 py-0.5 group">
+                  +{post.tags.length - 2}
+                </span>
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </article>
   );
