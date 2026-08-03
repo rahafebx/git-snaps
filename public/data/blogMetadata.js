@@ -561,9 +561,9 @@ export const blogs = [
     slug: "maintaining-a-project",
     thumb: "/images/posts/distributed-git/maintaining-a-project.webp",
     category: ["Git", "Distributed Git"],
-    tags: ["Git", "Distributed", "Workflow"],
+    tags: ["Git", "Distributed", "Workflow", "Topic Branches", "Patches", "Remote Repositories", "Remote Branches", "Rebasing", "Tagging", "Build Number", "Release", "Shortlog", "Rerere", "Merging", "Conflict Resolution", "Signing Tags"],
     description: "Learn how to maintain a distributed Git project.",
-    date: "16 July 2026",
+    date: "03 August 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
