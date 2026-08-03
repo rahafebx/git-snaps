@@ -29,6 +29,9 @@
 | 25      | [Distributed Git - Maintaining a Project](posts/maintaining-a-project)         | 23             | published   | 16 July 2026   | 03 August 2026 |
 | 26      | [GitHub - Getting Started](posts/github)                                       | 0              | published   | 16 July 2026   | 03 August 2026 |
 | 27      | [GitHub - Contributing to a Project](posts/github-contributing-to-a-project)   | 26             | published   | 03 August 2026 | 03 August 2026 |
+| 28      | [GitHub - Maintaining a Project](posts/github-maintaining-a-project)           | 26             | published   | 03 August 2026 | 03 August 2026 |
+| 29      | GitHub - Managing an organization                                              | 26             | Not Started |                |                |
+| 30      | GitHub - Scripting GitHub                                                      | 26             | Not Started |                |                |
 
 
 # Labs

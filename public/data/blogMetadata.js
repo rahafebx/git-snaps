@@ -600,5 +600,20 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+  },
+  {
+    id: 28,
+    title: "GitHub - Maintaining a Project",
+    slug: "github-maintaining-a-project",
+    thumb: "/images/posts/github/github-maintaining-a-project.webp",
+    category: ["Git", "GitHub"],
+    tags: ["Git", "GitHub", "Create Repository", "Branching", "Merging", "Pull Request", "Issue Tracking", "Notifications", "README", "CONTRIBUTING", "CODE_OF_CONDUCT"],
+    description: "Learn how to maintain a project on GitHub.",
+    date: "03 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    },
   }
 ];
