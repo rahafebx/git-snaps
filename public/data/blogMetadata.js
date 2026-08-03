@@ -576,10 +576,10 @@ export const blogs = [
     slug: "github",
     thumb: "/images/posts/github/github.webp",
     category: ["Git", "GitHub"],
-    tags: ["Git", "GitHub", "Repository", "Pull Request"],
+    tags: ["Git", "Account", "SSH Key", "Public Profile", "Email Addresses", "Two Factor Authentication"],
     description:
-      "Learn how to use GitHub for version control and collaboration.",
-    date: "16 July 2026",
+      "Learn how to create a GitHub account, set up SSH keys, and configure your public profile and email addresses.",
+    date: "03 August 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",

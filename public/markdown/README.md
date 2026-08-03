@@ -27,7 +27,7 @@
 | 23      | [Distributed Git - Getting Started](posts/distributed-git)                     | 0              | published   | 16 July 2026 | 03 August 2026 |
 | 24      | [Distributed Git - Contributing to a Project](posts/contributing-to-a-project) | 23             | published   | 16 July 2026 | 03 August 2026 |
 | 25      | [Distributed Git - Maintaining a Project](posts/maintaining-a-project)         | 23             | published   | 16 July 2026 | 03 August 2026 |
-| 26      | [GitHub - Getting Started](posts/github)                                       | 0              | published   | 16 July 2026 | 16 July 2026   |
+| 26      | [GitHub - Getting Started](posts/github)                                       | 0              | published   | 16 July 2026 | 03 August 2026 |
 
 
 # Labs
