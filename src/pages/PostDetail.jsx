@@ -49,17 +49,22 @@ export const PostDetail = () => {
       <BackLinkButton to="/" text="Back to Home" className="mb-8" />
 
       {/* Post Header Meta metadata */}
-      <PostHeader
-        title={postMetadata.title}
-        date={postMetadata.date}
-        tags={postMetadata.tags}
-      />
+      {!loading && !error && (
+        <PostHeader
+          title={postMetadata.title}
+          date={postMetadata.date}
+          tags={postMetadata.tags}
+          post={postMetadata}
+        />
+      )}
 
       {/* Featured Banner Image */}
-      <PostFeaturedBanner
-        title={postMetadata.title}
-        thumb={postMetadata.thumb}
-      />
+      {!loading && !error && postMetadata.thumb && (
+        <PostFeaturedBanner
+          title={postMetadata.title}
+          thumb={postMetadata.thumb}
+        />
+      )}
 
       {/* Render share tools panel right before primary reading text block */}
       {!loading && !error && <SocialShare title={postMetadata.title} />}

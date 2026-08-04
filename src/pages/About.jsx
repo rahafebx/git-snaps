@@ -123,7 +123,7 @@ export const About = () => {
       <footer className="mt-12 text-center">
         <Link 
           to="/" 
-          className="inline-flex items-center justify-center rounded-full bg-primary-600 px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors shadow-sm"
+          className="inline-flex items-center justify-center rounded-full bg-primary-600 px-6 py-2.5 text-sm uppercase tracking-wider font-semibold text-white hover:bg-primary-700 transition-colors shadow-sm"
         >
           Explore Git Snaps
         </Link>

@@ -47,18 +47,23 @@ export const LabDetails = () => {
       </div>
 
       {/* Lab Header Meta metadata */}
-      <PostHeader
-        title={labMetadata.title}
-        date={labMetadata.date}
-        tags={labMetadata.tags}
-        isLab={true}
-      />
+      {!loading && !error && (
+        <PostHeader
+          title={labMetadata.title}
+          date={labMetadata.date}
+          tags={labMetadata.tags}
+          isLab={true}
+          post={labMetadata}
+        />
+      )}
 
       {/* Featured Banner Image */}
-      <PostFeaturedBanner
-        title={labMetadata.title}
-        thumb={labMetadata.thumb}
-      />
+      {!loading && !error && labMetadata.thumb && (
+        <PostFeaturedBanner
+          title={labMetadata.title}
+          thumb={labMetadata.thumb}
+        />
+      )}
 
       {/* Render share tools panel right before primary reading text block */}
       {!loading && !error && <SocialShare title={labMetadata.title} />}
@@ -91,9 +96,11 @@ export const LabDetails = () => {
       {!loading && !error && <Contribute isLab={true} />}
 
       {/* Back to post button at bottom */}
-      <div className="mt-8">
-        <BackLinkButton to={`/post/${postMetadata?.slug}`} text="Back to Post" />
-      </div>
+      {postMetadata && (
+        <div className="mt-8">
+          <BackLinkButton to={`/post/${postMetadata?.slug}`} text="Back to Post" />
+        </div>
+      )}
     </article>
   );
 };

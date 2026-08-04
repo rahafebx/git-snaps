@@ -1,6 +1,6 @@
 export const SocialShare = ({ title }) => {
   const shareUrl = encodeURIComponent(window.location.href);
-  const shareText = encodeURIComponent(`Check out this guide: "${title}" via git_snaps`);
+  const shareText = encodeURIComponent(`Check out this snap: "${title}" via git_snaps`);
 
   // Target Endpoint Maps with exact SVG paths
   const channels = [

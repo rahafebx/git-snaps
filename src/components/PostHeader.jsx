@@ -1,5 +1,6 @@
 import { TestTubeDiagonal } from "lucide-react";
-const PostHeader = ({ title, date, tags, isLab = false }) => {
+import { BookmarkButton } from "./BookmarkButton";
+const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
   return (
     <header className="mb-8">
       <span className="heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
@@ -11,6 +12,11 @@ const PostHeader = ({ title, date, tags, isLab = false }) => {
             <TestTubeDiagonal className="inline-block w-4 h-4 mr-1" /> Lab
           </span>
         )}
+        {post && !isLab && (
+          <BookmarkButton post={post} size="sm" className="mt-1 shrink-0" />
+        )}
+
+        <span>•</span>
         <time dateTime={date}>{date}</time>
         <span>•</span>
         <div className="flex flex-wrap gap-2">
