@@ -29,7 +29,7 @@ export default function BackToTop() {
       aria-hidden={!showBackToTop}
       aria-label="Scroll back to top"
       tabIndex={showBackToTop ? 0 : -1}
-      className={`fixed bottom-4 right-4 p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-lg hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all duration-300 cursor-pointer transform ${
+      className={`fixed bottom-4 right-4 p-3 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-lg hover:bg-zinc-300 dark:hover:bg-zinc-700 transition-all duration-300 cursor-pointer transform hover:scale-110 active:scale-90 ${
         showBackToTop
           ? "opacity-100 scale-100 pointer-events-auto"
           : "opacity-0 scale-95 pointer-events-none"
