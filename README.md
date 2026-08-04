@@ -26,6 +26,7 @@ Version control systems often trip up developers early on. Git Snaps is engineer
 - **🎯 Code Highlighting**: Syntax-highlighted code examples using React Syntax Highlighter
 - **🔗 Seamless Navigation**: React Router-based SPA with smooth transitions
 - **⚙️ Static Site Generation**: Built with Vite for optimal performance and fast load times
+- **🔖 Bookmarking**: Save your progress and revisit tutorials or labs with a simple click
 
 ## 🏗️ Technical Architecture
 
@@ -65,8 +66,9 @@ git-snaps/
 │   │   ├── posts/           # Blog post markdown files
 │   │   └── labs/            # Lab markdown files
 │   └── images/
-│       └── posts/           # Post thumbnail images
-|       |── labs/            # Lab images
+│   │   └── posts/           # Post thumbnail images
+|   │   |── labs/            # Lab images
+│   └── README.md            # Posts and Labs tables   
 |   └── data/
 |       └── blogMetadata.js  # Metadata for blog posts and labs
 ├── eslint.config.js         # ESLint configuration

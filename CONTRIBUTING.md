@@ -1,6 +1,6 @@
 # Contributing to Git Snaps
 
-Thank you for your interest in contributing to Git Snaps! Contributions are welcome, whether they are bug fixes, new features, improvements to documentation, UI enhancements, or performance improvements.
+Thank you for your interest in contributing to Git Snaps! Contributions are welcome, whether they are new content (posts & labs), bug fixes, new features, improvements to documentation, UI enhancements, or performance improvements.
 
 This guide explains how to set up the project, make changes, and submit contributions.
 
@@ -9,23 +9,25 @@ This guide explains how to set up the project, make changes, and submit contribu
 ## Prerequisites
 
 Make sure you have the following installed:
-
 - Node.js (LTS version recommended)
 - npm or another compatible package manager
 - Git
 
-
 ## Setup
+
 Clone the Repository:
+
 ```bash
 git clone <repository-url>
 cd git-snaps
 ```
 Install Dependencies:
+
 ```bash
 npm install
 ```
 Start the Development Server:
+
 ```bash
 npm run dev
 ```
@@ -37,12 +39,16 @@ Before submitting changes, verify that the project builds successfully:
 ```bash
 npm run build
 ```
+
 ## Project Structure
 
 The project is organized to keep components, pages, and application logic separated.
 
 ## General guidelines:
 
+- Post files should be placed in the `posts` directory.
+- Lab files should be placed in the `labs` directory.
+- Posts and labs thumbnails should be placed in the `public/images` directory.
 - Reusable UI components should live in the components directory.
 - Page-level components should contain routing-specific logic.
 - Shared utilities should be placed in utility/helper directories.
@@ -105,6 +111,19 @@ Before creating a pull request:
 ```bash
 npm run build
 ```
+
+## Content Guidelines
+
+When contributing content (posts or labs):
+- Write in clear, concise language.
+- Use proper formatting for code snippets.
+- Write content in a valid markdown format.
+- Include relevant diagrams using mermaid.
+- Use headings and subheadings to structure content.
+- Create the table of contents.
+- Update `blogMetadata.js` with the new post or lab information.
+- Update `markdown/README.md` file with the new post or lab information.
+
 ## Commit Guidelines
 
 Write clear commit messages.
