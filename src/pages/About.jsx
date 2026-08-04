@@ -20,6 +20,14 @@ export const About = () => {
       title: "Static Site Generation",
       description: "Built with Vite and React, leveraging static site generation for fast load times and optimized performance across all devices.",
     },
+    {
+      title: "Mermaid Diagrams",
+      description: "Supports Mermaid.js for creating diagrams and visualizations from text, enhancing documentation with flowcharts, sequence diagrams, and more.",
+    },
+    {
+      title: "Bookmarking Feature",
+      description: "Allows users to bookmark posts for quick access later, enhancing user experience and content discoverability.",
+    },
   ];
 
   return (
