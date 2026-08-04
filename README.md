@@ -2,6 +2,8 @@
 
 A modern, interactive platform for learning Git through hands-on tutorials and labs. Built with React, Vite, and Tailwind CSS, Git Snaps transforms static documentation into dynamic, visual learning experiences.
 
+![preview](public/preview.webp)
+
 <p align="center">
   <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-19.0.0-blue?logo=react&logoColor=white" alt="React 19"></a>
   <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-8.0.0-yellow?logo=vite&logoColor=white" alt="Vite 8"></a>
@@ -9,6 +11,8 @@ A modern, interactive platform for learning Git through hands-on tutorials and l
   <a href="https://reactrouter.com/"><img src="https://img.shields.io/badge/ReactRouter-7.0.0-purple?logo=reactrouter&logoColor=white" alt="React Router 7"></a>
   <a href="https://git-snaps.rahafebx.workers.dev/"><img src="https://img.shields.io/badge/CloudflareWorkers-3.0.0-orange?logo=cloudflare&logoColor=white" alt="Cloudflare Workers"></a>
 </p>
+
+
 
 ## 🎯 Mission
 
