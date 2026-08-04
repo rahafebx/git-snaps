@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Terminal, GitBranch, Cpu, CreativeCommons, Award, MessageSquareText } from 'lucide-react';
 import { PageHeader } from "../components/PageHeader";
+import { SEO } from "../components/SEO";
 export const About = () => {
   
   const technicalFeatures = [
@@ -32,6 +33,8 @@ export const About = () => {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+
+      <SEO isPage={true} />
       {/* Hero Header */}
       <PageHeader
         icon={Terminal}

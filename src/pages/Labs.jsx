@@ -4,6 +4,7 @@ import LabCard from "../components/LabCard";
 import { PageHeader } from "../components/PageHeader";
 import { CategoryFilter } from "../components/CategoryFilter";
 import { StatsBar } from "../components/StatsBar";
+import { SEO } from "../components/SEO";
 import { InfiniteScrollContainer } from "../components/InfiniteScrollContainer";
 import { FlaskConical } from "lucide-react";
 
@@ -80,6 +81,8 @@ export const Labs = () => {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      
+      <SEO isPage={true} />
       {/* Hero Header */}
       <PageHeader
         icon={FlaskConical}

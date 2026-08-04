@@ -12,6 +12,7 @@ import { useBookmarks } from "../hooks/useBookmarks";
 import { BlogCard } from "../components/BlogCard";
 import { InfiniteScrollContainer } from "../components/InfiniteScrollContainer";
 import { PageHeader } from "../components/PageHeader";
+import { SEO } from "../components/SEO";
 import { importBookmarks } from "../utils/bookmarks";
 
 const BOOKMARKS_PER_PAGE = 6;
@@ -163,6 +164,8 @@ export const Bookmarks = () => {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+
+      <SEO isPage={true} />
       {/* Hero Header */}
       <PageHeader
         icon={Bookmark}

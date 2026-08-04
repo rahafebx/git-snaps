@@ -2,38 +2,39 @@ import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "git_snaps";
 
-// Same fallback used by SocialShare so link previews and the in-app
-// share preview always agree on what image gets shown.
 const DEFAULT_IMAGE = "/preview.webp";
 
-// Renders all Open Graph / Twitter Card / SEO meta tags for a post or lab.
-export const SEO = ({ item }) => {
-  if (!item) return null;
+export const SEO = ({ item = null, isPage = false }) => {
 
-  const isLab = Boolean(item.isLab);
-  const prefix = isLab ? "Lab" : "Post";
-  const pageTitle = `${prefix}: ${item.title} | ${SITE_NAME}`;
-  const ogTitle = `${prefix}: ${item.title}`;
+
+  const isLab = Boolean(item?.isLab);
+  const prefix = isPage ? "" : isLab ? "Lab" : "Post";
+  const pageTitle = isPage ? SITE_NAME : `${prefix}: ${item?.title}`;
+  const ogTitle = isPage ? SITE_NAME : `${prefix}: ${item?.title}`;
 
   const defaultDescription = isLab
     ? "Hands-on lab exercise for mastering Git & GitHub workflows."
     : "Mastering Git & GitHub workflows.";
-  const description = item.description || defaultDescription;
+  const description = isPage ? "Learn Git and GitHub with interactive labs and tutorials." : item?.description || defaultDescription;
 
   const origin = typeof window !== "undefined" ? window.location.origin : "";
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
-  const imageUrl = `${origin}${item.thumb || DEFAULT_IMAGE}`;
+  const imageUrl = isPage ? `${origin}${DEFAULT_IMAGE}` : `${origin}${item?.thumb || DEFAULT_IMAGE}`;
 
-  const keywords =
-    item.tags && item.tags.length > 0 ? item.tags.join(", ") : null;
+  const keywords = isPage
+    ? "Git, GitHub, tutorial, lab"
+    : item?.tags && item.tags.length > 0 ? item.tags.join(", ") : null;
+   
   const category =
-    item.category && item.category.length > 0
-      ? item.category.join(", ")
-      : null;
+    isPage
+      ? "Git, GitHub, tutorial, lab"
+      : item?.category && item.category.length > 0
+        ? item.category.join(", ")
+        : null;
 
   // Try to parse the date (assuming a format like "13 July 2026")
   let publishedTime = null;
-  if (item.date) {
+  if (!isPage && item?.date) {
     const parsedDate = new Date(item.date);
     if (!isNaN(parsedDate.getTime())) {
       publishedTime = parsedDate.toISOString();
