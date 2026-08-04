@@ -1,4 +1,4 @@
-import { TestTubeDiagonal } from "lucide-react";
+import { TestTubeDiagonal, Asterisk } from "lucide-react";
 import { BookmarkButton } from "./BookmarkButton";
 const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
   return (
@@ -8,17 +8,17 @@ const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
       </span>
       <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
         {isLab && (
-          <span className="inline-block whitespace-nowrap px-3 py-1 text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-            <TestTubeDiagonal className="inline-block w-4 h-4 mr-1" /> Lab
+          <span className="inline-flex items-center gap-2 whitespace-nowrap px-3 py-1 text-sm font-semibold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/30 rounded-full">
+            <TestTubeDiagonal className="inline-block w-4 h-4" /> Lab
           </span>
         )}
         {post && !isLab && (
-          <BookmarkButton post={post} size="sm" className="mt-1 shrink-0" />
+          <BookmarkButton post={post} size="sm" className="shrink-0" />
         )}
 
-        <span>•</span>
+        <Asterisk className="inline-block w-4 h-4 text-primary-600 dark:text-primary-500" />
         <time dateTime={date}>{date}</time>
-        <span>•</span>
+        <Asterisk className="inline-block w-4 h-4 text-primary-600 dark:text-primary-500" />
         <div className="flex flex-wrap gap-2">
           {tags?.map((tag, index) => (
             <span

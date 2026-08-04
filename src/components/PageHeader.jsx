@@ -32,6 +32,8 @@ export const PageHeader = ({
         <div className="mt-8 max-w-md mx-auto">
           <input
             type="text"
+            id="search-input"
+            name="search"
             placeholder={searchPlaceholder || "Search..."}
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}

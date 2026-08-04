@@ -1,16 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-// Used whenever a post/lab has no thumbnail, or its thumbnail fails to load.
-const DEFAULT_THUMB = "/favicon.svg";
+const DEFAULT_THUMB = "/preview.webp";
 
 export const SocialShare = ({ title, description = "", tags = [], thumb }) => {
   const [previewSrc, setPreviewSrc] = useState(thumb || DEFAULT_THUMB);
-
-  // Reset the preview image whenever the underlying thumb prop changes
-  // (e.g. this panel is reused across a post's two share sections).
-  useEffect(() => {
-    setPreviewSrc(thumb || DEFAULT_THUMB);
-  }, [thumb]);
 
   // Hashtags are derived from the post/lab tags, with spaces swapped for
   // underscores so they read as valid, single-word hashtags (e.g.
@@ -111,7 +104,7 @@ export const SocialShare = ({ title, description = "", tags = [], thumb }) => {
             <svg 
               viewBox="0 0 16 16" 
               fill="currentColor" 
-              className="h-4 w-4 flex-shrink-0"
+              className="h-4 w-4 shrink-0"
               xmlns="http://www.w3.org/2000/svg"
             >
               {channel.svg}
