@@ -4,7 +4,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useMarkdown } from "../hooks/useMarkdown";
 import { SocialShare } from "../components/SocialShare";
 import { Contribute } from "../components/Contribute";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { SEO } from "../components/SEO";
 import BackLinkButton from "../components/BackLinkButton";
 import PostHeader from "../components/PostHeader";
 import PostFeaturedBanner from "../components/PostFeaturedBanner";
@@ -28,8 +28,6 @@ export const PostDetail = () => {
   const labs = getLabsForPost(slug);
   const { content, loading, error } = useMarkdown(slug);
 
-  useDocumentMeta(postMetadata);
-
   if (!postMetadata) {
     return (
       <NoContent
@@ -45,6 +43,8 @@ export const PostDetail = () => {
     <article
       className={`${showFloatingTOC ? "xl:ml-72" : ""} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}
     >
+      <SEO item={postMetadata} />
+
       {/* Back Link Button */}
       <BackLinkButton to="/" text="Back to Home" className="mb-8" />
 
@@ -67,7 +67,7 @@ export const PostDetail = () => {
       )}
 
       {/* Render share tools panel right before primary reading text block */}
-      {!loading && !error && <SocialShare title={postMetadata.title} />}
+      {!loading && !error && <SocialShare title={postMetadata.title} description={postMetadata.description} tags={postMetadata.tags} thumb={postMetadata.thumb} />}
 
       {/* Content Rendering Control Triggers */}
       {loading && (
@@ -117,7 +117,7 @@ export const PostDetail = () => {
       )}
 
       {/* Social Share Section */}
-      {!loading && !error && <SocialShare title={postMetadata.title} />}
+      {!loading && !error && <SocialShare title={postMetadata.title} description={postMetadata.description} tags={postMetadata.tags} thumb={postMetadata.thumb} />}
 
       {/* Contribute Section */}
       {!loading && !error && <Contribute />}

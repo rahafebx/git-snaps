@@ -4,7 +4,7 @@ import { useTheme } from "../context/ThemeContext";
 import { useMarkdown } from "../hooks/useMarkdown";
 import { SocialShare } from "../components/SocialShare";
 import { Contribute } from "../components/Contribute";
-import { useDocumentMeta } from "../hooks/useDocumentMeta";
+import { SEO } from "../components/SEO";
 import BackLinkButton from "../components/BackLinkButton";
 import PostHeader from "../components/PostHeader";
 import PostFeaturedBanner from "../components/PostFeaturedBanner";
@@ -24,8 +24,6 @@ export const LabDetails = () => {
   const postMetadata = labMetadata ? getPostBySlug(labMetadata.parentPostSlug) : null;
   const { content, loading, error } = useMarkdown(slug, 'labs'); // Assuming labs are in a 'labs' folder
 
-  useDocumentMeta(labMetadata);
-
   if (!labMetadata) {
     return (
       <NoContent title="Lab Not Found" message="Sorry, the lab you are looking for is not available." linkText="Return Home" linkTo="/" />
@@ -34,6 +32,8 @@ export const LabDetails = () => {
 
   return (
     <article className={`${showFloatingTOC ? 'xl:ml-64' : ''} mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8`}>
+      <SEO item={{ ...labMetadata, isLab: true }} />
+      
       {/* Back Link Button */}
       <div className="flex items-center gap-4 flex-wrap justify-between mb-8">
         <BackLinkButton to={`/post/${postMetadata?.slug}`} text="Back to Post" />
@@ -66,7 +66,7 @@ export const LabDetails = () => {
       )}
 
       {/* Render share tools panel right before primary reading text block */}
-      {!loading && !error && <SocialShare title={labMetadata.title} />}
+      {!loading && !error && <SocialShare title={labMetadata.title} description={labMetadata.description} tags={labMetadata.tags} thumb={labMetadata.thumb} />}
       
       {/* Content Rendering Control Triggers */}
       {loading && (
@@ -90,7 +90,7 @@ export const LabDetails = () => {
       )}
 
       {/* Social Share */}
-      {!loading && !error && <SocialShare title={labMetadata.title} />}
+      {!loading && !error && <SocialShare title={labMetadata.title} description={labMetadata.description} tags={labMetadata.tags} thumb={labMetadata.thumb} />}
 
       {/* Contribute Section */}
       {!loading && !error && <Contribute isLab={true} />}

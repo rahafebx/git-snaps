@@ -1,12 +1,43 @@
-export const SocialShare = ({ title }) => {
+import { useState, useEffect } from "react";
+
+// Used whenever a post/lab has no thumbnail, or its thumbnail fails to load.
+const DEFAULT_THUMB = "/favicon.svg";
+
+export const SocialShare = ({ title, description = "", tags = [], thumb }) => {
+  const [previewSrc, setPreviewSrc] = useState(thumb || DEFAULT_THUMB);
+
+  // Reset the preview image whenever the underlying thumb prop changes
+  // (e.g. this panel is reused across a post's two share sections).
+  useEffect(() => {
+    setPreviewSrc(thumb || DEFAULT_THUMB);
+  }, [thumb]);
+
+  // Hashtags are derived from the post/lab tags, with spaces swapped for
+  // underscores so they read as valid, single-word hashtags (e.g.
+  // "Version Control" -> "#Version_Control").
+  const hashtags = (tags || [])
+    .map((tag) => tag?.trim().replace(/\s+/g, "_"))
+    .filter(Boolean);
+  const hashtagText = hashtags.map((tag) => `#${tag}`).join(" ");
+
   const shareUrl = encodeURIComponent(window.location.href);
-  const shareText = encodeURIComponent(`Check out this snap: "${title}" via git_snaps`);
+
+  const baseMessage = description
+    ? `Check out "${title}" via git_snaps — ${description}`
+    : `Check out "${title}" via git_snaps`;
+
+  const shareText = encodeURIComponent(
+    hashtagText ? `${baseMessage} ${hashtagText}` : baseMessage,
+  );
+
+  // X supports a dedicated hashtags param (comma separated, no "#").
+  const xHashtags = encodeURIComponent(hashtags.join(","));
 
   // Target Endpoint Maps with exact SVG paths
   const channels = [
     {
       name: 'X',
-      href: `https://x.com/intent/tweet?url=${shareUrl}&text=${shareText}`,
+      href: `https://x.com/intent/tweet?url=${shareUrl}&text=${encodeURIComponent(baseMessage)}&hashtags=${xHashtags}`,
       colorClass: 'hover:bg-black/5 dark:hover:bg-white/10 text-black dark:text-white',
       svg: <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
     },
@@ -24,7 +55,7 @@ export const SocialShare = ({ title }) => {
     },
     {
       name: 'Facebook',
-      href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`,
+      href: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`,
       colorClass: 'hover:bg-blue-100 dark:hover:bg-blue-900/40 text-blue-600 dark:text-blue-400',
       svg: <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
     }
@@ -35,6 +66,39 @@ export const SocialShare = ({ title }) => {
       <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-4">
         -- Share this commit
       </h2>
+
+      {/* Preview Card: what will be shared */}
+      <div className="flex items-start gap-4 mb-5">
+        <img
+          src={previewSrc}
+          onError={() => setPreviewSrc(DEFAULT_THUMB)}
+          alt={title}
+          className="h-16 w-16 sm:h-20 sm:w-20 shrink-0 rounded-lg object-cover border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900"
+        />
+        <div className="min-w-0">
+          <p className="font-semibold text-zinc-900 dark:text-white line-clamp-1">
+            {title}
+          </p>
+          {description && (
+            <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2">
+              {description}
+            </p>
+          )}
+          {hashtags.length > 0 && (
+            <div className="mt-2 flex flex-wrap gap-x-2 gap-y-1">
+              {hashtags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-mono text-primary-600 dark:text-primary-400"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className="flex flex-wrap gap-2">
         {channels.map((channel) => (
           <a
