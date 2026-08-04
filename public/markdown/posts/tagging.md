@@ -4,6 +4,7 @@
 
 In this guide, we will explore how to manage tags in your Git repository.
 
+**Table of Contents:**
 - [Tagging](#tagging)
   - [List Tags](#list-tags)
   - [Creating Tags](#creating-tags)

@@ -2,7 +2,7 @@
 
 Branching is a powerful feature that allows developers to work on different features or fixes in isolation, without affecting the main codebase.
 
-Table of Contents:
+**Table of Contents:**
 - [Git Branching](#git-branching)
   - [Branches in a Nutshell](#branches-in-a-nutshell)
   - [Visualizing Git Objects](#visualizing-git-objects)

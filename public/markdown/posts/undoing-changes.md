@@ -2,6 +2,7 @@
 # Undoing Changes
 In this guide, we will explore how to undo changes in your Git repository.
 
+**Table of Contents:**
 - [Undoing Changes](#undoing-changes)
   - [Amending Commits](#amending-commits)
   - [Unstaging Changes](#unstaging-changes)

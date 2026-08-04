@@ -2,7 +2,7 @@
 
 Remote branches are references to the state of branches in your remote repositories. They are read-only and cannot be modified directly. Instead, you can fetch updates from the remote repository and merge them into your local branches.
 
-Table of Contents:
+**Table of Contents:**
 - [Git Branching - Remote Branches](#git-branching---remote-branches)
   - [Pushing and Pulling](#pushing-and-pulling)
   - [Tracking Branches](#tracking-branches)

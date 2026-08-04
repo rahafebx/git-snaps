@@ -3,9 +3,8 @@
 Branching workflows are structured strategies for managing branches in a Git repository. They define how developers create, merge, and organize branches to streamline collaboration, maintain code quality, and support scalable release processes. The choice of workflow depends on team size, project complexity, release cadence, and organizational requirements.
 
 
-## Table of Contents
+**Table of Contents:**
 - [Git Branching - Branching Workflows](#git-branching---branching-workflows)
-  - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Long-Lived Branches](#long-lived-branches)
     - [Common Long-Lived Branches](#common-long-lived-branches)

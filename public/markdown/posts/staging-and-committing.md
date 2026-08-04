@@ -2,6 +2,7 @@
 
 In this guide, we will explore how to stage and commit changes in your Git repository.
 
+**Table of Contents:**
 - [Staging and Committing Changes](#staging-and-committing-changes)
   - [Viewing Staged and Unstaged Changes](#viewing-staged-and-unstaged-changes)
   - [Committing Changes](#committing-changes)

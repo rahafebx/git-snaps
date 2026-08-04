@@ -2,7 +2,7 @@
 
 There are numerous variations on how to contribute to a project, depending on the size of the team, the number of contributors, and the workflow used by the project. In this guide, we will explore some common scenarios for contributing to a project using Git.
 
-Table of Contents:
+**Table of Contents:**
 - [Distributed Git - Contributing to a Project](#distributed-git---contributing-to-a-project)
   - [Commit Guidelines](#commit-guidelines)
   - [Private Small Team](#private-small-team)

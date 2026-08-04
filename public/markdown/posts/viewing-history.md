@@ -2,6 +2,7 @@
 
 In this guide, we will explore how to view the commit history of your Git repository.
 
+**Table of Contents:**
 - [Viewing the Commit History](#viewing-the-commit-history)
   - [Useful Specifiers for Formatting the Log Output](#useful-specifiers-for-formatting-the-log-output)
   - [Limiting the Log Output](#limiting-the-log-output)

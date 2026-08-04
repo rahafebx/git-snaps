@@ -1,7 +1,7 @@
 # Git on the Server - Quick Overview
 In order to do any collaboration in Git, you’ll need to have a remote Git repository. The preferred method for collaborating with someone is to set up an intermediate repository that you both have access to, and push to and pull from that.
 
-Table of Contents
+**Table of Contents:**
 - [Git on the Server - Quick Overview](#git-on-the-server---quick-overview)
   - [The Remote Repository](#the-remote-repository)
   - [The Protocols](#the-protocols)

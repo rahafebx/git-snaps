@@ -2,6 +2,7 @@
 
 Aliases are shortcuts for Git commands that can save you time and make your workflow more efficient. You can create aliases for frequently used commands or for commands that have long names.
 
+**Table of Contents:**
 - [Git Aliases](#git-aliases)
   - [Creating Aliases](#creating-aliases)
   - [Using Aliases](#using-aliases)

@@ -2,6 +2,16 @@
 
 Contributing to a project on GitHub typically involves forking the repository, making changes in a topic branch, and submitting a pull request for review.
 
+**Table of Contents:**
+- [GitHub - Contributing to a Project](#github---contributing-to-a-project)
+  - [Forking a Repository](#forking-a-repository)
+  - [Creating a Pull Request](#creating-a-pull-request)
+  - [Iterating on a Pull Request](#iterating-on-a-pull-request)
+  - [Keeping up with Upstream](#keeping-up-with-upstream)
+  - [References](#references)
+  - [GitHub Flavored Markdown](#github-flavored-markdown)
+
+
 ## Forking a Repository
 If you don't have write access to a repository, you can fork it. Forking creates a personal copy of the repository in your GitHub account. It lives in your username's namespace and allows you to freely make changes without affecting the original project.
 

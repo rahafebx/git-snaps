@@ -2,6 +2,7 @@
 
 Remote repositories are versions of your project that are hosted on the internet or network somewhere. You can have multiple remote repositories for a single project, and you can push and pull changes to and from these repositories.
 
+**Table of Contents:**
 - [Working with Remote Repositories](#working-with-remote-repositories)
   - [Showing Remote Repositories](#showing-remote-repositories)
   - [Adding a Remote Repository](#adding-a-remote-repository)

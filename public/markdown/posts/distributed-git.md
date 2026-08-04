@@ -2,7 +2,7 @@
 
 Git's distributed nature allows for a variety of workflows, each with its own advantages and disadvantages. In this guide, you will explore some of the most common workflows used in distributed Git development.
 
-Table of Contents:
+**Table of Contents:**
 - [Distributed Git](#distributed-git)
   - [Distributed Workflows](#distributed-workflows)
     - [Centralized Workflow](#centralized-workflow)

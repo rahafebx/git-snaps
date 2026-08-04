@@ -1,7 +1,7 @@
 # GitHub - Getting Started
 GitHub is a web-based platform for version control and collaboration that allows developers to host and review code, manage projects, and build software together. It uses Git, a distributed version control system, to track changes in source code during software development.
 
-Table of Contents:
+**Table of Contents:**
 - [GitHub - Getting Started](#github---getting-started)
   - [Account Creation and Setup](#account-creation-and-setup)
   - [SSH Key Generation and Configuration](#ssh-key-generation-and-configuration)

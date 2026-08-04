@@ -2,7 +2,7 @@
 # GitHub - Maintaining a Project
 Creating, maintaining and administrating your own project on Github.
 
-Table of Contents:
+**Table of Contents:**
 - [GitHub - Maintaining a Project](#github---maintaining-a-project)
   - [Creating a New Repository](#creating-a-new-repository)
   - [Adding Collaborators](#adding-collaborators)

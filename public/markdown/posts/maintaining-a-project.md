@@ -2,7 +2,7 @@
 
 Whether you maintain a canonical repository or want to help by verifying or approving patches, you need to know how to accept work in a way that is clearest for other contributors and sustainable by you over the long run.
 
-Table of Contents:
+**Table of Contents:**
 - [Distributed Git - Maintaining a Project](#distributed-git---maintaining-a-project)
   - [Working in Topic Branches](#working-in-topic-branches)
   - [Applying Patches from Email](#applying-patches-from-email)
