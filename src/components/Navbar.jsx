@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { Sun, Moon, Menu, X, GitPullRequestArrow } from "lucide-react";
+import { Sun, Moon, Menu, X, GitPullRequestArrow, TestTubeDiagonal, House, Bookmark, Info } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", path: "/" },
-  { name: "Labs", path: "/labs" },
-  { name: "Bookmarks", path: "/bookmarks" },
-  { name: "About", path: "/about" },
+  { name: "Home", path: "/", icon: House },
+  { name: "Labs", path: "/labs", icon: TestTubeDiagonal },
+  { name: "Bookmarks", path: "/bookmarks", icon: Bookmark },
+  { name: "About", path: "/about", icon: Info }
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  const [ isActive, setIsActive ] = useState(document.location.pathname);
 
   return (
     <nav className="border-b border-zinc-200 bg-white/90 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-900/90 sticky top-0 z-50 transition-colors duration-200">
@@ -36,8 +37,15 @@ export const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="text-sm font-medium text-zinc-600 hover:text-primary-600 dark:text-zinc-300 dark:hover:text-primary-400 uppercase"
+                  onClick={() => {
+                    setIsActive(link.path);
+                  }
+                  }
+                  className={`text-sm flex items-center gap-2 font-medium  hover:text-primary-600  dark:hover:text-primary-400 uppercase
+                    ${isActive === link.path ? "text-primary-600 dark:text-primary-400" : "text-zinc-600 dark:text-zinc-300"}
+                    `}
                 >
+                  <link.icon className="h-4 w-4 inline" />
                   {link.name}
                 </Link>
               ))}
@@ -101,9 +109,13 @@ export const Navbar = () => {
               to={link.path}
               onClick={() => {
                 setIsOpen(false);
+                setIsActive(link.path);
               }}
-              className="block rounded-md px-3 py-2 text-base font-medium text-zinc-700 hover:bg-zinc-50 hover:text-primary-600 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-primary-400 uppercase"
+              className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium  hover:bg-zinc-50 hover:text-primary-600 dark:hover:bg-zinc-800 dark:hover:text-primary-400 uppercase
+                ${isActive === link.path ? "text-primary-600 dark:text-primary-400" : "text-zinc-600 dark:text-zinc-300"}
+                `}
             >
+              <link.icon className="h-4 w-4 inline" />
               {link.name}
             </Link>
           ))}
