@@ -6,6 +6,7 @@ In this guide, we will explore how to view the commit history of your Git reposi
 - [Viewing the Commit History](#viewing-the-commit-history)
   - [Useful Specifiers for Formatting the Log Output](#useful-specifiers-for-formatting-the-log-output)
   - [Limiting the Log Output](#limiting-the-log-output)
+  - [References](#references)
 
 
 You can view the commit history of your repository using the `git log` command. This command will show you a list of commits, including the commit hash, author, date, and commit message:

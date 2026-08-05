@@ -6,6 +6,7 @@ Many Git servers use SSH keys to securely authenticate users. Each user in the s
   - [Checking for Existing SSH Keys](#checking-for-existing-ssh-keys)
   - [Generating a New SSH Key Pair](#generating-a-new-ssh-key-pair)
   - [Sending Your Public Key to the Git Server](#sending-your-public-key-to-the-git-server)
+  - [References](#references)
 
 
 ## Checking for Existing SSH Keys

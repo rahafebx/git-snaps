@@ -9,6 +9,8 @@ There are numerous variations on how to contribute to a project, depending on th
   - [Private Managed Team](#private-managed-team)
   - [Forked Public Project](#forked-public-project)
   - [Public Project over Email](#public-project-over-email)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 Some of the project variables that you may want to consider when contributing to a project include:
@@ -118,7 +120,15 @@ Now, Alice can merge her topic into the `main` branch:
 git checkout main
 git merge issue54
 ```
-Alice will get a fast-forward merge, because her `main` branch is behind the `origin/main` branch.
+Alice will get a - [Distributed Git - Contributing to a Project](#distributed-git---contributing-to-a-project)
+- [Distributed Git - Contributing to a Project](#distributed-git---contributing-to-a-project)
+  - [Commit Guidelines](#commit-guidelines)
+  - [Private Small Team](#private-small-team)
+  - [Private Managed Team](#private-managed-team)
+  - [Forked Public Project](#forked-public-project)
+  - [Public Project over Email](#public-project-over-email)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 After that, Alice merges Bob's changes into her local repository.
 

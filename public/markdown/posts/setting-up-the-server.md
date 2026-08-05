@@ -7,6 +7,7 @@ Quick guide to setting up SSH access on the server side.
   - [Add public key to the server](#add-public-key-to-the-server)
   - [Setup your repository on the server](#setup-your-repository-on-the-server)
   - [Setup permissions](#setup-permissions)
+  - [References](#references)
 
 
 What we describe here can be automated by using`ssh-copy-id` command, which copies your public key to the server and sets up the necessary permissions. However, we will go through the manual steps to understand what is happening behind the scenes.

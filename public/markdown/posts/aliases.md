@@ -6,6 +6,8 @@ Aliases are shortcuts for Git commands that can save you time and make your work
 - [Git Aliases](#git-aliases)
   - [Creating Aliases](#creating-aliases)
   - [Using Aliases](#using-aliases)
+  - [References](#references)
+
 
 ## Creating Aliases
 

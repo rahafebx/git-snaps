@@ -10,6 +10,8 @@ Branching is a powerful feature that allows developers to work on different feat
     - [Switching Branches](#switching-branches)
   - [Basic Branching and Merging](#basic-branching-and-merging)
     - [Basic Merge Conflicts](#basic-merge-conflicts)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Branches in a Nutshell

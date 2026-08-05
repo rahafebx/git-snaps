@@ -9,6 +9,8 @@ In this guide, we will explore how to stage and commit changes in your Git repos
   - [Skipping the Staging Area](#skipping-the-staging-area)
   - [Removing Files](#removing-files)
   - [Moving Files](#moving-files)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Viewing Staged and Unstaged Changes

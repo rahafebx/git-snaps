@@ -13,7 +13,8 @@ This guide will help you get started with Git, a distributed version control sys
   - [Installing Git](#installing-git)
   - [First-Time Configuration](#first-time-configuration)
   - [Getting Help](#getting-help)
-  - [Other Learning Resources](#other-learning-resources)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## What is Version Control?

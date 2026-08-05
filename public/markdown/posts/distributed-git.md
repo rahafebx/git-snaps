@@ -9,6 +9,7 @@ Git's distributed nature allows for a variety of workflows, each with its own ad
     - [Integration-Manager Workflow](#integration-manager-workflow)
     - [Dictator and Lieutenants Workflow](#dictator-and-lieutenants-workflow)
   - [Other Learning Resources](#other-learning-resources)
+  - [References](#references)
 
 
 ## Distributed Workflows

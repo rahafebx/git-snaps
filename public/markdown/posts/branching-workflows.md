@@ -20,6 +20,8 @@ Branching workflows are structured strategies for managing branches in a Git rep
   - [Common Workflow Patterns](#common-workflow-patterns)
   - [Best Practices](#best-practices)
   - [Conclusion](#conclusion)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Overview

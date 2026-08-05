@@ -10,6 +10,8 @@ Contributing to a project on GitHub typically involves forking the repository, m
   - [Keeping up with Upstream](#keeping-up-with-upstream)
   - [References](#references)
   - [GitHub Flavored Markdown](#github-flavored-markdown)
+  - [Learning Resources](#learning-resources)
+  - [References](#references-1)
 
 
 ## Forking a Repository

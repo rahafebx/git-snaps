@@ -7,6 +7,8 @@ In Git, rebasing is a process of moving or combining a sequence of commits to a 
   - [More Interesting Rebases](#more-interesting-rebases)
   - [The Perils of Rebasing](#the-perils-of-rebasing)
   - [Rebase vs. Merge](#rebase-vs-merge)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 When you rebase a branch, you are essentially taking the changes from that branch and replaying them on top of another branch. This can be useful for integrating changes from one branch into another without creating a merge commit.

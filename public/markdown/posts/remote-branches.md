@@ -7,6 +7,7 @@ Remote branches are references to the state of branches in your remote repositor
   - [Pushing and Pulling](#pushing-and-pulling)
   - [Tracking Branches](#tracking-branches)
   - [Deleting Remote Branches](#deleting-remote-branches)
+  - [References](#references)
 
 
 Remote references are pointers in your remote repositories, including branches, tags, and other references.  You can get a list of all remote references by using the `git ls-remote` or `git remote show` command:

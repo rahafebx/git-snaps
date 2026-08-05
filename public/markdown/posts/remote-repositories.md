@@ -10,6 +10,8 @@ Remote repositories are versions of your project that are hosted on the internet
   - [Pushing Changes to Remote Repositories](#pushing-changes-to-remote-repositories)
   - [Inspecting a Remote Repository](#inspecting-a-remote-repository)
   - [Renaming and Removing Remote Repositories](#renaming-and-removing-remote-repositories)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Showing Remote Repositories

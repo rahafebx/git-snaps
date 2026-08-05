@@ -19,6 +19,8 @@ Whether you maintain a canonical repository or want to help by verifying or appr
   - [Preparing a Release](#preparing-a-release)
   - [The Shortlog](#the-shortlog)
   - [Summary](#summary)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Working in Topic Branches

@@ -11,6 +11,7 @@ In order to do any collaboration in Git, you’ll need to have a remote Git repo
       - [Dumb HTTP](#dumb-http)
     - [SSH Protocol](#ssh-protocol)
     - [Git Protocol](#git-protocol)
+  - [References](#references)
 
 ## The Remote Repository
 

@@ -12,6 +12,8 @@ In this guide, we will explore how to manage tags in your Git repository.
   - [Sharing Tags](#sharing-tags)
   - [Deleting Tags](#deleting-tags)
   - [Checking out Tags](#checking-out-tags)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## List Tags

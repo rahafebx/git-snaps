@@ -19,6 +19,8 @@ Creating, maintaining and administrating your own project on GitHub.
   - [Project Administration](#project-administration)
     - [Changing the Default Branch](#changing-the-default-branch)
     - [Transferring a Project](#transferring-a-project)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Creating a New Repository

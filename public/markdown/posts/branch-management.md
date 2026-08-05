@@ -2,13 +2,15 @@
 
 Managing branches is an essential part of working with Git. This post will cover the basic commands for managing branches, including listing, creating, deleting, and renaming branches.
 
-**Table of Contents:**
+**Table of Contents:** 
 - [Git Branching - Branch Management](#git-branching---branch-management)
   - [Listing Branches](#listing-branches)
   - [Listing last commit on each branch](#listing-last-commit-on-each-branch)
   - [Listing merged and unmerged branches](#listing-merged-and-unmerged-branches)
   - [Deleting branches](#deleting-branches)
   - [Changing the name of a branch](#changing-the-name-of-a-branch)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Listing Branches

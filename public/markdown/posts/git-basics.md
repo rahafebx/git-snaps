@@ -13,7 +13,8 @@ This guide will help you get started with Git, a distributed version control sys
     - [Tracking New Files](#tracking-new-files)
     - [Short Status](#short-status)
     - [Ignoring Files](#ignoring-files)
-  - [Other Learning Resources](#other-learning-resources)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Getting a Git Repository

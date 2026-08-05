@@ -8,6 +8,8 @@ GitHub is a web-based platform for version control and collaboration that allows
   - [Public Profile](#public-profile)
   - [Email Addresses](#email-addresses)
   - [Two Factor Authentication](#two-factor-authentication)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
 
 
 ## Account Creation and Setup
