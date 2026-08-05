@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useReadingTime } from './useReadingTime';
 
 export const useMarkdown = (slug, type = 'posts') => {
   const [content, setContent] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const readingTime = useReadingTime(content);
 
   useEffect(() => {
     const fetchMarkdown = async () => {
@@ -11,7 +13,6 @@ export const useMarkdown = (slug, type = 'posts') => {
         setLoading(true);
         setError(null);
         
-        // Use ?raw query parameter to get raw content
         const path = type === 'labs' 
           ? `/markdown/labs/${slug}.md?raw` 
           : `/markdown/posts/${slug}.md?raw`;
@@ -24,7 +25,6 @@ export const useMarkdown = (slug, type = 'posts') => {
         
         const text = await response.text();
         
-        // Check if content is empty or HTML
         if (!text || text.trim() === '' || text.trim().startsWith('<!doctype html>')) {
           throw new Error(`The ${type === 'labs' ? 'lab' : 'post'} content file is empty or unavailable.`);
         }
@@ -43,5 +43,5 @@ export const useMarkdown = (slug, type = 'posts') => {
     }
   }, [slug, type]);
 
-  return { content, loading, error };
+  return { content, loading, error, readingTime };
 };

@@ -1,6 +1,7 @@
-import { TestTubeDiagonal, Asterisk } from "lucide-react";
+import { TestTubeDiagonal, Asterisk, Calendar } from "lucide-react";
 import { BookmarkButton } from "./BookmarkButton";
-const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
+import  ReadingTime  from "./ReadingTime";
+const PostHeader = ({ title, date, tags, isLab = false, post = null, readingTime }) => {
   return (
     <header className="mb-8">
       <span className="heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
@@ -17,9 +18,15 @@ const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
         )}
 
         <Asterisk className="inline-block w-4 h-4 text-primary-600 dark:text-primary-500" />
-        <time dateTime={date}>{date}</time>
+        <time className="flex items-center" dateTime={date}>
+          <Calendar className="inline-block w-4 h-4 mr-1.5" />
+          {date}
+        </time>
         <Asterisk className="inline-block w-4 h-4 text-primary-600 dark:text-primary-500" />
-        <div className="flex flex-wrap gap-2">
+        <ReadingTime readingTime={readingTime} />
+        
+      </div>
+      <div className="flex flex-wrap gap-2 mt-4">
           {tags?.map((tag, index) => (
             <span
               key={index}
@@ -29,7 +36,6 @@ const PostHeader = ({ title, date, tags, isLab = false, post = null }) => {
             </span>
           ))}
         </div>
-      </div>
     </header>
   );
 };

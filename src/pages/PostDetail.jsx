@@ -26,7 +26,7 @@ export const PostDetail = () => {
   const postMetadata = getPostBySlug(slug);
   const { previous, next } = getAdjacentPosts(slug);
   const labs = getLabsForPost(slug);
-  const { content, loading, error } = useMarkdown(slug);
+  const { content, loading, error, readingTime } = useMarkdown(slug);
 
   if (!postMetadata) {
     return (
@@ -55,6 +55,7 @@ export const PostDetail = () => {
           date={postMetadata.date}
           tags={postMetadata.tags}
           post={postMetadata}
+          readingTime={readingTime}
         />
       )}
 
