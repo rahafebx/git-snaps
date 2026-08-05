@@ -46,3 +46,6 @@ This will output your public key, which you can then copy and paste into the app
 For a more detailed guide, see the GitHub documentation on [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 See the [GitHub - Getting Started](github.md) guide for more information on setting up your GitHub account and configuring SSH keys.
+
+## References
+- [Generating Your SSH Public Key](https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key)

@@ -349,3 +349,11 @@ git send-email --to=maintainer@example.com *.patch
 ```
 
 For help on configuring your system and email, more tips and tricks, and a sandbox to send a trial patch via email, go to [git-send-email.io](https://git-send-email.io/).
+
+## Learning Resources
+- [How to Write Better Git Commit Messages](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/)
+- [Git Fast-Forward VS Non-Fast-Forward](https://leimao.github.io/blog/Git-Fast-Forward-VS-Non-Fast-Forward/)
+- [Git Squash Commits](https://www.freecodecamp.org/news/git-squash-commits/)
+- [How to Squash Commits in Git](https://medium.com/iosnesia/how-to-squash-commits-in-git-e73a41248211)
+## References
+- [Contributing to a Project](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project)

@@ -81,3 +81,10 @@ To restore a file to its last staged state (unstage changes), you can use the `-
 # To unstage changes for a file
 git restore --staged <file-name>
 ```
+
+
+## Learning Resources
+- [git reset](https://www.atlassian.com/git/tutorials/undoing-changes/git-reset)
+
+## References
+- [Undoing Things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)

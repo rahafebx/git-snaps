@@ -139,3 +139,11 @@ You can checkout back to your previous branch using:
 # Checkout back to the previous branch
 git checkout <branch-name>
 ```
+
+## Learning Resources
+- [Git — Use Tags for Versioning and Release Management](https://medium.com/@KeyurRamoliya/git-use-tags-for-versioning-and-release-management-09aca9631eee)
+- [How to Push Git Tags to Remote](https://kodekloud.com/blog/how-to-push-git-tags-to-remote/)
+- [How To Checkout Git Tags](https://devconnected.com/how-to-checkout-git-tags/)
+- [What is git tag, How to create tags & How to checkout git remote tag(s)](https://stackoverflow.com/questions/35979642/what-is-git-tag-how-to-create-tags-how-to-checkout-git-remote-tags)
+## References
+- [Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)

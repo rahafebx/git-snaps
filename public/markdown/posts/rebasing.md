@@ -73,3 +73,9 @@ Your repository’s commit history is a record of what actually happened in your
 There is no difference in the end product of the integration, but rebasing makes for a cleaner history.
 
 > You can get the best of both worlds: rebase local changes before pushing to clean up your work, but never rebase anything that you’ve pushed somewhere.
+
+## Learning Resources
+- [Clean GIT history — a Step by Step Guide](https://medium.com/@catalinaturlea/clean-git-history-a-step-by-step-guide-eefc0ad8696d)
+- [git rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
+## References
+- [Rebasing](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)

@@ -138,3 +138,7 @@ git log --pretty="%h - %s" --author="John Doe" --since="2016-11-01" --until="201
 ```
 
 The `--no-merges` option excludes merge commits from the log output. The `--pretty="%h - %s"` option formats the output to show only the abbreviated commit hash and the commit message.
+
+
+## References
+- [Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)

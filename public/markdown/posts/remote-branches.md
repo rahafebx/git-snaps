@@ -101,3 +101,6 @@ To delete a remote branch, you can use the `git push <remote-name> --delete <bra
 ```bash
 git push origin --delete feature/new-feature
 ```
+
+## References
+- [Remote Branches](https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches)

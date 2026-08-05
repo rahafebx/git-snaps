@@ -123,3 +123,6 @@ Explanation of the line:
 - `no-pty`: Disables pseudo-terminal allocation, preventing the user from obtaining an interactive shell session on the server. This further restricts their access and limits their ability to execute commands.
 
 Now Git network commands will still work just fine but the users won't be able to get a shell.
+
+## References
+- [Setting Up the Server](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server)

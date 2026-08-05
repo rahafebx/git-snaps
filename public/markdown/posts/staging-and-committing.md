@@ -110,3 +110,13 @@ To move or rename a file in the repository, you can use the `git mv` command. Th
 ```bash
 git mv <old-file-name> <new-file-name>
 ```
+
+## Learning Resources
+- [Git commit](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)
+- [Comparing changes with Git diff](https://refine.dev/blog/git-diff-command/)
+- [What does Staged Changes mean in Git?](https://dillionmegida.com/p/staged-changes-in-git/)
+- [How to unstage files in Git](https://www.git-tower.com/learn/git/faq/git-unstage)
+- [Rewriting history](https://www.atlassian.com/git/tutorials/rewriting-history)
+
+## References
+[Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)

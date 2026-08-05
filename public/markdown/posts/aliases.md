@@ -48,3 +48,7 @@ git st -s
 git reset HEAD -- <file-name>
 git last
 ```
+
+## References
+
+- [Git Aliases](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)

@@ -115,3 +115,11 @@ To remove a remote repository, you can use the `git remote remove` command:
 ```bash
 git remote remove <remote-name>
 ```
+
+
+## Learning Resources
+- [Git fetch](https://www.atlassian.com/git/tutorials/syncing/git-fetch)
+- [A Comprehensive Guide to git pull and git push](https://dev.to/alexmercedcoder/mastering-git-a-comprehensive-guide-to-git-pull-and-git-push-2eo3)
+
+## References
+- [Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)

@@ -104,3 +104,6 @@ This kind of workflow isn't common, but can be useful in very big projects, or i
 
 ## Other Learning Resources
 - [Patterns for Managing Source Code Branches](https://martinfowler.com/articles/branching-patterns.html)
+
+## References
+- [Distributed Workflows](https://git-scm.com/book/en/v2/Distributed-Git-Distributed-Workflows)

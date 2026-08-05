@@ -150,6 +150,11 @@ Global patterns:
 
 It's possible to have multiple `.gitignore` files in a repository, and they can be placed in different directories. The rules in each `.gitignore` file apply to the directory it is in and all its subdirectories.
 
-## Other Learning Resources
-
-- [Introduction to Git](https://learn.microsoft.com/en-us/training/modules/intro-to-git/) - Microsoft Learn
+## Learning Resources
+- [Install Git](https://github.com/git-guides/install-git)
+- [About repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
+- [Clone a Git Repository](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone)
+- [.gitignore file - ignoring files in Git | Atlassian Git Tutorial](https://www.atlassian.com/git/tutorials/saving-changes/gitignore)
+## References
+- [Getting a Git Repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+- [Recording Changes to the Repository](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository)

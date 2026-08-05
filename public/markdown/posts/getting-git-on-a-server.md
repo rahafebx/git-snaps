@@ -44,3 +44,6 @@ One of the most complicated aspects of setting up a git server is user managemen
 
 ### SSH Access
 If all developers have SSH access to the server, you can use the `authorized_keys` file to control access. You can create a new user on the server for each developer and add their public SSH keys to the `~/.ssh/authorized_keys` file of that user.
+
+## References
+- [Getting Git on a Server](https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server)

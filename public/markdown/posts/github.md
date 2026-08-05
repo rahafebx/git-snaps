@@ -144,3 +144,9 @@ It's important to enable two-factor authentication (2FA) for added security on y
 4. Follow the prompts to complete the setup. You may be asked to scan a QR code with your authenticator app or enter a code sent via SMS.
 
 If you setup multiple methods, you can choose which one to use when logging in. Make sure to keep backup codes in a safe place in case you lose access to your primary 2FA method.
+
+## Learning Resources
+- [Setting up your profile](https://docs.github.com/en/get-started/start-your-journey/setting-up-your-profile)
+
+## References
+- [Account Setup and Configuration](https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration)

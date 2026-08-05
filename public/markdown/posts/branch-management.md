@@ -83,3 +83,11 @@ git branch -m master main
 git push --set-upstream origin main
 ```
 **Note:** you can use `-u` instead of `--set-upstream` to set the upstream branch.
+
+## Learning Resources
+- [Learn Git Branching](https://learngitbranching.js.org/)
+- [Git branch](https://www.atlassian.com/git/tutorials/using-branches)
+- [Git Rename Branch – How to Change a Local Branch Name](https://www.freecodecamp.org/news/git-rename-branch-how-to-change-a-local-branch-name/)
+- [How to Delete a Git Branch Both Locally and Remotely](https://www.freecodecamp.org/news/how-to-delete-a-git-branch-both-locally-and-remotely/)
+## References
+- [Branch Management](https://git-scm.com/book/en/v2/Git-Branching-Branch-Management)

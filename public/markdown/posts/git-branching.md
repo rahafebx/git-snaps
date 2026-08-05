@@ -286,3 +286,12 @@ After resolving the conflict, you need to add the file to the staging area and c
 git add index.html
 git commit -m "Resolve merge conflict in index.html"
 ```
+
+## Learning Resources
+- [git-commands-checkout](https://www.git-tower.com/learn/git/commands/git-checkout)
+- [Git merge](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+- [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line)
+- [Resolve merge conflicts in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/version-control/git-resolve-conflicts?view=visualstudio)
+## References
+- [Branches in a Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
+- [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)

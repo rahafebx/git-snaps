@@ -148,3 +148,6 @@ git clone git://hostname/path/to/repo.git
 **The cons:**
 - No authentication or encryption
 - Not suitable for collaboration with remote users
+
+## References
+- [The Protocols](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols)

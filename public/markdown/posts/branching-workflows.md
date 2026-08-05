@@ -140,3 +140,9 @@ To maximize the effectiveness of any branching workflow, consider the following 
 Branching workflows are a cornerstone of effective Git-based collaboration. By understanding the roles of **long-lived branches**—which provide stability and integration points—and **topic branches**—which enable focused, isolated development—teams can tailor their workflow to fit their project's needs. Whether adopting a structured model like Git Flow or a leaner approach like GitHub Flow, the principles outlined here will help maintain a clean, manageable, and productive codebase.
 
 Selecting the right workflow is not a one-time decision; it should evolve with your team's maturity, project scale, and deployment practices. Regularly review your branching strategy and adapt it to ensure it continues to support your development goals.
+
+## Learning Resources
+- [Naming conventions for Git Branches — a Cheatsheet](https://medium.com/@abhay.pixolo/naming-conventions-for-git-branches-a-cheatsheet-8549feca2534)
+- [Git Branching Naming Convention: Best Practices to Follow](https://phoenixnap.com/kb/git-branch-name-convention)
+## References
+- [Branching Workflows](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows)

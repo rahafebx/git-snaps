@@ -1,6 +1,6 @@
 
 # GitHub - Maintaining a Project
-Creating, maintaining and administrating your own project on Github.
+Creating, maintaining and administrating your own project on GitHub.
 
 **Table of Contents:**
 - [GitHub - Maintaining a Project](#github---maintaining-a-project)
@@ -112,3 +112,11 @@ Generally there are not a lot of administrative things you can do with a single 
 2. **Transfer Repository**: In the "Danger Zone" section, click on "Transfer". You will be prompted to enter the new owner's GitHub username or organization name. Confirm the transfer by typing the repository name and clicking "I understand, transfer this repository".
 
 This will transfer ownership of the repository to the new owner, and they will have full control over the project. Also, it will setup a redirect from the old repository URL to the new one, so existing links will still work.
+
+
+## Learning Resources
+- [Quickstart for repositories - GitHub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories)
+- [Setting Guidelines for Repository Contributors](https://docs.github.com/articles/setting-guidelines-for-repository-contributors)
+- [How to Build a CONTRIBUTING.md](https://mozillascience.github.io/working-open-workshop/contributing/)
+## References
+- [Maintaining a Project](https://git-scm.com/book/en/v2/GitHub-Maintaining-a-Project)

@@ -323,3 +323,9 @@ This command will give you a summary of all the commits since your last release 
 
 ## Summary
 You should feel fairly comfortable contributing to a project in Git as well as maintaining your own project or integrating other users' contributions. Congratulations on being an effective Git developer!
+
+## Learning Resources
+- [Git Cherry Pick](https://www.atlassian.com/git/tutorials/cherry-pick)
+- [How to compare branches in Git diff](https://scribehow.com/shared/How_to_Compare_Branches_in_GitHub__xsotezV-S1O-GL0PquqJwQ)
+## References
+- [Maintaining a Project](https://git-scm.com/book/en/v2/Distributed-Git-Maintaining-a-Project)

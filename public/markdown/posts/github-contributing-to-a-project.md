@@ -111,3 +111,12 @@ In Issue and Pull Request description, comments, code comments, and README files
 This file you are reading is written in Markdown, and you can use GFM to format your own content on GitHub. For example, you can create headings using `#`, lists using `-` or `*`, and code blocks using triple backticks (```) or indentation.
 
 For more information on GitHub Flavored Markdown, you can refer to the [GitHub Docs - Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+
+## Learning Resources
+- [Best Practices for collaborating in github](https://www.gitkraken.com/blog/collaborate-on-github)
+- [Walkthrough: Using GitHub’s “Saved Replies” to make life consistent and easy](https://prowe214.medium.com/walkthrough-using-githubs-saved-replies-to-make-life-consistent-and-easy-80f23efe6a0)
+- [Pull Requests](https://www.atlassian.com/git/tutorials/making-a-pull-request)
+- [Creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
+- [GitHub Discussions Docs](https://docs.github.com/en/discussions)
+## References
+- [Contributing to a Project](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
