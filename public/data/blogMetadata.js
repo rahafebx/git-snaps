@@ -661,5 +661,19 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     },
+  },
+  {id: 31,
+    title: "Git Tools - Revision Selection",
+    slug: "git-tools-revision-selection",
+    thumb: "/images/posts/git-tools/git-tools-revision-selection.webp",
+    category: ["Git", "Git Tools"],
+    tags: ["Git", "Revision Selection", "Commit Hash", "Branch Name", "reflog", "HEAD", "Ancestry", "Range", "Double Dot", "Triple Dot"],
+    description: "Learn how to select revisions in Git using commit hashes, branch names, and multiple reference types.",
+    date: "06 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
   }
 ];

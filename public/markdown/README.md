@@ -32,7 +32,7 @@
 | 28      | [GitHub - Maintaining a Project](posts/github-maintaining-a-project)                       | 26             | published   | 03 August 2026 | 03 August 2026 |
 | 29      | GitHub - Managing an organization                                                          | 26             | Not Started |                |                |
 | 30      | GitHub - Scripting GitHub                                                                  | 26             | Not Started |                |                |
-| 31      | Git Tools - Revision Selection                                                             | 0              | Not Started |                |                |
+| 31      | [Git Tools - Revision Selection](posts/git-tools-revision-selection)                       | 0              | published   | 06 August 2026 | 06 August 2026 |
 | 32      | Git Tools - Interactive Staging                                                            | 31             | Not Started |                |                |
 | 33      | Git Tools - Stashing and Cleaning                                                          | 31             | Not Started |                |                |
 | 34      | Git Tools - Signing Your Work                                                              | 31             | Not Started |                |                |
