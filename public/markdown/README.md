@@ -34,7 +34,7 @@
 | 30      | GitHub - Scripting GitHub                                                                  | 26             | Not Started |                |                |
 | 31      | [Git Tools - Revision Selection](posts/git-tools-revision-selection)                       | 0              | published   | 06 August 2026 | 06 August 2026 |
 | 32      | [Git Tools - Interactive Staging](posts/git-tools-interactive-staging)                     | 31             | published   | 22 August 2026 | 22 August 2026 |
-| 33      | Git Tools - Stashing and Cleaning                                                          | 31             | Not Started |                |                |
+| 33      | [Git Tools - Stashing and Cleaning](posts/git-tools-stashing-and-cleaning)                 | 31             | published   | 22 August 2026 | 22 August 2026 |
 | 34      | Git Tools - Signing Your Work                                                              | 31             | Not Started |                |                |
 | 35      | Git Tools - Searching                                                                      | 31             | Not Started |                |                |
 | 36      | Git Tools - Rewriting History                                                              | 31             | Not Started |                |                |

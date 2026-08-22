@@ -690,5 +690,20 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     }
+  },
+  {
+    id: 33,
+    title: "Git Tools - Stashing and Cleaning",
+    slug: "git-tools-stashing-and-cleaning",
+    thumb: "/images/posts/git-tools/git-tools-stashing-and-cleaning.webp",
+    category: ["Git", "Git Tools"],
+    tags: ["Git", "Stashing", "Cleaning", "Untracked Files", "Ignored Files"],
+    description: "Learn how to use Git's stashing and cleaning features to manage your changes.",
+    date: "06 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
   }
 ];
