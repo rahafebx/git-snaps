@@ -675,5 +675,20 @@ export const blogs = [
       username: "rahafebx",
       position: "Web Developer",
     }
+  },
+  {
+    id: 32,
+    title: "Git Tools - Interactive Staging",
+    slug: "git-tools-interactive-staging",
+    thumb: "/images/posts/git-tools/git-tools-interactive-staging.webp",
+    category: ["Git", "Git Tools"],
+    tags: ["Git", "Interactive Staging", "Staging", "Patching", "Hunks"],
+    description: "Learn how to use Git's interactive staging feature to selectively stage changes.",
+    date: "22 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
   }
 ];
