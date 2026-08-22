@@ -11,6 +11,7 @@ This guide will help you get started with Git, a distributed version control sys
     - [Git Checksums](#git-checksums)
     - [Git States](#git-states)
   - [Installing Git](#installing-git)
+    - [Git Version and Update](#git-version-and-update)
   - [First-Time Configuration](#first-time-configuration)
   - [Getting Help](#getting-help)
   - [Learning Resources](#learning-resources)
@@ -61,6 +62,45 @@ To install Git, follow the instructions for your operating system:
 - **Windows**: Download the Git installer from [git-scm.com](https://git-scm.com/download/win) and follow the installation prompts.
 - **macOS**: Use Homebrew to install Git by running `brew install git` in the terminal.
 - **Linux**: Use your distribution's package manager. For example, on Ubuntu, run `sudo apt-get install git`, on Fedora, run `sudo dnf install git`.
+
+### Git Version and Update
+To check the installed Git version, run:
+
+```bash
+git --version
+```
+
+To update git to the latest version, follow the instructions for your operating system on the [Git website](https://git-scm.com/downloads).
+
+**Update Git for Windows:**
+You can update Git for Windows using the command line with the following commands based on your current version:
+
+```bash
+# For versions 2.16.1 or newer
+git update-git-for-windows
+
+# For older versions (2.14.2 to 2.16.1)
+git update
+
+# Type y and press Enter when prompted to download the package.
+# Follow the setup wizard that pops up automatically to finalize the installation.
+```
+
+**Update Git for macOs:**
+You can update Git on macOS using Homebrew with the following commands:
+
+```bash
+brew update
+brew upgrade git
+```
+
+**Update Git for Linux:**
+You can update Git on Linux using your package manager. For example, on Ubuntu, you can run:
+
+```bash
+sudo apt-get update
+sudo apt-get install git
+```
 
 ## First-Time Configuration
 
