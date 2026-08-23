@@ -699,7 +699,22 @@ export const blogs = [
     category: ["Git", "Git Tools"],
     tags: ["Git", "Stashing", "Cleaning", "Untracked Files", "Ignored Files"],
     description: "Learn how to use Git's stashing and cleaning features to manage your changes.",
-    date: "06 August 2026",
+    date: "23 August 2026",
+    author: {
+      name: "Rahaf Ebx",
+      username: "rahafebx",
+      position: "Web Developer",
+    }
+  },
+  {
+    id: 34,
+    title: "Git Tools - Signing Your Work",
+    slug: "git-tools-signing-your-work",
+    thumb: "/images/posts/git-tools/git-tools-signing-your-work.webp",
+    category: ["Git", "Git Tools"],
+    tags: ["Git", "Signing", "GPG", "Commit Signing", "Tag Signing"],
+    description: "Learn how to sign your work in Git using GPG for commit and tag signing.",
+    date: "23 August 2026",
     author: {
       name: "Rahaf Ebx",
       username: "rahafebx",
