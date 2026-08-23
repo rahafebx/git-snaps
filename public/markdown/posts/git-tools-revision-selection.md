@@ -2,6 +2,21 @@
 
 Git allows you to select revisions in a variety of ways. You can select revisions by commit hash, branch name, tag name, or even by relative references like `HEAD~1` (the parent of the current commit).
 
+**Table of Contents:**
+- [Git Tools - Revision Selection](#git-tools---revision-selection)
+  - [Single Revisions](#single-revisions)
+    - [Short SHA-1 Hash](#short-sha-1-hash)
+    - [Branch References](#branch-references)
+    - [RefLog Shortnames](#reflog-shortnames)
+    - [Ancestry References](#ancestry-references)
+  - [Commit Ranges](#commit-ranges)
+    - [Double Dot](#double-dot)
+    - [Triple Dot](#triple-dot)
+    - [Multiple Points](#multiple-points)
+  - [Conclusion](#conclusion)
+  - [References](#references)
+
+
 ## Single Revisions
 You can refer to a single revision using its commit hash, branch name, or tag name.
 

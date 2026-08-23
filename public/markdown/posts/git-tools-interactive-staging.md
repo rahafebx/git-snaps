@@ -2,6 +2,7 @@
 
 You can craft commits to include only the changes you want by using Git's interactive staging features. This allows you to stage specific parts of files, discard unwanted changes, and create cleaner commit histories.
 
+**Table of Contents:**
 - [Git Tools - Interactive Staging](#git-tools---interactive-staging)
   - [Commands Usage Examples](#commands-usage-examples)
     - [Staging entire files using update](#staging-entire-files-using-update)

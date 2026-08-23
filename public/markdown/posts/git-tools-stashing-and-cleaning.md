@@ -1,6 +1,16 @@
 # Git Tools - Stashing and Cleaning
 Sometimes you may want to temporarily set aside your changes without committing them. Git provides a powerful feature called "stashing" that allows you to save your work-in-progress and revert to a clean working directory. Additionally, Git offers commands to clean up untracked files and directories.
 
+**Table of Contents:**
+- [Git Tools - Stashing and Cleaning](#git-tools---stashing-and-cleaning)
+  - [Stashing Changes](#stashing-changes)
+  - [Creative Stashing](#creative-stashing)
+  - [Creating a Branch from a Stash](#creating-a-branch-from-a-stash)
+  - [Cleaning your Working Directory](#cleaning-your-working-directory)
+  - [Learning Resources](#learning-resources)
+  - [References](#references)
+
+
 ## Stashing Changes
 
 While you are working on a project, you might find yourself in a situation where you need to switch branches or pull updates, but you have uncommitted changes that you don't want to commit yet. In such cases, you can use the `git stash` command to save your changes temporarily.
@@ -105,6 +115,10 @@ To Run the clean command in interactive mode to select which files to remove, yo
 ```bash
 git clean -i
 ```
+
+## Learning Resources
+- [Git stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash)
+- [A practical guide to using the git stash command](https://opensource.com/article/21/4/git-stash)
 
 ## References
 - [Stashing and Cleaning](https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning)
