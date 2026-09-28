@@ -177,4 +177,9 @@ Have questions or suggestions? We'd love to hear from you:
 
 ---
 
+## 💡 Need Custom Modifications?
+**If you love this project and want a tailored solution, a custom WordPress theme, or a full-stack application built for your business, feel free to [Hire Me via my Portfolio](https://rahafebx.me)**.
+
+---
+
 **Happy learning! Master Git, one snap at a time! 🚀**
